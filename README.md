@@ -10,6 +10,6 @@ App built for Motorola course.
 
 * C#
 * xaml
-* [MVVM] (http://msdn.microsoft.com/en-us/library/gg405484%28v=pandp.40%29.aspx)
-* [Caliburn.Micro framework] (https://caliburnmicro.codeplex.com/)
-* [Callisto] (http://timheuer.github.io/callisto/)
+* [MVVM](http://msdn.microsoft.com/en-us/library/gg405484%28v=pandp.40%29.aspx)
+* [Caliburn.Micro framework](https://caliburnmicro.codeplex.com/)
+* [Callisto](http://timheuer.github.io/callisto/)
