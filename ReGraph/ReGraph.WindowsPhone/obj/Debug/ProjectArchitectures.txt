@@ -1,0 +1,1 @@
+E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\ReGraph.WindowsPhone.csproj;neutral
