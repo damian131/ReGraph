@@ -13,13 +13,13 @@ namespace ReGraph
 {
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        private global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlTypeInfoProvider _provider;
 
         public global::Windows.UI.Xaml.Markup.IXamlType GetXamlType(global::System.Type type)
         {
             if(_provider == null)
             {
-                _provider = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByType(type);
         }
@@ -28,7 +28,7 @@ namespace ReGraph
         {
             if(_provider == null)
             {
-                _provider = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByName(fullName);
         }
@@ -40,7 +40,7 @@ namespace ReGraph
     }
 }
 
-namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
+namespace ReGraph.ReGraph_Windows_XamlTypeInfo
 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
@@ -59,7 +59,7 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
             {
                 xamlType = CreateXamlType(typeIndex);
             }
-            var userXamlType = xamlType as global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType;
+            var userXamlType = xamlType as global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType;
             if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
             {
                 global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForType(type);
@@ -95,7 +95,7 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
             {
                 xamlType = CreateXamlType(typeIndex);
             }
-            var userXamlType = xamlType as global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType;
+            var userXamlType = xamlType as global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType;
             if(xamlType == null || (userXamlType != null && userXamlType.IsReturnTypeStub && !userXamlType.IsLocalType))
             {
                 global::Windows.UI.Xaml.Markup.IXamlType libXamlType = CheckOtherMetadataProvidersForName(typeName);
@@ -199,8 +199,8 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
-            global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlSystemBaseType xamlType = null;
-            global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType userType;
+            global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlSystemBaseType xamlType = null;
+            global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType userType;
             string typeName = _typeNameTable[typeIndex];
             global::System.Type type = _typeTable[typeIndex];
 
@@ -208,27 +208,27 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
             {
 
             case 0:   //  Caliburn.Micro.CaliburnApplication
-                userType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Application"));
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Application"));
                 xamlType = userType;
                 break;
 
             case 1:   //  Windows.UI.Xaml.Application
-                xamlType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 2:   //  ReGraph.Views.MainView
-                userType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_2_MainView;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 3:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 4:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
             return xamlType;
@@ -244,6 +244,8 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
                     _otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
                     global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
                     provider = new global::Caliburn.Micro.XamlMetadataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    _otherProviders.Add(provider); 
+                    provider = new global::Callisto.Callisto_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
                     _otherProviders.Add(provider); 
                 }
                 return _otherProviders;
@@ -291,7 +293,7 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
-            global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlMember xamlMember = null;
+            global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember xamlMember = null;
             // No Local Properties
             return xamlMember;
         }
@@ -348,9 +350,9 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlUserType : global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlSystemBaseType
+    internal class XamlUserType : global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlSystemBaseType
     {
-        global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlTypeInfoProvider _provider;
         global::Windows.UI.Xaml.Markup.IXamlType _baseType;
         bool _isArray;
         bool _isMarkupExtension;
@@ -364,7 +366,7 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
         global::System.Collections.Generic.Dictionary<string, string> _memberNames;
         global::System.Collections.Generic.Dictionary<string, object> _enumValues;
 
-        public XamlUserType(global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
+        public XamlUserType(global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
             :base(fullName, fullType)
         {
             _provider = provider;
@@ -557,7 +559,7 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class XamlMember : global::Windows.UI.Xaml.Markup.IXamlMember
     {
-        global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlTypeInfoProvider _provider;
         string _name;
         bool _isAttachable;
         bool _isDependencyProperty;
@@ -566,7 +568,7 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
         string _typeName;
         string _targetTypeName;
 
-        public XamlMember(global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
+        public XamlMember(global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
         {
             _name = name;
             _typeName = typeName;
@@ -617,6 +619,5 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
         }
     }
 }
-
 
 

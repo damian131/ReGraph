@@ -65,7 +65,7 @@
     <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-03-14T08:54:50.000</Modified>
+      <Modified>2014-06-30T21:02:41.976</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
