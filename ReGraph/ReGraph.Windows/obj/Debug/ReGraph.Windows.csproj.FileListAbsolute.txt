@@ -11,7 +11,6 @@ E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\Views\MainView.x
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\Resources\Dictionary.xaml
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\App.xbf
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\Views\MainView.xbf
-E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\Resources\Dictionary.xbf
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\ReGraph.Windows.csprojResolveAssemblyReference.cache
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\App.xbf
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\Resources\Dictionary.xbf
@@ -52,3 +51,4 @@ E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\Caliburn.Micro.E
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\Caliburn.Micro.Platform.pri.xml
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\Callisto.pri.xml
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\ProjectArchitectures.txt
+E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\Resources\Dictionary.xbf
