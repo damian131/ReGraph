@@ -26,7 +26,9 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Border">
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="BorderBrush" />
+      <RootProperty Name="Child" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Canvas" />
     <RootType FullName="ReGraph.Views.MainView" />
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton" />
     <RootType FullName="Windows.UI.Xaml.UIElement">

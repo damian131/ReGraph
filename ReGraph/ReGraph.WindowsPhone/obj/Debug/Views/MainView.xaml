@@ -14,12 +14,16 @@
         <Pivot Title="ReGraph">
             <PivotItem Header="GraphIn">
                 <Border BorderThickness="5" BorderBrush="#1ce8ea">
-                    
+                    <Canvas>
+                        
+                    </Canvas>
                 </Border>
             </PivotItem>
             <PivotItem Header="GraphOut" >
                 <Border BorderThickness="5" BorderBrush="#f90164">
-                    
+                    <Canvas>
+
+                    </Canvas>
                 </Border>
             </PivotItem>
             

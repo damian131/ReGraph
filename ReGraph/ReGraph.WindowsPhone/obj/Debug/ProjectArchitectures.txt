@@ -1,1 +1,1 @@
-E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\ReGraph.WindowsPhone.csproj;neutral
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\ReGraph.WindowsPhone.csproj;neutral
