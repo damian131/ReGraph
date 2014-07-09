@@ -8,7 +8,7 @@
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>f29f8467-9027-4716-9629-f9819a592cd2</PackageIdentityName>
     <IntermediateOutputPath>E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>2DABC833282C60501D68E1AA81AA9B2592667D91CD00092F5F3C9F3AB720D018</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>A1EEF08540E5EE64EA6301DF247272D956392D3A4420FA984A0C785E1926D920</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>f29f8467-9027-4716-9629-f9819a592cd2_1.0.0.0_neutral__jb3w85h2egbk2</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>f29f8467-9027-4716-9629-f9819a592cd2_jb3w85h2egbk2!App</RegisteredUserModeAppID>
     <RegisteredPackageID>f29f8467-9027-4716-9629-f9819a592cd2</RegisteredPackageID>
@@ -20,13 +20,13 @@
     <AppXManifest Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-07-07T16:06:17.919</Modified>
+      <Modified>2014-07-09T19:55:19.043</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\ReGraph.Windows.exe">
       <PackagePath>ReGraph.Windows.exe</PackagePath>
-      <Modified>2014-07-09T18:31:42.210</Modified>
+      <Modified>2014-07-09T20:29:08.700</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\packages\Caliburn.Micro.Core.2.0.0\lib\portable-net45+win8+wp8+wpa81\Caliburn.Micro.dll">
       <PackagePath>Caliburn.Micro.dll</PackagePath>
@@ -86,11 +86,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\Views\MainView.xbf">
       <PackagePath>Views\MainView.xbf</PackagePath>
-      <Modified>2014-07-07T16:06:14.754</Modified>
+      <Modified>2014-07-09T19:11:31.666</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\ReGraph.Windows.xr.xml">
       <PackagePath>ReGraph.Windows.xr.xml</PackagePath>
-      <Modified>2014-07-05T21:57:43.262</Modified>
+      <Modified>2014-07-09T19:11:31.641</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\packages\Callisto.1.4.0\lib\netcore451\Callisto\themes\Generic.xbf">
       <PackagePath>Callisto\themes\Generic.xbf</PackagePath>
@@ -98,7 +98,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-07-07T16:06:16.530</Modified>
+      <Modified>2014-07-09T19:55:18.617</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

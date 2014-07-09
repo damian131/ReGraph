@@ -19,6 +19,10 @@
       <RootProperty Name="Icon" />
       <RootProperty Name="Label" />
     </RootType>
+    <RootType FullName="Caliburn.Micro.Message">
+      <RootMethod Name="GetAttach" />
+      <RootMethod Name="SetAttach" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Background" />
       <RootProperty Name="Children" />

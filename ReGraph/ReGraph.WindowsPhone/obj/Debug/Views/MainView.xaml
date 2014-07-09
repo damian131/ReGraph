@@ -13,22 +13,22 @@
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
-                <AppBarButton Icon="OpenFile" Label="Open" />
-                <AppBarButton Icon="Camera" Label="Camera"/>
+                <AppBarButton Icon="OpenFile" Label="Open" caliburn:Message.Attach="[Event Click] = [Action OpenButton_Clicked]"/>
+                <AppBarButton Icon="Camera" Label="Camera" caliburn:Message.Attach="[Event Click] = [Action CameraButton_Clicked]"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
 
     <Grid Background="#FF3A3A3A">
         <Pivot Title="ReGraph">
-            <PivotItem Header="GraphIn">
+            <PivotItem Header="Graph">
                 <Border BorderThickness="5" BorderBrush="#1ce8ea">
                     <Canvas>
 
                     </Canvas>
                 </Border>
             </PivotItem>
-            <PivotItem Header="GraphOut" >
+            <PivotItem Header="ReGraph" >
                 <Border BorderThickness="5" BorderBrush="#f90164">
                     <Canvas>
 

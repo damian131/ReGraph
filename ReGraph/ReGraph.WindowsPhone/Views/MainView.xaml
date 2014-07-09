@@ -13,8 +13,8 @@
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
-                <AppBarButton Icon="OpenFile" Label="Open" />
-                <AppBarButton Icon="Camera" Label="Camera"/>
+                <AppBarButton Icon="OpenFile" Label="Open" caliburn:Message.Attach="[Event Click] = [Action OpenButton_Clicked]"/>
+                <AppBarButton Icon="Camera" Label="Camera" caliburn:Message.Attach="[Event Click] = [Action CameraButton_Clicked]"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

@@ -46,6 +46,10 @@
       <RootProperty Name="Icon" />
       <RootProperty Name="Style" />
     </RootType>
+    <RootType FullName="Caliburn.Micro.Message">
+      <RootMethod Name="GetAttach" />
+      <RootMethod Name="SetAttach" />
+    </RootType>
     <RootType FullName="Microsoft.Xaml.Tools.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Controls.Border">
       <RootProperty Name="BorderThickness" />
