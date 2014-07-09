@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>JEZIOR</Machine>
-    <WindowsUser>Marcin</WindowsUser>
+    <Machine>DAMIAN-ASUS</Machine>
+    <WindowsUser>djana_000</WindowsUser>
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>f29f8467-9027-4716-9629-f9819a592cd2</PackageIdentityName>
-    <IntermediateOutputPath>F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>C1E5AED7D7B200BA371B3D346FFE4301C4911CE192E7CADF12A5BA8C34B861E4</RegisteredManifestChecksum>
+    <IntermediateOutputPath>E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>2DABC833282C60501D68E1AA81AA9B2592667D91CD00092F5F3C9F3AB720D018</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>f29f8467-9027-4716-9629-f9819a592cd2_1.0.0.0_neutral__jb3w85h2egbk2</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>f29f8467-9027-4716-9629-f9819a592cd2_jb3w85h2egbk2!App</RegisteredUserModeAppID>
     <RegisteredPackageID>f29f8467-9027-4716-9629-f9819a592cd2</RegisteredPackageID>
@@ -17,88 +17,88 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-07-06T12:42:32.440</Modified>
+      <Modified>2014-07-07T16:06:17.919</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\ReGraph.Windows.exe">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\ReGraph.Windows.exe">
       <PackagePath>ReGraph.Windows.exe</PackagePath>
-      <Modified>2014-07-06T12:37:50.480</Modified>
+      <Modified>2014-07-09T18:31:42.210</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\packages\Caliburn.Micro.Core.2.0.0\lib\portable-net45+win8+wp8+wpa81\Caliburn.Micro.dll">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\packages\Caliburn.Micro.Core.2.0.0\lib\portable-net45+win8+wp8+wpa81\Caliburn.Micro.dll">
       <PackagePath>Caliburn.Micro.dll</PackagePath>
-      <Modified>2014-07-03T16:33:07.939</Modified>
+      <Modified>2014-06-30T19:19:27.062</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\packages\Caliburn.Micro.2.0.0\lib\win81\Caliburn.Micro.Extensions.dll">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\packages\Caliburn.Micro.2.0.0\lib\win81\Caliburn.Micro.Extensions.dll">
       <PackagePath>Caliburn.Micro.Extensions.dll</PackagePath>
-      <Modified>2014-07-03T16:33:06.659</Modified>
+      <Modified>2014-06-30T19:19:27.992</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\packages\Caliburn.Micro.2.0.0\lib\win81\Caliburn.Micro.Platform.dll">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\packages\Caliburn.Micro.2.0.0\lib\win81\Caliburn.Micro.Platform.dll">
       <PackagePath>Caliburn.Micro.Platform.dll</PackagePath>
-      <Modified>2014-07-03T16:33:06.670</Modified>
+      <Modified>2014-06-30T19:19:28.016</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\packages\Callisto.1.4.0\lib\netcore451\Callisto.dll">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\packages\Callisto.1.4.0\lib\netcore451\Callisto.dll">
       <PackagePath>Callisto.dll</PackagePath>
-      <Modified>2014-07-03T16:33:08.116</Modified>
+      <Modified>2014-06-30T19:20:26.979</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\packages\Caliburn.Micro.2.0.0\lib\win81\Microsoft.Xaml.Interactions.dll">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\packages\Caliburn.Micro.2.0.0\lib\win81\Microsoft.Xaml.Interactions.dll">
       <PackagePath>Microsoft.Xaml.Interactions.dll</PackagePath>
-      <Modified>2014-07-03T16:33:06.676</Modified>
+      <Modified>2014-06-30T19:19:28.039</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\packages\Caliburn.Micro.2.0.0\lib\win81\Microsoft.Xaml.Interactivity.dll">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\packages\Caliburn.Micro.2.0.0\lib\win81\Microsoft.Xaml.Interactivity.dll">
       <PackagePath>Microsoft.Xaml.Interactivity.dll</PackagePath>
-      <Modified>2014-07-03T16:33:06.682</Modified>
+      <Modified>2014-06-30T19:19:28.059</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-06-29T13:43:52.271</Modified>
+      <Modified>2014-03-14T08:54:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-06-29T13:43:52.272</Modified>
+      <Modified>2014-03-14T08:54:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-07-03T16:33:03.245</Modified>
+      <Modified>2014-06-30T21:02:41.976</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-06-29T13:43:52.273</Modified>
+      <Modified>2014-03-14T08:54:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Shared\Resources\Images\logo.png">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Shared\Resources\Images\logo.png">
       <PackagePath>Resources\Images\logo.png</PackagePath>
-      <Modified>2014-07-06T12:37:50.386</Modified>
+      <Modified>2014-06-30T21:02:41.976</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\App.xbf">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2014-07-06T12:42:31.425</Modified>
+      <Modified>2014-07-07T16:06:14.754</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\Resources\Dictionary.xbf">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\Resources\Dictionary.xbf">
       <PackagePath>Resources\Dictionary.xbf</PackagePath>
-      <Modified>2014-07-06T12:42:31.425</Modified>
+      <Modified>2014-07-07T16:06:14.755</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\Views\MainView.xbf">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\Views\MainView.xbf">
       <PackagePath>Views\MainView.xbf</PackagePath>
-      <Modified>2014-07-06T12:42:31.425</Modified>
+      <Modified>2014-07-07T16:06:14.754</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\ReGraph.Windows.xr.xml">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\ReGraph.Windows.xr.xml">
       <PackagePath>ReGraph.Windows.xr.xml</PackagePath>
-      <Modified>2014-07-06T12:37:50.480</Modified>
+      <Modified>2014-07-05T21:57:43.262</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\packages\Callisto.1.4.0\lib\netcore451\Callisto\themes\Generic.xbf">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\packages\Callisto.1.4.0\lib\netcore451\Callisto\themes\Generic.xbf">
       <PackagePath>Callisto\themes\Generic.xbf</PackagePath>
-      <Modified>2014-07-03T16:33:08.118</Modified>
+      <Modified>2014-06-30T19:20:26.985</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-07-06T12:42:31.940</Modified>
+      <Modified>2014-07-07T16:06:16.530</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

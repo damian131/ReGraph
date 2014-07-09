@@ -10,12 +10,21 @@
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
 
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="OpenFile" Label="Open" />
+                <AppBarButton Icon="Camera" Label="Camera"/>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
     <Grid Background="#FF3A3A3A">
         <Pivot Title="ReGraph">
             <PivotItem Header="GraphIn">
                 <Border BorderThickness="5" BorderBrush="#1ce8ea">
                     <Canvas>
-                        
+
                     </Canvas>
                 </Border>
             </PivotItem>
@@ -26,7 +35,7 @@
                     </Canvas>
                 </Border>
             </PivotItem>
-            
+
         </Pivot>
     </Grid>
 </Page>
