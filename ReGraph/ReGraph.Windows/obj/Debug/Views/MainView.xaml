@@ -41,11 +41,11 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="0" BorderThickness="5" BorderBrush="#1ce8ea">
-            <Canvas >
+            <Canvas>
                 <Interactivity:Interaction.Behaviors>
                     <common:WorkspaceCanvasBehavior Workspace="{Binding Path=InputGraph, Mode=OneWay}" />
                 </Interactivity:Interaction.Behaviors>
-                <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" Stretch="UniformToFill" Width="500"/>
+                <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" />
             </Canvas>
         </Border>
 

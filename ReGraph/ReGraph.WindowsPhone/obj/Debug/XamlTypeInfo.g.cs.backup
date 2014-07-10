@@ -148,27 +148,37 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[9];
+            _typeNameTable = new string[14];
             _typeNameTable[0] = "Caliburn.Micro.CaliburnApplication";
             _typeNameTable[1] = "Windows.UI.Xaml.Application";
             _typeNameTable[2] = "Caliburn.Micro.Message";
             _typeNameTable[3] = "Object";
             _typeNameTable[4] = "String";
             _typeNameTable[5] = "Windows.UI.Xaml.DependencyObject";
-            _typeNameTable[6] = "ReGraph.Views.MainView";
-            _typeNameTable[7] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[8] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[6] = "Microsoft.Xaml.Interactivity.Interaction";
+            _typeNameTable[7] = "Microsoft.Xaml.Interactivity.BehaviorCollection";
+            _typeNameTable[8] = "Windows.UI.Xaml.DependencyObjectCollection";
+            _typeNameTable[9] = "ReGraph.Common.WorkspaceCanvasBehavior";
+            _typeNameTable[10] = "ReGraph.Models.IGraphSpace";
+            _typeNameTable[11] = "ReGraph.Views.MainView";
+            _typeNameTable[12] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[13] = "Windows.UI.Xaml.Controls.UserControl";
 
-            _typeTable = new global::System.Type[9];
+            _typeTable = new global::System.Type[14];
             _typeTable[0] = typeof(global::Caliburn.Micro.CaliburnApplication);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Application);
             _typeTable[2] = typeof(global::Caliburn.Micro.Message);
             _typeTable[3] = typeof(global::System.Object);
             _typeTable[4] = typeof(global::System.String);
             _typeTable[5] = typeof(global::Windows.UI.Xaml.DependencyObject);
-            _typeTable[6] = typeof(global::ReGraph.Views.MainView);
-            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[8] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[6] = typeof(global::Microsoft.Xaml.Interactivity.Interaction);
+            _typeTable[7] = typeof(global::Microsoft.Xaml.Interactivity.BehaviorCollection);
+            _typeTable[8] = typeof(global::Windows.UI.Xaml.DependencyObjectCollection);
+            _typeTable[9] = typeof(global::ReGraph.Common.WorkspaceCanvasBehavior);
+            _typeTable[10] = typeof(global::ReGraph.Models.IGraphSpace);
+            _typeTable[11] = typeof(global::ReGraph.Views.MainView);
+            _typeTable[12] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[13] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -203,7 +213,15 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_6_MainView() { return new global::ReGraph.Views.MainView(); }
+        private object Activate_7_BehaviorCollection() { return new global::Microsoft.Xaml.Interactivity.BehaviorCollection(); }
+        private object Activate_9_WorkspaceCanvasBehavior() { return new global::ReGraph.Common.WorkspaceCanvasBehavior(); }
+        private object Activate_11_MainView() { return new global::ReGraph.Views.MainView(); }
+        private void VectorAdd_7_BehaviorCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.DependencyObject>)instance;
+            var newItem = (global::Windows.UI.Xaml.DependencyObject)item;
+            collection.Add(newItem);
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -243,18 +261,51 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
                 xamlType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  ReGraph.Views.MainView
-                userType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_MainView;
+            case 6:   //  Microsoft.Xaml.Interactivity.Interaction
+                userType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.AddMemberName("Behaviors");
+                xamlType = userType;
+                break;
+
+            case 7:   //  Microsoft.Xaml.Interactivity.BehaviorCollection
+                userType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObjectCollection"));
+                userType.CollectionAdd = VectorAdd_7_BehaviorCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 8:   //  Windows.UI.Xaml.DependencyObjectCollection
+                xamlType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 9:   //  ReGraph.Common.WorkspaceCanvasBehavior
+                userType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.DependencyObject"));
+                userType.Activator = Activate_9_WorkspaceCanvasBehavior;
+                userType.AddMemberName("Workspace");
+                userType.AddMemberName("AssociatedObject");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  Windows.UI.Xaml.Controls.Page
+            case 10:   //  ReGraph.Models.IGraphSpace
+                userType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 11:   //  ReGraph.Views.MainView
+                userType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_11_MainView;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 12:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 8:   //  Windows.UI.Xaml.Controls.UserControl
+            case 13:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -331,6 +382,29 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
         {
             global::Caliburn.Micro.Message.SetHandler((global::Windows.UI.Xaml.DependencyObject)instance, (global::System.Object)Value);
         }
+        private object get_2_Interaction_Behaviors(object instance)
+        {
+            return global::Microsoft.Xaml.Interactivity.Interaction.GetBehaviors((global::Windows.UI.Xaml.DependencyObject)instance);
+        }
+        private void set_2_Interaction_Behaviors(object instance, object Value)
+        {
+            global::Microsoft.Xaml.Interactivity.Interaction.SetBehaviors((global::Windows.UI.Xaml.DependencyObject)instance, (global::Microsoft.Xaml.Interactivity.BehaviorCollection)Value);
+        }
+        private object get_3_WorkspaceCanvasBehavior_Workspace(object instance)
+        {
+            var that = (global::ReGraph.Common.WorkspaceCanvasBehavior)instance;
+            return that.Workspace;
+        }
+        private void set_3_WorkspaceCanvasBehavior_Workspace(object instance, object Value)
+        {
+            var that = (global::ReGraph.Common.WorkspaceCanvasBehavior)instance;
+            that.Workspace = (global::ReGraph.Models.IGraphSpace)Value;
+        }
+        private object get_4_WorkspaceCanvasBehavior_AssociatedObject(object instance)
+        {
+            var that = (global::ReGraph.Common.WorkspaceCanvasBehavior)instance;
+            return that.AssociatedObject;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -354,6 +428,27 @@ namespace ReGraph.ReGraph_WindowsPhone_XamlTypeInfo
                 xamlMember.SetIsAttachable();
                 xamlMember.Getter = get_1_Message_Handler;
                 xamlMember.Setter = set_1_Message_Handler;
+                break;
+            case "Microsoft.Xaml.Interactivity.Interaction.Behaviors":
+                userType = (global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.Xaml.Interactivity.Interaction");
+                xamlMember = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlMember(this, "Behaviors", "Microsoft.Xaml.Interactivity.BehaviorCollection");
+                xamlMember.SetTargetTypeName("Windows.UI.Xaml.DependencyObject");
+                xamlMember.SetIsAttachable();
+                xamlMember.Getter = get_2_Interaction_Behaviors;
+                xamlMember.Setter = set_2_Interaction_Behaviors;
+                break;
+            case "ReGraph.Common.WorkspaceCanvasBehavior.Workspace":
+                userType = (global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ReGraph.Common.WorkspaceCanvasBehavior");
+                xamlMember = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlMember(this, "Workspace", "ReGraph.Models.IGraphSpace");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_3_WorkspaceCanvasBehavior_Workspace;
+                xamlMember.Setter = set_3_WorkspaceCanvasBehavior_Workspace;
+                break;
+            case "ReGraph.Common.WorkspaceCanvasBehavior.AssociatedObject":
+                userType = (global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlUserType)GetXamlTypeByName("ReGraph.Common.WorkspaceCanvasBehavior");
+                xamlMember = new global::ReGraph.ReGraph_WindowsPhone_XamlTypeInfo.XamlMember(this, "AssociatedObject", "Windows.UI.Xaml.DependencyObject");
+                xamlMember.Getter = get_4_WorkspaceCanvasBehavior_AssociatedObject;
+                xamlMember.SetIsReadOnly();
                 break;
             }
             return xamlMember;

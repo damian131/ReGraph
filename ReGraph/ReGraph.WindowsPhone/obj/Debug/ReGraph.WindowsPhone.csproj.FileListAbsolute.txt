@@ -30,7 +30,6 @@ E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\Caliburn.Mi
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\Caliburn.Micro.Extensions.pri
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\Caliburn.Micro.Platform.xml
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\Caliburn.Micro.Platform.pri
-E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\ReGraph.WindowsPhone.csprojResolveAssemblyReference.cache
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\ReGraph.WindowsPhone.exe
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\ReGraph.WindowsPhone.pdb
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\ReGraph.WindowsPhone.csproj.GenerateResource.Cache
@@ -98,3 +97,7 @@ F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\MultipleQualifier
 F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\Caliburn.Micro.Extensions.pri.xml
 F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\Caliburn.Micro.Platform.pri.xml
 F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\ProjectArchitectures.txt
+E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WriteableBitmapEx.WinRT.dll
+E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WriteableBitmapEx.WinRT.pdb
+E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WriteableBitmapEx.WinRT.xml
+E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\ReGraph.WindowsPhone.csprojResolveAssemblyReference.cache

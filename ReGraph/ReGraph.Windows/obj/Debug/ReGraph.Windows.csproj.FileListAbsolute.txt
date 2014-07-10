@@ -106,3 +106,6 @@ F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\Caliburn.Micro.Platfor
 F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\Callisto.pri.xml
 F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\ProjectArchitectures.txt
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\obj\Debug\ReGraph.Windows.csprojResolveAssemblyReference.cache
+E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\WriteableBitmapEx.WinRT.dll
+E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\WriteableBitmapEx.WinRT.pdb
+E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.Windows\bin\Debug\WriteableBitmapEx.WinRT.xml

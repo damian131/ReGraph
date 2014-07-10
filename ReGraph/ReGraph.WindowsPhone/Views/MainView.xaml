@@ -8,6 +8,7 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
     xmlns:caliburn="using:Caliburn.Micro" 
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:common="using:ReGraph.Common"
     mc:Ignorable="d">
 
     <Page.BottomAppBar>
@@ -24,7 +25,10 @@
             <PivotItem Header="Graph">
                 <Border BorderThickness="5" BorderBrush="#1ce8ea">
                     <Canvas>
-
+                        <Interactivity:Interaction.Behaviors>
+                            <common:WorkspaceCanvasBehavior Workspace="{Binding Path=InputGraph, Mode=OneWay}" />
+                        </Interactivity:Interaction.Behaviors>
+                        <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" />
                     </Canvas>
                 </Border>
             </PivotItem>

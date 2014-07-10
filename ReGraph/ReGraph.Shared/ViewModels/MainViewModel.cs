@@ -43,7 +43,6 @@ namespace ReGraph.ViewModels
 
         public async void OpenButton_Clicked()
         {
-            //bool success = false;
 
             var picker = new FileOpenPicker
             {
@@ -62,7 +61,6 @@ namespace ReGraph.ViewModels
 #if WINDOWS_PHONE_APP
             picker.ContinuationData["Operation"] = SelectImageOperationName;
             picker.PickSingleFileAndContinue();
-            //success = true;
 #else
             
             Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
@@ -72,15 +70,11 @@ namespace ReGraph.ViewModels
                 await HandleSelectedImageFileAsync(file);
             }
 #endif
-            //return success;
         }
 
 #if WINDOWS_PHONE_APP
         public async void ContinueFileOpenPickerAsync(FileOpenPickerContinuationEventArgs args)
         {
-            //System.Diagnostics.Debug.WriteLine(DebugTag + "ContinueFileOpenPicker()");
-            bool success = false;
-
             if (args.Files == null || args.Files.Count == 0 || args.Files[0] == null
                 || (args.ContinuationData["Operation"] as string) != SelectImageOperationName)
             {
@@ -116,34 +110,13 @@ namespace ReGraph.ViewModels
 
         private async Task HandleSelectedImageFileAsync(StorageFile file)
         {
-            //System.Diagnostics.Debug.WriteLine(DebugTag + "HandleSelectedImageFile(): " + file.Name);
             var fileStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
-            //DataContext dataContext = DataContext.Instance;
-
-            // Reset the streams
-            //dataContext.ResetStreams();
-
-            //var image = new BitmapImage();
-            //image.SetSource(fileStream);
-            //int width = image.PixelWidth;
-            //int height = image.PixelHeight;
-            ////dataContext.SetFullResolution(width, height);
-
-            //int previewWidth = (int)FilterEffects.DataContext.DefaultPreviewResolutionWidth;
-            //int previewHeight = 0;
-            //AppUtils.CalculatePreviewResolution(width, height, ref previewWidth, ref previewHeight);
-            //dataContext.SetPreviewResolution(previewWidth, previewHeight);
-
-            //bool success = false;
 
             try
             {
-                // JPEG images can be used as such
-                //var stream = fileStream.AsStream();
                 var bitmap = new BitmapImage();
 
                 bitmap.SetSource(fileStream);
-                //stream.Position = 0;
 
                 WriteableBitmap img1 = new WriteableBitmap(bitmap.PixelWidth, bitmap.PixelHeight);
 
@@ -152,55 +125,30 @@ namespace ReGraph.ViewModels
                     img1.SetSource(strm);
                 }
 
+                double scale = InputGraph.WorkspaceWidth/bitmap.PixelWidth;
+                img1 = img1.Resize((int)InputGraph.WorkspaceWidth, (int)(bitmap.PixelHeight * scale), WriteableBitmapExtensions.Interpolation.Bilinear);
+
                 var image = new Image();
                 image.Source = bitmap;
                 image.Width = 200;
                 image.Height = 200;
 
-                //Canvas.SetLeft(image, 50);
-                //Canvas.SetTop(image, 50);
-
                 InputGraph.Image = img1;
-                InputGraph.Children.Add(image);
-                
-                //stream.CopyTo(dataContext.FullResolutionStream);
-                //success = true;
             }
             catch (Exception e)
             {
                 //System.Diagnostics.Debug.WriteLine(DebugTag
                 //    + "Cannot use stream as such (not probably in JPEG format): " + e.Message);
             }
-
-            //if (!success)
-            //{
-            //    try
-            //    {
-            //        await AppUtils.FileStreamToJpegStreamAsync(fileStream,
-            //            (IRandomAccessStream)dataContext.FullResolutionStream.AsInputStream());
-            //        success = true;
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        System.Diagnostics.Debug.WriteLine(DebugTag
-            //            + "Failed to convert the file stream content into JPEG format: "
-            //            + e.ToString());
-            //    }
-            //}
-
-            //if (success)
-            //{
-            //    await AppUtils.ScaleImageStreamAsync(
-            //        dataContext.FullResolutionStream,
-            //        dataContext.FullResolution,
-            //        dataContext.PreviewResolutionStream,
-            //        dataContext.PreviewResolution);
-
-            //    dataContext.WasCaptured = false;
-            //}
-
-            //return success;
         }
+
+#if WINDOWS_PHONE_APP
+        public void ContinueFileOpenPicker(FileOpenPickerContinuationEventArgs args)
+        {
+            ContinueFileOpenPickerAsync(args);
+            //_resumingFromFile = true;
+        }
+#endif
 
         public async void CameraButton_Clicked()
         {

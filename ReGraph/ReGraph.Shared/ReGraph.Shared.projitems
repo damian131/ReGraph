@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\Bahaviors\WorkspaceCanvasBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\GraphDrawer\GraphDrawer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\GraphDrawer\Line.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\ContinuationManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IImageProcessing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IGraphSpace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\SizeChangedEventArgs.cs" />
