@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using ReGraph.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,26 +21,21 @@ namespace ReGraph.ViewModels
     {
         public MainViewModel()
         {
-
+            InputGraph = new GraphSpace();
         }
 
-        private WriteableBitmap _Result;
-
-        /// <summary>
-        /// Stores image result.
-        /// </summary>
-        /// <value>
-        /// The result.
-        /// </value>
-        public WriteableBitmap Result
+        private IGraphSpace _InputGraph;
+        public IGraphSpace InputGraph
         {
-            get { return _Result; }
+            get { return _InputGraph; }
             set
             {
-                _Result = value;
-                NotifyOfPropertyChange(() => Result);
+                _InputGraph = value;
+                NotifyOfPropertyChange(() => InputGraph);
             }
         }
+        
+        
 
         private const string SelectImageOperationName = "SelectImage";
         private const string SelectDestinationOperationName = "SelectDestination";
@@ -149,13 +145,23 @@ namespace ReGraph.ViewModels
                 bitmap.SetSource(fileStream);
                 //stream.Position = 0;
 
+                WriteableBitmap img1 = new WriteableBitmap(bitmap.PixelWidth, bitmap.PixelHeight);
+
+                using (IRandomAccessStream strm = await file.OpenReadAsync())
+                {
+                    img1.SetSource(strm);
+                }
+
                 var image = new Image();
                 image.Source = bitmap;
                 image.Width = 200;
                 image.Height = 200;
 
-                Canvas.SetLeft(image, 10);
-                Canvas.SetTop(image, 10);
+                //Canvas.SetLeft(image, 50);
+                //Canvas.SetTop(image, 50);
+
+                InputGraph.Image = img1;
+                InputGraph.Children.Add(image);
                 
                 //stream.CopyTo(dataContext.FullResolutionStream);
                 //success = true;

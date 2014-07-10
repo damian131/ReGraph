@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
     xmlns:caliburn="using:Caliburn.Micro" 
+    xmlns:common="using:ReGraph.Common"
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
 
@@ -41,7 +42,10 @@
 
         <Border Grid.Column="0" BorderThickness="5" BorderBrush="#1ce8ea">
             <Canvas >
-
+                <Interactivity:Interaction.Behaviors>
+                    <common:WorkspaceCanvasBehavior Workspace="{Binding Path=InputGraph, Mode=OneWay}" />
+                </Interactivity:Interaction.Behaviors>
+                <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" Stretch="UniformToFill" Width="500"/>
             </Canvas>
         </Border>
 
