@@ -50,6 +50,8 @@ namespace ReGraph.Models
         /// </summary>
         IImageProcessing ImageProcessing { get; set; }
 
+        Thickness WorkspaceMargin { get; set; }
+
 
         /// <summary>
         /// Gets or sets the image.

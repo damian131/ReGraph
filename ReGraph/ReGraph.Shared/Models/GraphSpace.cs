@@ -113,6 +113,19 @@ namespace ReGraph.Models
             }
         }
 
+        private Thickness _WorkspaceMargin;
+        public Thickness WorkspaceMargin
+        {
+            get { return _WorkspaceMargin; }
+            set
+            {
+                _WorkspaceMargin = value;
+                
+                NotifyOfPropertyChange(() => WorkspaceMargin);
+            }
+        }
+        
+
         /// <summary>
         /// The image processing
         /// </summary>

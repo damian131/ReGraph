@@ -71,6 +71,7 @@ namespace ReGraph.Common
                 (e.NewValue as IGraphSpace).WorkspaceSizeChanged += wcb.WorkspaceSizeChanged;
                 (e.NewValue as IGraphSpace).Children = wcb.WorkspaceCanvas.Children;
                 (e.NewValue as IGraphSpace).UIRefreshed += wcb.UIRefreshed;
+
                 //(e.NewValue as IWorkspace).ImageProcessing = wcb;
             }
         }

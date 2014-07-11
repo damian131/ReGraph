@@ -12,6 +12,7 @@ using Windows.Media.MediaProperties;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -19,6 +20,7 @@ namespace ReGraph.ViewModels
 {
     public class MainViewModel : Screen
     {
+
         public MainViewModel()
         {
             InputGraph = new GraphSpace();
@@ -128,12 +130,10 @@ namespace ReGraph.ViewModels
                 double scale = InputGraph.WorkspaceWidth/bitmap.PixelWidth;
                 img1 = img1.Resize((int)InputGraph.WorkspaceWidth, (int)(bitmap.PixelHeight * scale), WriteableBitmapExtensions.Interpolation.Bilinear);
 
-                var image = new Image();
-                image.Source = bitmap;
-                image.Width = 200;
-                image.Height = 200;
+                InputGraph.WorkspaceMargin = new Thickness(0, 0, 0, 0);
 
                 InputGraph.Image = img1;
+                InputGraph.WorkspaceMargin = new Thickness(0, InputGraph.WorkspaceHeight / 2 - img1.PixelHeight/2, 0, 0);
             }
             catch (Exception e)
             {

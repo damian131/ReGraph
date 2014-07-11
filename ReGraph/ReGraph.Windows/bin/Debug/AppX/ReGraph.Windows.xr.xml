@@ -2,6 +2,7 @@
 <Roots >
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="InputGraph" />
+    <RootPropertyPathName Name="WorkspaceMargin" />
     <RootPropertyPathName Name="Image" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
@@ -61,18 +62,20 @@
       <RootProperty Name="Child" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Canvas">
+      <RootProperty Name="Margin" />
       <RootProperty Name="Children" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.Interactivity.Interaction">
       <RootMethod Name="GetBehaviors" />
       <RootMethod Name="SetBehaviors" />
     </RootType>
-    <RootType FullName="ReGraph.Common.WorkspaceCanvasBehavior">
-      <RootProperty Name="Workspace" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding">
       <RootProperty Name="Path" />
       <RootProperty Name="Mode" />
+      <RootProperty Name="UpdateSourceTrigger" />
+    </RootType>
+    <RootType FullName="ReGraph.Common.WorkspaceCanvasBehavior">
+      <RootProperty Name="Workspace" />
     </RootType>
     <RootType FullName="ReGraph.Views.MainView" />
     <RootType FullName="Windows.UI.Xaml.UIElement">
