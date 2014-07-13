@@ -9,6 +9,7 @@
     xmlns:caliburn="using:Caliburn.Micro" 
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:common="using:ReGraph.Common"
+    xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
     mc:Ignorable="d">
 
     <Page.BottomAppBar>
@@ -34,9 +35,9 @@
             </PivotItem>
             <PivotItem Header="ReGraph" >
                 <Border BorderThickness="5" BorderBrush="#f90164">
-                    <Canvas>
-
-                    </Canvas>
+                    <Charting:Chart x:Name="Graph">
+                        
+                    </Charting:Chart>
                 </Border>
             </PivotItem>
 

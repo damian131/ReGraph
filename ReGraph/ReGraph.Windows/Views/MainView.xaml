@@ -9,6 +9,7 @@
     xmlns:caliburn="using:Caliburn.Micro" 
     xmlns:common="using:ReGraph.Common"
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
     mc:Ignorable="d">
 
     <Page.TopAppBar>
@@ -51,10 +52,10 @@
 
         <Border Grid.Column="1" BorderThickness="5" BorderBrush="#f90164">
             <Grid>
-                <Canvas >
+                <Charting:Chart x:Name="Graph" Background="DarkBlue" >
 
-                </Canvas>
-                
+                </Charting:Chart>
+
             </Grid>
         </Border>
         

@@ -61,6 +61,9 @@
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="Child" />
     </RootType>
+    <RootType FullName="WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart">
+      <RootProperty Name="Background" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Canvas">
       <RootProperty Name="Margin" />
       <RootProperty Name="Children" />

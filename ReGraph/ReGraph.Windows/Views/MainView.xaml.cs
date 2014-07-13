@@ -13,7 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Caliburn.Micro;
-
+using ReGraph.Common;
+using ReGraph.Models.GraphDrawer;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace ReGraph.Views
@@ -23,9 +24,12 @@ namespace ReGraph.Views
     /// </summary>
     public sealed partial class MainView : Page
     {
+        private GraphDrawer GraphControl;
         public MainView()
         {
             this.InitializeComponent();
+            GraphControl = new Models.GraphDrawer.GraphDrawer(Graph);
+            GraphControl.addSolidLine(Test.getTestLine());
         }
     }
 }

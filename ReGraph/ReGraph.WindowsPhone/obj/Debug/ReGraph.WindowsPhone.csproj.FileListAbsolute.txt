@@ -101,3 +101,14 @@ E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WriteableBi
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WriteableBitmapEx.WinRT.pdb
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WriteableBitmapEx.WinRT.xml
 E:\dokumenty\Projekty\ReGraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\ReGraph.WindowsPhone.csprojResolveAssemblyReference.cache
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WriteableBitmapEx.WinRT.dll
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WriteableBitmapEx.WinRT.pdb
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WriteableBitmapEx.WinRT.xml
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WinRTXamlToolkit.Controls.DataVisualization.dll
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WinRTXamlToolkit.dll
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WinRTXamlToolkit.pdb
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WinRTXamlToolkit.pri
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WinRTXamlToolkit.Controls.DataVisualization.pdb
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WinRTXamlToolkit.Controls.DataVisualization.pri
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\WinRTXamlToolkit.pri.xml
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization.pri.xml
