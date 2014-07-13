@@ -1,14 +1,14 @@
 <XamlCompilerSaveState>
   <ReferenceAssemblyList>
     <LocalAssembly PathName="e:\dokumenty\projekty\regraph\regraph\regraph.windows\obj\debug\intermediatexaml\regraph.windows.exe" HashGuid="2ac0d442-b966-1932-edc0-53751fa9a54b" />
-    <ReferenceAssembly PathName="f:\repositories\regraph\packages\caliburn.micro.core.2.0.0\lib\portable-net45+win8+wp8+wpa81\caliburn.micro.dll" HashGuid="9d39451b-c8d7-f78a-6a7d-71bd9b0f1167" />
-    <ReferenceAssembly PathName="f:\repositories\regraph\packages\caliburn.micro.2.0.0\lib\win81\caliburn.micro.extensions.dll" HashGuid="513ef815-b782-36af-57f7-cc17eb6b6d9e" />
-    <ReferenceAssembly PathName="f:\repositories\regraph\packages\caliburn.micro.2.0.0\lib\win81\caliburn.micro.platform.dll" HashGuid="c8eb7504-b912-dbe1-4877-e3409c3ad0aa" />
-    <ReferenceAssembly PathName="f:\repositories\regraph\packages\callisto.1.4.0\lib\netcore451\callisto.dll" HashGuid="2e1ab8d4-b948-5a13-39d6-e24ac2a3055f" />
-    <ReferenceAssembly PathName="f:\repositories\regraph\packages\caliburn.micro.2.0.0\lib\win81\microsoft.xaml.interactions.dll" HashGuid="95a94f94-3917-d473-4f7c-18c4bd437046" />
-    <ReferenceAssembly PathName="f:\repositories\regraph\packages\caliburn.micro.2.0.0\lib\win81\microsoft.xaml.interactivity.dll" HashGuid="d25f59e6-dd81-900a-0dfc-55b39f6898ef" />
-    <ReferenceAssembly PathName="f:\repositories\regraph\lib\datavisualization.windows\winrtxamltoolkit.controls.datavisualization.dll" HashGuid="cb1730a9-008b-790e-626c-232b6168f6dc" />
-    <ReferenceAssembly PathName="f:\repositories\regraph\lib\datavisualization.windows\winrtxamltoolkit.dll" HashGuid="5bf12540-eb66-c781-d98d-161193068a35" />
-    <ReferenceAssembly PathName="f:\repositories\regraph\packages\writeablebitmapex.1.0.12.0\lib\netcore45\writeablebitmapex.winrt.dll" HashGuid="f1ffc02e-65e5-961b-845a-a36a3310080e" />
+    <ReferenceAssembly PathName="d:\dokumenty\projekty\regraph\packages\caliburn.micro.core.2.0.0\lib\portable-net45+win8+wp8+wpa81\caliburn.micro.dll" HashGuid="9d39451b-c8d7-f78a-6a7d-71bd9b0f1167" />
+    <ReferenceAssembly PathName="d:\dokumenty\projekty\regraph\packages\caliburn.micro.2.0.0\lib\win81\caliburn.micro.extensions.dll" HashGuid="513ef815-b782-36af-57f7-cc17eb6b6d9e" />
+    <ReferenceAssembly PathName="d:\dokumenty\projekty\regraph\packages\caliburn.micro.2.0.0\lib\win81\caliburn.micro.platform.dll" HashGuid="c8eb7504-b912-dbe1-4877-e3409c3ad0aa" />
+    <ReferenceAssembly PathName="d:\dokumenty\projekty\regraph\packages\callisto.1.4.0\lib\netcore451\callisto.dll" HashGuid="2e1ab8d4-b948-5a13-39d6-e24ac2a3055f" />
+    <ReferenceAssembly PathName="d:\dokumenty\projekty\regraph\packages\caliburn.micro.2.0.0\lib\win81\microsoft.xaml.interactions.dll" HashGuid="95a94f94-3917-d473-4f7c-18c4bd437046" />
+    <ReferenceAssembly PathName="d:\dokumenty\projekty\regraph\packages\caliburn.micro.2.0.0\lib\win81\microsoft.xaml.interactivity.dll" HashGuid="d25f59e6-dd81-900a-0dfc-55b39f6898ef" />
+    <ReferenceAssembly PathName="d:\dokumenty\projekty\regraph\lib\datavisualization.windows\winrtxamltoolkit.controls.datavisualization.dll" HashGuid="cb1730a9-008b-790e-626c-232b6168f6dc" />
+    <ReferenceAssembly PathName="d:\dokumenty\projekty\regraph\lib\datavisualization.windows\winrtxamltoolkit.dll" HashGuid="5bf12540-eb66-c781-d98d-161193068a35" />
+    <ReferenceAssembly PathName="d:\dokumenty\projekty\regraph\packages\writeablebitmapex.1.0.12.0\lib\netcore45\writeablebitmapex.winrt.dll" HashGuid="f1ffc02e-65e5-961b-845a-a36a3310080e" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

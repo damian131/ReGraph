@@ -1,1 +1,1 @@
-F:\Repositories\regraph\ReGraph\ReGraph.Windows\ReGraph.Windows.csproj;neutral
+D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\ReGraph.Windows.csproj;neutral

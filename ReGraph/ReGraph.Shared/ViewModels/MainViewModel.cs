@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using ReGraph.Common;
 using ReGraph.Models;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace ReGraph.ViewModels
 {
-    public class MainViewModel : Screen
+    public class MainViewModel : Screen, IFileOpenPickerContinuable
     {
 
         public MainViewModel()
@@ -36,8 +37,6 @@ namespace ReGraph.ViewModels
                 NotifyOfPropertyChange(() => InputGraph);
             }
         }
-        
-        
 
         private const string SelectImageOperationName = "SelectImage";
         private const string SelectDestinationOperationName = "SelectDestination";
@@ -61,6 +60,7 @@ namespace ReGraph.ViewModels
             }
 
 #if WINDOWS_PHONE_APP
+            await Task.Delay(0);
             picker.ContinuationData["Operation"] = SelectImageOperationName;
             picker.PickSingleFileAndContinue();
 #else
@@ -74,6 +74,7 @@ namespace ReGraph.ViewModels
 #endif
         }
 
+        
 #if WINDOWS_PHONE_APP
         public async void ContinueFileOpenPickerAsync(FileOpenPickerContinuationEventArgs args)
         {
@@ -137,8 +138,7 @@ namespace ReGraph.ViewModels
             }
             catch (Exception e)
             {
-                //System.Diagnostics.Debug.WriteLine(DebugTag
-                //    + "Cannot use stream as such (not probably in JPEG format): " + e.Message);
+                System.Diagnostics.Debug.WriteLine("ERROR: " + e.Message);
             }
         }
 

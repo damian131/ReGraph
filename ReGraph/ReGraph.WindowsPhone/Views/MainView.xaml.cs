@@ -15,6 +15,10 @@ using Windows.UI.Xaml.Navigation;
 using Caliburn.Micro;
 using ReGraph.Common;
 using ReGraph.Models.GraphDrawer;
+using Windows.Storage.Pickers;
+using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.ApplicationModel.Activation;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace ReGraph.Views
@@ -47,5 +51,7 @@ namespace ReGraph.Views
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
         }
+
+
     }
 }
