@@ -19,5 +19,10 @@ namespace ReGraph.Models.GraphDrawer
             this.Color = color;
             this.Name = name;
         }
+
+        public Line()
+        {
+            Points = new List<Point>();
+        }
     }
 }

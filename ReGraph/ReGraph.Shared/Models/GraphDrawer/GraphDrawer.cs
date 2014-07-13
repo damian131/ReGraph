@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 using WinRTXamlToolkit.Controls.DataVisualization.Charting;
@@ -41,6 +44,8 @@ namespace ReGraph.Models.GraphDrawer
             GraphTitle = "Main Title";
             HorizontalTitle = "OŚ X";
             VerticalTitle = "OŚ Y";
+
+            ReadFromCsv();
         }
 
         public void addSolidLine(Line line)
@@ -63,6 +68,7 @@ namespace ReGraph.Models.GraphDrawer
             Graph.Series.Clear();
             solidLines.Clear();
             dottedLines.Clear();
+            System.Diagnostics.Debug.WriteLine(Graph.Series.Count);
         }
 
         public void ReDraw()
@@ -74,16 +80,40 @@ namespace ReGraph.Models.GraphDrawer
                 addDottedLine(line);
         }
 
-        private void addDottedLine(Line line)
+        public void addDottedLine(Line line)
         {
             throw new NotImplementedException();
         }
 
-        
 
 
-       
-  
+        public Chart Chart
+        {
+            get { return Graph;}
+            private set {}
+        }
+
+        public LinearAxis HorizontalAxis
+        {
+            get { return x_Axis; }
+            private set { }
+        }
+        public LinearAxis VerticalAxis
+        {
+            get { return y_Axis; }
+            private set { }
+        }
+        public List<Line> SolidLines
+        {
+            get { return solidLines; }
+            private set { }
+        }
+
+        public List<Line> DottedLines
+        {
+            get { return dottedLines; }
+            private set { }
+        }
     
         #region OutputImageSize
         private int _Width;
@@ -170,16 +200,49 @@ namespace ReGraph.Models.GraphDrawer
         }
         #endregion
         #region SaveToFile
-        public void SaveAsCsv()
+        public async  void SaveAsCsv()
         {
-            throw new NotImplementedException();
+            GraphFileWriter writer = new GraphFileWriter(this);
+            FileSavePicker savePicker = new FileSavePicker();
+            savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            savePicker.FileTypeChoices.Add("CSV", new List<string>() { ".csv" });
+            savePicker.SuggestedFileName = "Graph";
+            var file = await savePicker.PickSaveFileAsync();
+
+            writer.writeToFile(file);
         }
         #endregion
         #region ReadFromFile
-        public static GraphDrawer GetFromCsv()
+        public async void ReadFromCsv()
         {
-            throw new NotImplementedException();
+            CleanGraph();
+            FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            openPicker.FileTypeFilter.Add(".csv");
+            /*
+            #if WINDOWS_PHONE_APP
+            openPicker.ContinuationData["Operation"] = "UpdateProfilePicture";
+            openPicker.PickSingleFileAndContinue();
+            #else*/
+            GraphFileReader reader = new GraphFileReader(this);
+            var file = await openPicker.PickSingleFileAsync();
+            reader.readFromFile(file);
+            //#endif
+
         }
+        /*
+        #if WINDOWS_PHONE_APP
+        public async void ContinueFileOpenPicker(FileOpenPickerContinuationEventArgs args)
+        {
+            if ((args.ContinuationData["Operation"] as string) == "UpdateProfilePicture" &&
+                args.Files.Count > 0)
+            {
+                StorageFile file = args.Files[0];
+                GraphFileReader reader = new GraphFileReader(this);
+                reader.readFromFile(file);
+            }
+        }
+        #endif*/
         #endregion
     }
 }
