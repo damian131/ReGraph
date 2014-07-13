@@ -19,6 +19,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\Test.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ContinuationManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\GraphDrawer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\GraphFileReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\GraphFileWriter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\Line.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\Point.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IImageProcessing.cs" />
