@@ -6,5 +6,7 @@
     <ReferenceAssembly PathName="f:\repositories\regraph\packages\caliburn.micro.2.0.0\lib\wpa81\caliburn.micro.platform.dll" HashGuid="5aec8d6d-ad68-f988-434d-e1a88e4a2433" />
     <ReferenceAssembly PathName="f:\repositories\regraph\packages\caliburn.micro.2.0.0\lib\wpa81\microsoft.xaml.interactions.dll" HashGuid="95a94f94-3917-d473-4f7c-18c4bd437046" />
     <ReferenceAssembly PathName="f:\repositories\regraph\packages\caliburn.micro.2.0.0\lib\wpa81\microsoft.xaml.interactivity.dll" HashGuid="d25f59e6-dd81-900a-0dfc-55b39f6898ef" />
+    <ReferenceAssembly PathName="f:\repositories\regraph\lib\datavisualization.phone\winrtxamltoolkit.controls.datavisualization.dll" HashGuid="31a857b7-8d39-ef34-ba10-a54c80f0eb3a" />
+    <ReferenceAssembly PathName="f:\repositories\regraph\lib\datavisualization.phone\winrtxamltoolkit.dll" HashGuid="8070acbc-3cb4-f7a4-6461-5e244ba818b4" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

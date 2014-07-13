@@ -146,6 +146,12 @@
     <Reference Include="Microsoft.Xaml.Interactivity">
       <HintPath>..\..\packages\Caliburn.Micro.2.0.0\lib\win81\Microsoft.Xaml.Interactivity.dll</HintPath>
     </Reference>
+    <Reference Include="WinRTXamlToolkit">
+      <HintPath>..\..\Lib\DataVisualization.Windows\WinRTXamlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="WinRTXamlToolkit.Controls.DataVisualization">
+      <HintPath>..\..\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

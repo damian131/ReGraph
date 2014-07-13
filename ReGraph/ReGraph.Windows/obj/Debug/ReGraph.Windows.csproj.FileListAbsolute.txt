@@ -106,3 +106,15 @@ F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\Caliburn.Micro.Extensi
 F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\Caliburn.Micro.Platform.pri.xml
 F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\Callisto.pri.xml
 F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\ProjectArchitectures.txt
+F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\WinRTXamlToolkit.Controls.DataVisualization.dll
+F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\WinRTXamlToolkit.dll
+F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\WinRTXamlToolkit.pdb
+F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\WinRTXamlToolkit.xml
+F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\WinRTXamlToolkit.pri
+F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\WinRTXamlToolkit.Controls.DataVisualization.pdb
+F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\WinRTXamlToolkit.Controls.DataVisualization.pri
+F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\en-US\WinRTXamlToolkit.Controls.DataVisualization.Properties.Resources.resw
+F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization.pri
+F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\qualifiers.txt
+F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.pri.xml
+F:\Repositories\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization.pri.xml

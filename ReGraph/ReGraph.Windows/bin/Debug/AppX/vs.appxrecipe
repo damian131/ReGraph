@@ -20,13 +20,13 @@
     <AppXManifest Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-07-06T12:42:32.440</Modified>
+      <Modified>2014-07-13T14:54:26.227</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\ReGraph.Windows.exe">
       <PackagePath>ReGraph.Windows.exe</PackagePath>
-      <Modified>2014-07-06T12:37:50.480</Modified>
+      <Modified>2014-07-13T14:54:56.828</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\Repositories\regraph\packages\Caliburn.Micro.Core.2.0.0\lib\portable-net45+win8+wp8+wpa81\Caliburn.Micro.dll">
       <PackagePath>Caliburn.Micro.dll</PackagePath>
@@ -51,6 +51,14 @@
     <AppxPackagedFile Include="F:\Repositories\regraph\packages\Caliburn.Micro.2.0.0\lib\win81\Microsoft.Xaml.Interactivity.dll">
       <PackagePath>Microsoft.Xaml.Interactivity.dll</PackagePath>
       <Modified>2014-07-03T16:33:06.682</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization.dll">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization.dll</PackagePath>
+      <Modified>2014-07-10T19:20:07.335</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.dll">
+      <PackagePath>WinRTXamlToolkit.dll</PackagePath>
+      <Modified>2014-07-10T19:00:41.984</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
@@ -86,19 +94,219 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\Views\MainView.xbf">
       <PackagePath>Views\MainView.xbf</PackagePath>
-      <Modified>2014-07-06T12:42:31.425</Modified>
+      <Modified>2014-07-13T14:18:42.400</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\ReGraph.Windows.xr.xml">
       <PackagePath>ReGraph.Windows.xr.xml</PackagePath>
-      <Modified>2014-07-06T12:37:50.480</Modified>
+      <Modified>2014-07-13T14:12:18.182</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="F:\Repositories\regraph\packages\Callisto.1.4.0\lib\netcore451\Callisto\themes\Generic.xbf">
       <PackagePath>Callisto\themes\Generic.xbf</PackagePath>
       <Modified>2014-07-03T16:33:08.118</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\WinRTXamlToolkit.xr.xml">
+      <PackagePath>WinRTXamlToolkit\WinRTXamlToolkit.xr.xml</PackagePath>
+      <Modified>2014-07-10T19:19:57.842</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\AlternativeFrame\AlternativeFrame.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\AlternativeFrame\AlternativeFrame.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.891</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\AnimatingContainer\AnimatingContainer.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\AnimatingContainer\AnimatingContainer.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.891</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\CameraCaptureControl\CameraCaptureControl.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\CameraCaptureControl\CameraCaptureControl.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.892</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\CascadingImageControl\CascadingImageControl.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\CascadingImageControl\CascadingImageControl.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.892</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\CascadingTextBlock\CascadingTextBlock.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\CascadingTextBlock\CascadingTextBlock.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.892</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\ColorPicker\ColorPicker.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\ColorPicker\ColorPicker.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.892</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\CountdownControl\CountdownControl.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\CountdownControl\CountdownControl.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.893</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\CustomAppBar\CustomAppBar.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\CustomAppBar\CustomAppBar.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.890</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\CustomGridSplitter\CustomGridSplitter.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\CustomGridSplitter\CustomGridSplitter.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.890</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\DelayedLoadControl\DelayedLoadControl.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\DelayedLoadControl\DelayedLoadControl.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.893</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\FxContentControl\FxContentControl.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\FxContentControl\FxContentControl.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.893</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\ImageButton\ImageButton.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\ImageButton\ImageButton.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.893</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\ImageToggleButton\ImageToggleButton.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\ImageToggleButton\ImageToggleButton.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.893</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\InputDialog\InputDialog.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\InputDialog\InputDialog.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.893</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\ListItemButton\ListItemButton.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\ListItemButton\ListItemButton.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.894</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\NumericUpDown\NumericUpDown.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\NumericUpDown\NumericUpDown.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.894</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\ToolWindow\ToolWindow.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\ToolWindow\ToolWindow.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.891</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\TreeView\TreeView.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\TreeView\TreeView.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.894</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\TreeView\TreeViewItem.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\TreeView\TreeViewItem.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.894</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\TreeView\TreeViewMouse.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\TreeView\TreeViewMouse.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.894</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\TreeView\TreeViewTouch.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\TreeView\TreeViewTouch.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.894</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\WatermarkPasswordBox\WatermarkPasswordBox.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\WatermarkPasswordBox\WatermarkPasswordBox.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.894</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\WatermarkTextBox\WatermarkTextBox.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\WatermarkTextBox\WatermarkTextBox.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.895</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Controls\WebBrowser\WebBrowser.xbf">
+      <PackagePath>WinRTXamlToolkit\Controls\WebBrowser\WebBrowser.xbf</PackagePath>
+      <Modified>2014-07-10T19:00:40.891</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit\Themes\Generic.xbf">
+      <PackagePath>WinRTXamlToolkit\Themes\Generic.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.474</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\WinRTXamlToolkit.Controls.DataVisualization.xr.xml">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\WinRTXamlToolkit.Controls.DataVisualization.xr.xml</PackagePath>
+      <Modified>2014-07-10T19:20:06.410</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\AxisLabel.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\AxisLabel.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.472</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\DateTimeAxisLabel.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\DateTimeAxisLabel.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.472</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\DisplayAxis.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\DisplayAxis.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.472</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\NumericAxisLabel.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\NumericAxisLabel.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.472</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\RangeAxis.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Axis\RangeAxis.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.472</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Chart\Chart.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Chart\Chart.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.472</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\AreaDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\AreaDataPoint.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.472</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\BarDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\BarDataPoint.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.473</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\BubbleDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\BubbleDataPoint.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.473</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\ColumnDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\ColumnDataPoint.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.473</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\LineDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\LineDataPoint.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.473</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\PieDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\PieDataPoint.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.473</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\ScatterDataPoint.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\DataPoint\ScatterDataPoint.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.473</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Primitives\DelegatingListBox.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Primitives\DelegatingListBox.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.473</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\AreaSeries.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\AreaSeries.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.473</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\DataPointSeries.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\DataPointSeries.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.473</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\DefinitionSeries.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\DefinitionSeries.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.473</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\LegendItem.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\LegendItem.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.473</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\LineSeries.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\LineSeries.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.473</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\PieSeries.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Charting\Series\PieSeries.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.474</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Legend\Legend.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Legend\Legend.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.474</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Themes\Generic.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Themes\Generic.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.474</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="F:\Repositories\regraph\Lib\DataVisualization.Windows\WinRTXamlToolkit.Controls.DataVisualization\Title\Title.xbf">
+      <PackagePath>WinRTXamlToolkit.Controls.DataVisualization\Title\Title.xbf</PackagePath>
+      <Modified>2014-07-10T19:20:06.474</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="F:\Repositories\regraph\ReGraph\ReGraph.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-07-06T12:42:31.940</Modified>
+      <Modified>2014-07-13T14:54:25.791</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

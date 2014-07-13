@@ -8,6 +8,7 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
     xmlns:caliburn="using:Caliburn.Micro" 
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
     mc:Ignorable="d">
 
     <Page.TopAppBar>
@@ -47,10 +48,9 @@
 
         <Border Grid.Column="1" BorderThickness="5" BorderBrush="#f90164">
             <Grid>
-                <Canvas >
-
-                </Canvas>
-                
+                <Charting:Chart x:Name="Graph" Background="DarkBlue" >
+                    
+                </Charting:Chart>
             </Grid>
         </Border>
         

@@ -98,3 +98,11 @@ F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\MultipleQualifier
 F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\Caliburn.Micro.Extensions.pri.xml
 F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\Caliburn.Micro.Platform.pri.xml
 F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\ProjectArchitectures.txt
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WinRTXamlToolkit.Controls.DataVisualization.dll
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WinRTXamlToolkit.dll
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WinRTXamlToolkit.pdb
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WinRTXamlToolkit.pri
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WinRTXamlToolkit.Controls.DataVisualization.pdb
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\bin\Debug\WinRTXamlToolkit.Controls.DataVisualization.pri
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\WinRTXamlToolkit.pri.xml
+F:\Repositories\regraph\ReGraph\ReGraph.WindowsPhone\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization.pri.xml

@@ -7,5 +7,7 @@
     <ReferenceAssembly PathName="f:\repositories\regraph\packages\callisto.1.4.0\lib\netcore451\callisto.dll" HashGuid="2e1ab8d4-b948-5a13-39d6-e24ac2a3055f" />
     <ReferenceAssembly PathName="f:\repositories\regraph\packages\caliburn.micro.2.0.0\lib\win81\microsoft.xaml.interactions.dll" HashGuid="95a94f94-3917-d473-4f7c-18c4bd437046" />
     <ReferenceAssembly PathName="f:\repositories\regraph\packages\caliburn.micro.2.0.0\lib\win81\microsoft.xaml.interactivity.dll" HashGuid="d25f59e6-dd81-900a-0dfc-55b39f6898ef" />
+    <ReferenceAssembly PathName="f:\repositories\regraph\lib\datavisualization.windows\winrtxamltoolkit.controls.datavisualization.dll" HashGuid="cb1730a9-008b-790e-626c-232b6168f6dc" />
+    <ReferenceAssembly PathName="f:\repositories\regraph\lib\datavisualization.windows\winrtxamltoolkit.dll" HashGuid="5bf12540-eb66-c781-d98d-161193068a35" />
   </ReferenceAssemblyList>
 </XamlCompilerSaveState>

@@ -148,19 +148,59 @@ namespace ReGraph.ReGraph_Windows_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[5];
+            _typeNameTable = new string[25];
             _typeNameTable[0] = "Caliburn.Micro.CaliburnApplication";
             _typeNameTable[1] = "Windows.UI.Xaml.Application";
-            _typeNameTable[2] = "ReGraph.Views.MainView";
-            _typeNameTable[3] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[4] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[2] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart";
+            _typeNameTable[3] = "Windows.UI.Xaml.Controls.Control";
+            _typeNameTable[4] = "System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>";
+            _typeNameTable[5] = "Object";
+            _typeNameTable[6] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries";
+            _typeNameTable[7] = "System.Collections.ObjectModel.ObservableCollection`1<Object>";
+            _typeNameTable[8] = "System.Collections.ObjectModel.Collection`1<Object>";
+            _typeNameTable[9] = "System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>";
+            _typeNameTable[10] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis";
+            _typeNameTable[11] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation";
+            _typeNameTable[12] = "System.Enum";
+            _typeNameTable[13] = "System.ValueType";
+            _typeNameTable[14] = "System.Collections.ObjectModel.ObservableCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>";
+            _typeNameTable[15] = "System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>";
+            _typeNameTable[16] = "WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener";
+            _typeNameTable[17] = "System.Collections.ObjectModel.ObservableCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>";
+            _typeNameTable[18] = "System.Collections.ObjectModel.ReadOnlyCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>";
+            _typeNameTable[19] = "Windows.UI.Xaml.Style";
+            _typeNameTable[20] = "System.Collections.ObjectModel.Collection`1<Windows.UI.Xaml.ResourceDictionary>";
+            _typeNameTable[21] = "Windows.UI.Xaml.ResourceDictionary";
+            _typeNameTable[22] = "ReGraph.Views.MainView";
+            _typeNameTable[23] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[24] = "Windows.UI.Xaml.Controls.UserControl";
 
-            _typeTable = new global::System.Type[5];
+            _typeTable = new global::System.Type[25];
             _typeTable[0] = typeof(global::Caliburn.Micro.CaliburnApplication);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Application);
-            _typeTable[2] = typeof(global::ReGraph.Views.MainView);
-            _typeTable[3] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[2] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart);
+            _typeTable[3] = typeof(global::Windows.UI.Xaml.Controls.Control);
+            _typeTable[4] = typeof(global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>);
+            _typeTable[5] = typeof(global::System.Object);
+            _typeTable[6] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries);
+            _typeTable[7] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::System.Object>);
+            _typeTable[8] = typeof(global::System.Collections.ObjectModel.Collection<global::System.Object>);
+            _typeTable[9] = typeof(global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>);
+            _typeTable[10] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis);
+            _typeTable[11] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation);
+            _typeTable[12] = typeof(global::System.Enum);
+            _typeTable[13] = typeof(global::System.ValueType);
+            _typeTable[14] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>);
+            _typeTable[15] = typeof(global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>);
+            _typeTable[16] = typeof(global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener);
+            _typeTable[17] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>);
+            _typeTable[18] = typeof(global::System.Collections.ObjectModel.ReadOnlyCollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>);
+            _typeTable[19] = typeof(global::Windows.UI.Xaml.Style);
+            _typeTable[20] = typeof(global::System.Collections.ObjectModel.Collection<global::Windows.UI.Xaml.ResourceDictionary>);
+            _typeTable[21] = typeof(global::Windows.UI.Xaml.ResourceDictionary);
+            _typeTable[22] = typeof(global::ReGraph.Views.MainView);
+            _typeTable[23] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[24] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -195,7 +235,70 @@ namespace ReGraph.ReGraph_Windows_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_2_MainView() { return new global::ReGraph.Views.MainView(); }
+        private object Activate_2_Chart() { return new global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart(); }
+        private object Activate_4_Collection() { return new global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>(); }
+        private object Activate_7_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::System.Object>(); }
+        private object Activate_8_Collection() { return new global::System.Collections.ObjectModel.Collection<global::System.Object>(); }
+        private object Activate_9_Collection() { return new global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>(); }
+        private object Activate_14_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>(); }
+        private object Activate_15_Collection() { return new global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>(); }
+        private object Activate_17_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>(); }
+        private object Activate_20_Collection() { return new global::System.Collections.ObjectModel.Collection<global::Windows.UI.Xaml.ResourceDictionary>(); }
+        private object Activate_22_MainView() { return new global::ReGraph.Views.MainView(); }
+        private void VectorAdd_4_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>)instance;
+            var newItem = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_7_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
+            var newItem = (global::System.Object)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_8_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::System.Object>)instance;
+            var newItem = (global::System.Object)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_9_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>)instance;
+            var newItem = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_14_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>)instance;
+            var newItem = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_15_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>)instance;
+            var newItem = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_17_ObservableCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>)instance;
+            var newItem = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_18_ReadOnlyCollection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>)instance;
+            var newItem = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)item;
+            collection.Add(newItem);
+        }
+        private void VectorAdd_20_Collection(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::Windows.UI.Xaml.ResourceDictionary>)instance;
+            var newItem = (global::Windows.UI.Xaml.ResourceDictionary)item;
+            collection.Add(newItem);
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -216,18 +319,152 @@ namespace ReGraph.ReGraph_Windows_XamlTypeInfo
                 xamlType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  ReGraph.Views.MainView
+            case 2:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
+                userType.Activator = Activate_2_Chart;
+                userType.SetContentPropertyName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.Series");
+                userType.AddMemberName("Series");
+                userType.AddMemberName("Axes");
+                userType.AddMemberName("ActualAxes");
+                userType.AddMemberName("ChartAreaStyle");
+                userType.AddMemberName("LegendItems");
+                userType.AddMemberName("LegendStyle");
+                userType.AddMemberName("LegendTitle");
+                userType.AddMemberName("PlotAreaStyle");
+                userType.AddMemberName("Palette");
+                userType.AddMemberName("Title");
+                userType.AddMemberName("TitleStyle");
+                xamlType = userType;
+                break;
+
+            case 3:   //  Windows.UI.Xaml.Controls.Control
+                xamlType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 4:   //  System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.CollectionAdd = VectorAdd_4_Collection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 5:   //  Object
+                xamlType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 6:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.AddMemberName("LegendItems");
+                xamlType = userType;
+                break;
+
+            case 7:   //  System.Collections.ObjectModel.ObservableCollection`1<Object>
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<Object>"));
+                userType.CollectionAdd = VectorAdd_7_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 8:   //  System.Collections.ObjectModel.Collection`1<Object>
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_8_Collection;
+                userType.CollectionAdd = VectorAdd_8_Collection;
+                xamlType = userType;
+                break;
+
+            case 9:   //  System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_9_Collection;
+                userType.CollectionAdd = VectorAdd_9_Collection;
+                xamlType = userType;
+                break;
+
+            case 10:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.AddMemberName("Orientation");
+                userType.AddMemberName("RegisteredListeners");
+                userType.AddMemberName("DependentAxes");
+                xamlType = userType;
+                break;
+
+            case 11:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("None", global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation.None);
+                userType.AddEnumValue("X", global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation.X);
+                userType.AddEnumValue("Y", global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation.Y);
+                xamlType = userType;
+                break;
+
+            case 12:   //  System.Enum
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                xamlType = userType;
+                break;
+
+            case 13:   //  System.ValueType
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case 14:   //  System.Collections.ObjectModel.ObservableCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>"));
+                userType.CollectionAdd = VectorAdd_14_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 15:   //  System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_15_Collection;
+                userType.CollectionAdd = VectorAdd_15_Collection;
+                xamlType = userType;
+                break;
+
+            case 16:   //  WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                xamlType = userType;
+                break;
+
+            case 17:   //  System.Collections.ObjectModel.ObservableCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>"));
+                userType.CollectionAdd = VectorAdd_17_ObservableCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 18:   //  System.Collections.ObjectModel.ReadOnlyCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.CollectionAdd = VectorAdd_18_ReadOnlyCollection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 19:   //  Windows.UI.Xaml.Style
+                xamlType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 20:   //  System.Collections.ObjectModel.Collection`1<Windows.UI.Xaml.ResourceDictionary>
+                userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.CollectionAdd = VectorAdd_20_Collection;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 21:   //  Windows.UI.Xaml.ResourceDictionary
+                xamlType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 22:   //  ReGraph.Views.MainView
                 userType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_2_MainView;
+                userType.Activator = Activate_22_MainView;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 3:   //  Windows.UI.Xaml.Controls.Page
+            case 23:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 4:   //  Windows.UI.Xaml.Controls.UserControl
+            case 24:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -246,6 +483,10 @@ namespace ReGraph.ReGraph_Windows_XamlTypeInfo
                     provider = new global::Caliburn.Micro.XamlMetadataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
                     _otherProviders.Add(provider); 
                     provider = new global::Callisto.Callisto_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    _otherProviders.Add(provider); 
+                    provider = new global::WinRTXamlToolkit.Controls.DataVisualization.WinRTXamlToolkit_Controls_DataVisualization_Windows_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    _otherProviders.Add(provider); 
+                    provider = new global::WinRTXamlToolkit.WinRTXamlToolkit_Windows_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
                     _otherProviders.Add(provider); 
                 }
                 return _otherProviders;
@@ -290,11 +531,237 @@ namespace ReGraph.ReGraph_Windows_XamlTypeInfo
             return foundXamlType;
         }
 
+        private object get_0_Chart_Series(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.Series;
+        }
+        private void set_0_Chart_Series(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.Series = (global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>)Value;
+        }
+        private object get_1_ISeries_LegendItems(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries)instance;
+            return that.LegendItems;
+        }
+        private object get_2_Chart_Axes(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.Axes;
+        }
+        private void set_2_Chart_Axes(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.Axes = (global::System.Collections.ObjectModel.Collection<global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>)Value;
+        }
+        private object get_3_IAxis_Orientation(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)instance;
+            return that.Orientation;
+        }
+        private void set_3_IAxis_Orientation(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)instance;
+            that.Orientation = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation)Value;
+        }
+        private object get_4_IAxis_RegisteredListeners(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)instance;
+            return that.RegisteredListeners;
+        }
+        private object get_5_IAxis_DependentAxes(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis)instance;
+            return that.DependentAxes;
+        }
+        private object get_6_Chart_ActualAxes(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.ActualAxes;
+        }
+        private object get_7_Chart_ChartAreaStyle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.ChartAreaStyle;
+        }
+        private void set_7_Chart_ChartAreaStyle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.ChartAreaStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_8_Chart_LegendItems(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.LegendItems;
+        }
+        private object get_9_Chart_LegendStyle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.LegendStyle;
+        }
+        private void set_9_Chart_LegendStyle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.LegendStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_10_Chart_LegendTitle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.LegendTitle;
+        }
+        private void set_10_Chart_LegendTitle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.LegendTitle = (global::System.Object)Value;
+        }
+        private object get_11_Chart_PlotAreaStyle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.PlotAreaStyle;
+        }
+        private void set_11_Chart_PlotAreaStyle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.PlotAreaStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_12_Chart_Palette(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.Palette;
+        }
+        private void set_12_Chart_Palette(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.Palette = (global::System.Collections.ObjectModel.Collection<global::Windows.UI.Xaml.ResourceDictionary>)Value;
+        }
+        private object get_13_Chart_Title(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.Title;
+        }
+        private void set_13_Chart_Title(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.Title = (global::System.Object)Value;
+        }
+        private object get_14_Chart_TitleStyle(object instance)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            return that.TitleStyle;
+        }
+        private void set_14_Chart_TitleStyle(object instance, object Value)
+        {
+            var that = (global::WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart)instance;
+            that.TitleStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
             global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.Series":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "Series", "System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries>");
+                xamlMember.Getter = get_0_Chart_Series;
+                xamlMember.Setter = set_0_Chart_Series;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries.LegendItems":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.ISeries");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "LegendItems", "System.Collections.ObjectModel.ObservableCollection`1<Object>");
+                xamlMember.Getter = get_1_ISeries_LegendItems;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.Axes":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "Axes", "System.Collections.ObjectModel.Collection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>");
+                xamlMember.Getter = get_2_Chart_Axes;
+                xamlMember.Setter = set_2_Chart_Axes;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis.Orientation":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "Orientation", "WinRTXamlToolkit.Controls.DataVisualization.Charting.AxisOrientation");
+                xamlMember.Getter = get_3_IAxis_Orientation;
+                xamlMember.Setter = set_3_IAxis_Orientation;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis.RegisteredListeners":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "RegisteredListeners", "System.Collections.ObjectModel.ObservableCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxisListener>");
+                xamlMember.Getter = get_4_IAxis_RegisteredListeners;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis.DependentAxes":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "DependentAxes", "System.Collections.ObjectModel.ObservableCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>");
+                xamlMember.Getter = get_5_IAxis_DependentAxes;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.ActualAxes":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "ActualAxes", "System.Collections.ObjectModel.ReadOnlyCollection`1<WinRTXamlToolkit.Controls.DataVisualization.Charting.IAxis>");
+                xamlMember.Getter = get_6_Chart_ActualAxes;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.ChartAreaStyle":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "ChartAreaStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_7_Chart_ChartAreaStyle;
+                xamlMember.Setter = set_7_Chart_ChartAreaStyle;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.LegendItems":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "LegendItems", "System.Collections.ObjectModel.Collection`1<Object>");
+                xamlMember.Getter = get_8_Chart_LegendItems;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.LegendStyle":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "LegendStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_9_Chart_LegendStyle;
+                xamlMember.Setter = set_9_Chart_LegendStyle;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.LegendTitle":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "LegendTitle", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_10_Chart_LegendTitle;
+                xamlMember.Setter = set_10_Chart_LegendTitle;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.PlotAreaStyle":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "PlotAreaStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_11_Chart_PlotAreaStyle;
+                xamlMember.Setter = set_11_Chart_PlotAreaStyle;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.Palette":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "Palette", "System.Collections.ObjectModel.Collection`1<Windows.UI.Xaml.ResourceDictionary>");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_12_Chart_Palette;
+                xamlMember.Setter = set_12_Chart_Palette;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.Title":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "Title", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_13_Chart_Title;
+                xamlMember.Setter = set_13_Chart_Title;
+                break;
+            case "WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart.TitleStyle":
+                userType = (global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlUserType)GetXamlTypeByName("WinRTXamlToolkit.Controls.DataVisualization.Charting.Chart");
+                xamlMember = new global::ReGraph.ReGraph_Windows_XamlTypeInfo.XamlMember(this, "TitleStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_14_Chart_TitleStyle;
+                xamlMember.Setter = set_14_Chart_TitleStyle;
+                break;
+            }
             return xamlMember;
         }
     }
