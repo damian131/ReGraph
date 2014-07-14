@@ -131,7 +131,12 @@ namespace ReGraph.ViewModels
                 }
 
                 double scale = InputGraph.WorkspaceWidth/bitmap.PixelWidth;
-                img1 = img1.Resize((int)InputGraph.WorkspaceWidth, (int)(bitmap.PixelHeight * scale), WriteableBitmapExtensions.Interpolation.Bilinear);
+
+                int height = (int)(bitmap.PixelHeight * scale);
+                if (height > InputGraph.WorkspaceHeight)
+                    height = (int)InputGraph.WorkspaceHeight;
+
+                img1 = img1.Resize((int)InputGraph.WorkspaceWidth, height, WriteableBitmapExtensions.Interpolation.Bilinear);
 
                 InputGraph.WorkspaceMargin = new Thickness(0, 0, 0, 0);
 
