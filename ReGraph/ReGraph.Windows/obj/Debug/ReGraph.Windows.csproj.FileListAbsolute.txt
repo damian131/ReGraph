@@ -182,14 +182,6 @@ D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\ReGraph.Windows.
 D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\ReGraph.Windows.pdb
 D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\en-US\WinRTXamlToolkit.Controls.DataVisualization.Properties.Resources.resw
 D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\ReGraph.Windows.csproj.GenerateResource.Cache
-D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\layout.resfiles
-D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\layout.resfiles.intermediate
-D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\Resources.resfiles
-D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\Resources.resfiles.intermediate
-D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\pri.resfiles
-D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\pri.resfiles.intermediate
-D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\priconfig.xml
-D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\priconfig.xml.intermediate
 D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization.pri
 D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\qualifiers.txt
 D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\priconfig.xml
@@ -209,3 +201,11 @@ D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\Callisto.pri.xml
 D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.pri.xml
 D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization.pri.xml
 D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\ProjectArchitectures.txt
+D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\layout.resfiles
+D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\layout.resfiles.intermediate
+D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\Resources.resfiles
+D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\Resources.resfiles.intermediate
+D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\pri.resfiles
+D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\pri.resfiles.intermediate
+D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\priconfig.xml
+D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\obj\Debug\WinRTXamlToolkit.Controls.DataVisualization\priconfig.xml.intermediate

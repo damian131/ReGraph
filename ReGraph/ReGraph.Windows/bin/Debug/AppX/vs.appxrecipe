@@ -20,13 +20,13 @@
     <AppXManifest Include="D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-07-13T16:14:16.875</Modified>
+      <Modified>2014-07-14T18:25:40.494</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\bin\Debug\ReGraph.Windows.exe">
       <PackagePath>ReGraph.Windows.exe</PackagePath>
-      <Modified>2014-07-13T16:14:15.644</Modified>
+      <Modified>2014-07-14T21:34:34.954</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dokumenty\Projekty\regraph\packages\Caliburn.Micro.Core.2.0.0\lib\portable-net45+win8+wp8+wpa81\Caliburn.Micro.dll">
       <PackagePath>Caliburn.Micro.dll</PackagePath>
@@ -98,7 +98,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\bin\Debug\Views\MainView.xbf">
       <PackagePath>Views\MainView.xbf</PackagePath>
-      <Modified>2014-07-13T16:14:15.145</Modified>
+      <Modified>2014-07-14T21:04:51.766</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\bin\Debug\ReGraph.Windows.xr.xml">
       <PackagePath>ReGraph.Windows.xr.xml</PackagePath>
@@ -310,7 +310,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Dokumenty\Projekty\regraph\ReGraph\ReGraph.Windows\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-07-13T16:14:16.522</Modified>
+      <Modified>2014-07-14T21:34:35.061</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

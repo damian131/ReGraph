@@ -29,7 +29,7 @@
                         <Interactivity:Interaction.Behaviors>
                             <common:WorkspaceCanvasBehavior Workspace="{Binding Path=InputGraph, Mode=OneWay}" />
                         </Interactivity:Interaction.Behaviors>
-                        <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" />
+                        <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" Stretch="UniformToFill" />
                     </Canvas>
                 </Border>
             </PivotItem>
