@@ -225,8 +225,8 @@ namespace ReGraph.Models.GraphDrawer
             openPicker.PickSingleFileAndContinue();
             #else*/
             GraphFileReader reader = new GraphFileReader(this);
-            var file = await openPicker.PickSingleFileAsync();
-            reader.readFromFile(file);
+            //var file = await openPicker.PickSingleFileAsync();
+            //reader.readFromFile(file);
             //#endif
 
         }
