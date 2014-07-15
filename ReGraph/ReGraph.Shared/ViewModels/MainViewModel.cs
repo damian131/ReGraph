@@ -130,18 +130,18 @@ namespace ReGraph.ViewModels
                     img1.SetSource(strm);
                 }
 
-                double scale = InputGraph.WorkspaceWidth/bitmap.PixelWidth;
+                //double scale = InputGraph.Width/bitmap.PixelWidth;
 
-                int height = (int)(bitmap.PixelHeight * scale);
-                if (height > InputGraph.WorkspaceHeight)
-                    height = (int)InputGraph.WorkspaceHeight;
+                //int height = (int)(bitmap.PixelHeight * scale);
+                //if (height > InputGraph.Height)
+                //    height = (int)InputGraph.Height;
 
-                img1 = img1.Resize((int)InputGraph.WorkspaceWidth, height, WriteableBitmapExtensions.Interpolation.Bilinear);
+                //img1 = img1.Resize((int)InputGraph.Width, height, WriteableBitmapExtensions.Interpolation.Bilinear);
 
-                InputGraph.WorkspaceMargin = new Thickness(0, 0, 0, 0);
+                //InputGraph.WorkspaceMargin = new Thickness(0, 0, 0, 0);
 
                 InputGraph.Image = img1;
-                InputGraph.WorkspaceMargin = new Thickness(0, InputGraph.WorkspaceHeight / 2 - img1.PixelHeight/2, 0, 0);
+                //InputGraph.WorkspaceMargin = new Thickness(0, InputGraph.WorkspaceHeight / 2 - img1.PixelHeight/2, 0, 0);
             }
             catch (Exception e)
             {
@@ -186,13 +186,13 @@ namespace ReGraph.ViewModels
                 wb.SetSource(strm);
             }
 
-            double scale = InputGraph.WorkspaceWidth / bitmap.PixelWidth;
-            wb = wb.Resize((int)InputGraph.WorkspaceWidth, (int)(bitmap.PixelHeight * scale), WriteableBitmapExtensions.Interpolation.Bilinear);
+            double scale = InputGraph.Width / bitmap.PixelWidth;
+            wb = wb.Resize((int)InputGraph.Width, (int)(bitmap.PixelHeight * scale), WriteableBitmapExtensions.Interpolation.Bilinear);
 
-            InputGraph.WorkspaceMargin = new Thickness(0, 0, 0, 0);
+            //InputGraph.WorkspaceMargin = new Thickness(0, 0, 0, 0);
 
             InputGraph.Image = wb;
-            InputGraph.WorkspaceMargin = new Thickness(0, InputGraph.WorkspaceHeight / 2 - wb.PixelHeight / 2, 0, 0);
+            //InputGraph.WorkspaceMargin = new Thickness(0, InputGraph.WorkspaceHeight / 2 - wb.PixelHeight / 2, 0, 0);
         }
 
 #endif

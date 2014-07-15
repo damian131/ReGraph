@@ -25,12 +25,8 @@
         <Pivot Title="ReGraph">
             <PivotItem Header="Graph">
                 <Border BorderThickness="5" BorderBrush="#1ce8ea">
-                    <Canvas Margin="{Binding Path=InputGraph.WorkspaceMargin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                        <Interactivity:Interaction.Behaviors>
-                            <common:WorkspaceCanvasBehavior Workspace="{Binding Path=InputGraph, Mode=OneWay}" />
-                        </Interactivity:Interaction.Behaviors>
-                        <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" Stretch="UniformToFill" />
-                    </Canvas>
+                    
+                        <Image x:Name="image" Source="{Binding Path=InputGraph.Image}"/>
                 </Border>
             </PivotItem>
             <PivotItem Header="ReGraph" >

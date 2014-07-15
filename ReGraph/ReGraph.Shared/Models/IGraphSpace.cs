@@ -31,26 +31,14 @@ namespace ReGraph.Models
     /// </summary>
     public interface IGraphSpace
     {
-        double WorkspaceWidth { get; set; }
-        /// <summary>
-        /// Gets the height of the workspace (usually it's equal to screen's resolution)
-        /// </summary>
-        double WorkspaceHeight { get; set; }
         /// <summary>
         /// Gets the actual width of the image.
         /// </summary>
-        double ActualWidth { get; set; }
+        double Width { get; set; }
         /// <summary>
         /// Gets the actual height of the image.
         /// </summary>
-        double ActualHeight { get; set; }
-
-        /// <summary>
-        /// Gets or sets the image processing tool.
-        /// </summary>
-        IImageProcessing ImageProcessing { get; set; }
-
-        Thickness WorkspaceMargin { get; set; }
+        double Height { get; set; }
 
 
         /// <summary>
@@ -61,41 +49,6 @@ namespace ReGraph.Models
         /// </value>
         WriteableBitmap Image { get; set; }
 
-        
-        /// <summary>
-        /// Occurs when [workspace size changed].
-        /// </summary>
-        event EventHandler<SizeChangedEventArgs> WorkspaceSizeChanged;
-        /// <summary>
-        /// Occurs when [actual size changed].
-        /// </summary>
-        event EventHandler<SizeChangedEventArgs> ActualSizeChanged;
-        /// <summary>
-        /// Occurs when [UI refreshed].
-        /// </summary>
-        event EventHandler<EventArgs> UIRefreshed;
-
-        /// <summary>
-        /// Gets or sets the Canvas's children UIElements (images, drawings, texts, etc.)
-        /// </summary>
-        UIElementCollection Children { get; set; }
-        
-
-        /// <summary>
-        /// Updates the Workspace's size.
-        /// </summary>
-        /// <param name="workspaceWidth">Width of the workspace.</param>
-        /// <param name="workspaceHeight">Height of the workspace.</param>
-        void UpdateWorkspaceSize(double workspaceWidth, double workspaceHeight);
-        /// <summary>
-        /// Invalidates UI (ScrollViewer and Canvas)
-        /// </summary>
-        void RefreshUI();
-        /// <summary>
-        /// Updates the actual size of the image.
-        /// </summary>
-        /// <param name="actualWidth">The actual image's width.</param>
-        /// <param name="actualHeight">The actual image's height.</param>
-        void UpdateActualSize(double actualWidth, double actualHeight);
+       
     }
 }

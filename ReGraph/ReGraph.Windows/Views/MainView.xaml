@@ -42,17 +42,12 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="0" BorderThickness="5" BorderBrush="#1ce8ea">
-            <Canvas Margin="{Binding Path=InputGraph.WorkspaceMargin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
-                <Interactivity:Interaction.Behaviors>
-                    <common:WorkspaceCanvasBehavior Workspace="{Binding Path=InputGraph, Mode=OneWay}" />
-                </Interactivity:Interaction.Behaviors>
-                <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" />
-            </Canvas>
+            <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" /> <!--Width="{Binding Path=InputGraph.Width, Mode=OneTime}" Height="{Binding Path=InputGraph.Height, Mode=OneTime}"-->
         </Border>
 
         <Border Grid.Column="1" BorderThickness="5" BorderBrush="#f90164">
             <Grid>
-                <Charting:Chart x:Name="Graph" Background="DarkBlue" >
+                <Charting:Chart x:Name="Graph" Background="Transparent" >
 
                 </Charting:Chart>
 
