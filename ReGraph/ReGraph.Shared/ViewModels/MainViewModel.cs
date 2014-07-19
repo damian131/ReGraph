@@ -17,12 +17,13 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Navigation;
 
 namespace ReGraph.ViewModels
 {
-    public class MainViewModel : Screen, IHandle<StorageFile>
+    public class MainViewModel : Screen
 #if WINDOWS_PHONE_APP
-        , IFileOpenPickerContinuable
+        , IFileOpenPickerContinuable, IHandle<StorageFile>
 #endif
     {
 
@@ -119,7 +120,12 @@ namespace ReGraph.ViewModels
 #endif
         }
 
-
+        public void CropButton_Clicked()
+        {
+            _NavigationService.Navigated += NavigationServiceOnNavigated;
+            _NavigationService.NavigateToViewModel<CropViewModel>(InputGraph);
+            _NavigationService.Navigated -= NavigationServiceOnNavigated;
+        }
 
         #endregion //EVENT HANDLERS
 
@@ -152,6 +158,17 @@ namespace ReGraph.ViewModels
             {
                 System.Diagnostics.Debug.WriteLine("ERROR: " + e.Message);
             }
+        }
+
+        private void NavigationServiceOnNavigated(object sender, NavigationEventArgs args)
+        {
+            FrameworkElement view;
+            CropViewModel cropViewModel;
+            if ((view = args.Content as FrameworkElement) == null ||
+                (cropViewModel = view.DataContext as CropViewModel) == null ||
+                 args.Parameter == null) return;
+
+            cropViewModel.SetGraphSource(args.Parameter as IGraphSpace);
         }
 
         #endregion //METHODS
@@ -200,10 +217,12 @@ namespace ReGraph.ViewModels
 
         #region EVENT AGGREGATOR IMPLEMENTATION
 
+#if WINDOWS_PHONE_APP
         async public void Handle(StorageFile message)
         {
             await HandleSelectedImageFileAsync(message);
         }
+#endif
 
         #endregion //EVENT AGGREGATOR IMPLEMENTATION
     }

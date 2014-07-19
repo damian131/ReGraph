@@ -22,8 +22,8 @@
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <AppBarButton Icon="OpenFile" Style="{StaticResource MainAppBarButtonStyle}" caliburn:Message.Attach="[Event Click] = [Action OpenButton_Clicked]" />
                     <AppBarButton Icon="Camera" Style="{StaticResource MainAppBarButtonStyle}" caliburn:Message.Attach="[Event Click] = [Action CameraButton_Clicked]"/>
-                    <!--<AppBarButton Icon="Accept" Style="{StaticResource MainAppBarButtonStyle}"/>
-                    <AppBarButton Icon="Accept" Style="{StaticResource MainAppBarButtonStyle}"/>-->
+                    <AppBarButton Icon="Crop" Style="{StaticResource MainAppBarButtonStyle}" caliburn:Message.Attach="[Event Click] = [Action CropButton_Clicked]" />
+                    <!--<AppBarButton Icon="Accept" Style="{StaticResource MainAppBarButtonStyle}"/>-->
                 </StackPanel>
                 <Image Grid.Column="1" Source="ms-appx:///Resources/Images/logo.png" RenderTransformOrigin="0.5,0.5">
                     <Image.RenderTransform>

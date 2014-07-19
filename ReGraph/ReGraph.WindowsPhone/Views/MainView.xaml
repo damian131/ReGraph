@@ -17,6 +17,7 @@
             <CommandBar.PrimaryCommands>
                 <AppBarButton Icon="OpenFile" Label="Open" caliburn:Message.Attach="[Event Click] = [Action OpenButton_Clicked]"/>
                 <AppBarButton Icon="Camera" Label="Camera" caliburn:Message.Attach="[Event Click] = [Action CameraButton_Clicked]"/>
+                <AppBarButton Icon="Crop" Label="Crop" caliburn:Message.Attach="[Event Click] = [Action CropButton_Clicked]" />
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

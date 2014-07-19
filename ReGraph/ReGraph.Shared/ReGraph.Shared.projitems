@@ -16,6 +16,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Common\CaptureElementSourceBinding.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Clip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\ContinuationManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Test.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\GraphDrawer.cs" />
@@ -25,10 +26,18 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\Point.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IGraphSpace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphSpace.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CropViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\CropView.xaml.cs">
+      <DependentUpon>CropView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Resources\Dictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\CropView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -37,6 +46,6 @@
     <Content Include="$(MSBuildThisFileDirectory)Resources\Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Common\Bahaviors\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Common\Behaviors\" />
   </ItemGroup>
 </Project>
