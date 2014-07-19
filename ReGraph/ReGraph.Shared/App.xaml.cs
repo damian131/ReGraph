@@ -13,6 +13,7 @@ namespace ReGraph
     public sealed partial class App
     {
         private WinRTContainer container;
+        private INavigationService navigationService;
 
 #if WINDOWS_PHONE_APP
         ContinuationManager continuationManager;
@@ -31,6 +32,7 @@ namespace ReGraph
 
             container.Singleton<MainViewModel>();
 
+            PrepareViewFirst();
         }
 
         protected override void PrepareViewFirst(Frame rootFrame)
@@ -40,7 +42,17 @@ namespace ReGraph
 
         protected override void OnLaunched(LaunchActivatedEventArgs args)
         {
-            DisplayRootView<MainView>();
+            Initialize();
+
+            var resumed = false;
+
+            if (args.PreviousExecutionState == ApplicationExecutionState.Terminated)
+            {
+                resumed = navigationService.ResumeState();
+            }
+
+            if (!resumed)
+                DisplayRootView<MainView>();
         }
 
         protected override object GetInstance(Type service, string key)
@@ -69,23 +81,11 @@ namespace ReGraph
 
             continuationManager = new ContinuationManager();
 
-            //Frame rootFrame = CreateRootFrame();
-            //await RestoreStatusAsync(e.PreviousExecutionState);
-
-            //if (rootFrame.Content == null)
-            //{
-            //    rootFrame.Navigate(typeof(MainPage));
-            //}
-
             var continuationEventArgs = e as IContinuationActivatedEventArgs;
             if (continuationEventArgs != null)
             {
-                //Frame scenarioFrame = MainPage.Current.FindName("ScenarioFrame") as Frame;
-                //if (scenarioFrame != null)
-                //{
-                    // Call ContinuationManager to handle continuation activation
-                    continuationManager.Continue(continuationEventArgs);
-                //}
+                 // Call ContinuationManager to handle continuation activation
+                 continuationManager.Continue(continuationEventArgs);
             }
 
             Window.Current.Activate();

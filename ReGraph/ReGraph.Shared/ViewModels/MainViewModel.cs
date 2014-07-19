@@ -20,16 +20,22 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace ReGraph.ViewModels
 {
-    public class MainViewModel : Screen 
+    public class MainViewModel : Screen
 #if WINDOWS_PHONE_APP
         , IFileOpenPickerContinuable
 #endif
     {
 
-        public MainViewModel()
+        private INavigationService _NavigationService;
+
+        public MainViewModel( INavigationService NavigationService )
         {
+            this._NavigationService = NavigationService;
+
             InputGraph = new GraphSpace();
         }
+
+        #region PROPERTIES
 
         private IGraphSpace _InputGraph;
         public IGraphSpace InputGraph
@@ -41,6 +47,10 @@ namespace ReGraph.ViewModels
                 NotifyOfPropertyChange(() => InputGraph);
             }
         }
+
+        #endregion //PROPERTIES
+
+        #region EVENT HANDLERS
 
         private const string SelectImageOperationName = "SelectImage";
         private const string SelectDestinationOperationName = "SelectDestination";
@@ -68,7 +78,7 @@ namespace ReGraph.ViewModels
             picker.ContinuationData["Operation"] = SelectImageOperationName;
             picker.PickSingleFileAndContinue();
 #else
-            
+
             Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
 
             if (file != null)
@@ -78,7 +88,78 @@ namespace ReGraph.ViewModels
 #endif
         }
 
-        
+
+        public async void CameraButton_Clicked()
+        {
+#if WINDOWS_APP
+            CameraCaptureUI dialog = new CameraCaptureUI();
+            Size aspectRatio = new Size(16, 9);
+            dialog.PhotoSettings.CroppedAspectRatio = aspectRatio;
+
+            StorageFile file = await dialog.CaptureFileAsync(CameraCaptureUIMode.Photo);
+#else
+            StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync(
+        "Photo.jpg", CreationCollisionOption.ReplaceExisting);
+#endif
+
+            if (file == null)
+                return;
+
+            Windows.Media.Capture.MediaCapture takePhotoManager = new Windows.Media.Capture.MediaCapture();
+            await takePhotoManager.InitializeAsync();
+
+            ImageEncodingProperties imgFormat = ImageEncodingProperties.CreateJpeg();
+
+            IRandomAccessStream stream = new InMemoryRandomAccessStream();
+
+            //await takePhotoManager.CapturePhotoToStreamAsync(imgFormat, stream);
+            await takePhotoManager.CapturePhotoToStorageFileAsync(imgFormat, file);
+
+            await HandleSelectedImageFileAsync(file);
+            //InputGraph.Image = await GetWritableBitmapFromStream(stream, file);
+
+
+        }
+
+
+
+        #endregion //EVENT HANDLERS
+
+        #region METHODS
+
+        private async Task<WriteableBitmap> GetWritableBitmapFromStream(IRandomAccessStream stream, StorageFile file)
+        {
+            var bitmap = new BitmapImage();
+            bitmap.SetSource(stream);
+
+            var wb = new WriteableBitmap(bitmap.PixelWidth, bitmap.PixelHeight);
+
+            using (IRandomAccessStream strm = await file.OpenReadAsync())
+            {
+                wb.SetSource(strm);
+            }
+
+            return wb;
+        }
+
+        private async Task HandleSelectedImageFileAsync(StorageFile file)
+        {
+            var fileStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+
+            try
+            {
+                InputGraph.Image = await GetWritableBitmapFromStream(fileStream, file);
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine("ERROR: " + e.Message);
+            }
+        }
+
+        #endregion //METHODS
+
+        #region CONTINUATION MANAGER IMPLEMENTATION
+
 #if WINDOWS_PHONE_APP
         public async void ContinueFileOpenPickerAsync(FileOpenPickerContinuationEventArgs args)
         {
@@ -110,92 +191,14 @@ namespace ReGraph.ViewModels
         //    //NotifySavedResult(success);
         //    //App.ContinuationManager.MarkAsStale();
         //}
-#endif
 
-
-        private async Task HandleSelectedImageFileAsync(StorageFile file)
-        {
-            var fileStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
-
-            try
-            {
-                var bitmap = new BitmapImage();
-
-                bitmap.SetSource(fileStream);
-
-                WriteableBitmap img1 = new WriteableBitmap(bitmap.PixelWidth, bitmap.PixelHeight);
-
-                using (IRandomAccessStream strm = await file.OpenReadAsync())
-                {
-                    img1.SetSource(strm);
-                }
-
-                //double scale = InputGraph.Width/bitmap.PixelWidth;
-
-                //int height = (int)(bitmap.PixelHeight * scale);
-                //if (height > InputGraph.Height)
-                //    height = (int)InputGraph.Height;
-
-                //img1 = img1.Resize((int)InputGraph.Width, height, WriteableBitmapExtensions.Interpolation.Bilinear);
-
-                //InputGraph.WorkspaceMargin = new Thickness(0, 0, 0, 0);
-
-                InputGraph.Image = img1;
-                //InputGraph.WorkspaceMargin = new Thickness(0, InputGraph.WorkspaceHeight / 2 - img1.PixelHeight/2, 0, 0);
-            }
-            catch (Exception e)
-            {
-                System.Diagnostics.Debug.WriteLine("ERROR: " + e.Message);
-            }
-        }
-
-#if WINDOWS_PHONE_APP
         public void ContinueFileOpenPicker(FileOpenPickerContinuationEventArgs args)
         {
             ContinueFileOpenPickerAsync(args);
         }
 #endif
 
-#if WINDOWS_APP
-        public async void CameraButton_Clicked()
-        {
-            CameraCaptureUI dialog = new CameraCaptureUI();
-            Size aspectRatio = new Size(16, 9);
-            dialog.PhotoSettings.CroppedAspectRatio = aspectRatio;
-            StorageFile file = await dialog.CaptureFileAsync(CameraCaptureUIMode.Photo);
-
-            if (file == null)
-                return;
-
-            Windows.Media.Capture.MediaCapture takePhotoManager = new Windows.Media.Capture.MediaCapture();
-            await takePhotoManager.InitializeAsync();
-
-            ImageEncodingProperties imgFormat = ImageEncodingProperties.CreateJpeg();
-
-            IRandomAccessStream stream = new InMemoryRandomAccessStream();
-
-            await takePhotoManager.CapturePhotoToStreamAsync(imgFormat, stream);
-
-            var bitmap = new BitmapImage();
-            bitmap.SetSource(stream);
-
-            var wb = new WriteableBitmap(bitmap.PixelWidth, bitmap.PixelHeight);
-
-            using (IRandomAccessStream strm = await file.OpenReadAsync())
-            {
-                wb.SetSource(strm);
-            }
-
-            double scale = InputGraph.Width / bitmap.PixelWidth;
-            wb = wb.Resize((int)InputGraph.Width, (int)(bitmap.PixelHeight * scale), WriteableBitmapExtensions.Interpolation.Bilinear);
-
-            //InputGraph.WorkspaceMargin = new Thickness(0, 0, 0, 0);
-
-            InputGraph.Image = wb;
-            //InputGraph.WorkspaceMargin = new Thickness(0, InputGraph.WorkspaceHeight / 2 - wb.PixelHeight / 2, 0, 0);
-        }
-
-#endif
+        #endregion //CONTINUATION MANAGER IMPLEMENTATION
 
     }
 }

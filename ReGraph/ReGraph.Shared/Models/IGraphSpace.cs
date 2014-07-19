@@ -12,21 +12,6 @@ using Windows.UI.Xaml.Media.Imaging;
 namespace ReGraph.Models
 {
     /// <summary>
-    /// Represents part of the workspace, which (will be calculated via Actual&Workspace sizes)
-    /// </summary>
-    public enum WorkspacePart
-    {
-        /// <summary>
-        /// Center of the image will be automatically calculated and applied i.e in ZoomToFactor functionality
-        /// </summary>
-        Center,
-        /// <summary>
-        /// Represents upper-left part of the image, which is equal to point (0, 0)
-        /// </summary>
-        UpperLeft
-    }
-
-    /// <summary>
     /// Workspace interface
     /// </summary>
     public interface IGraphSpace
