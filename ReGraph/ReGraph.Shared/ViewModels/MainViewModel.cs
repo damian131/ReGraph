@@ -97,10 +97,6 @@ namespace ReGraph.ViewModels
             dialog.PhotoSettings.CroppedAspectRatio = aspectRatio;
 
             StorageFile file = await dialog.CaptureFileAsync(CameraCaptureUIMode.Photo);
-#else
-            StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync(
-        "Photo.jpg", CreationCollisionOption.ReplaceExisting);
-#endif
 
             if (file == null)
                 return;
@@ -116,9 +112,9 @@ namespace ReGraph.ViewModels
             await takePhotoManager.CapturePhotoToStorageFileAsync(imgFormat, file);
 
             await HandleSelectedImageFileAsync(file);
-            //InputGraph.Image = await GetWritableBitmapFromStream(stream, file);
-
-
+#else
+            _NavigationService.NavigateToViewModel<CapturePreviewViewModel>();
+#endif
         }
 
 

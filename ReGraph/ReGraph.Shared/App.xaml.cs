@@ -32,6 +32,10 @@ namespace ReGraph
 
             container.Singleton<MainViewModel>();
 
+#if WINDOWS_PHONE_APP
+            container.PerRequest<CapturePreviewViewModel>();
+#endif
+
             PrepareViewFirst();
         }
 
