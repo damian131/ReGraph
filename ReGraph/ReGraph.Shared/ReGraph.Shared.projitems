@@ -28,16 +28,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphSpace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CropViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\CropView.xaml.cs">
-      <DependentUpon>CropView.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Resources\Dictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Views\CropView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

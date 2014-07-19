@@ -21,4 +21,18 @@
         <Setter Property="Foreground" Value="White" />
     </Style>
     
+    <Style x:Key="MainGridStyle" TargetType="Grid">
+        <Setter Property="Background" Value="#FF3A3A3A" />
+    </Style>
+    
+    <Style x:Key="MainAppBarGridStyle" TargetType="Grid">
+        <Setter Property="Background" Value="#FF7C8787" />
+    </Style>
+    
+    <Style x:Key="CropViewTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="60" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontFamily" Value="Segoe UI Symbol" />
+    </Style>
+    
 </ResourceDictionary>

@@ -22,7 +22,7 @@
         </CommandBar>
     </Page.BottomAppBar>
 
-    <Grid Background="#FF3A3A3A">
+    <Grid Style="{StaticResource MainGridStyle}">
         <Pivot Title="ReGraph">
             <PivotItem Header="Graph">
                 <Border BorderThickness="5" BorderBrush="#1ce8ea">
