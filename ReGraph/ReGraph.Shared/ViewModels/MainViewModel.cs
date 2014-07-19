@@ -20,7 +20,7 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace ReGraph.ViewModels
 {
-    public class MainViewModel : Screen
+    public class MainViewModel : Screen, IHandle<StorageFile>
 #if WINDOWS_PHONE_APP
         , IFileOpenPickerContinuable
 #endif
@@ -28,8 +28,10 @@ namespace ReGraph.ViewModels
 
         private INavigationService _NavigationService;
 
-        public MainViewModel( INavigationService NavigationService )
+        public MainViewModel( INavigationService NavigationService, IEventAggregator EventAggregator)
         {
+            EventAggregator.Subscribe(this);
+
             this._NavigationService = NavigationService;
 
             InputGraph = new GraphSpace();
@@ -105,8 +107,6 @@ namespace ReGraph.ViewModels
             await takePhotoManager.InitializeAsync();
 
             ImageEncodingProperties imgFormat = ImageEncodingProperties.CreateJpeg();
-
-            IRandomAccessStream stream = new InMemoryRandomAccessStream();
 
             //await takePhotoManager.CapturePhotoToStreamAsync(imgFormat, stream);
             await takePhotoManager.CapturePhotoToStorageFileAsync(imgFormat, file);
@@ -198,5 +198,13 @@ namespace ReGraph.ViewModels
 
         #endregion //CONTINUATION MANAGER IMPLEMENTATION
 
+        #region EVENT AGGREGATOR IMPLEMENTATION
+
+        async public void Handle(StorageFile message)
+        {
+            await HandleSelectedImageFileAsync(message);
+        }
+
+        #endregion //EVENT AGGREGATOR IMPLEMENTATION
     }
 }
