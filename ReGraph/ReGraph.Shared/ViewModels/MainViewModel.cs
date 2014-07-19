@@ -113,7 +113,9 @@ namespace ReGraph.ViewModels
 
             await HandleSelectedImageFileAsync(file);
 #else
+            
             _NavigationService.NavigateToViewModel<CapturePreviewViewModel>();
+            await Task.Delay(0);
 #endif
         }
 
