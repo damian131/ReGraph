@@ -16,7 +16,13 @@
         <CommandBar>
             <CommandBar.PrimaryCommands>
                 
-                <AppBarButton Icon="MapPin" Label="Scale" />
+                <AppBarButton Icon="MapPin" Label="Scale" >
+                        <AppBarButton.Flyout>
+                            <Flyout  Placement="Top"  >
+                                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                            </Flyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
                 <AppBarButton Icon="FourBars" Label="Regraph"  />
                 <AppBarButton Icon="FontColor" Label="Axis" />
                 <AppBarButton Icon="AllApps" Label="Extras"  />
