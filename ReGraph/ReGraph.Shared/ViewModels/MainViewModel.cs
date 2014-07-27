@@ -127,6 +127,11 @@ namespace ReGraph.ViewModels
             _NavigationService.Navigated -= NavigationServiceOnNavigated;
         }
 
+        public void test()
+        {
+
+        }
+
         #endregion //EVENT HANDLERS
 
         #region METHODS
@@ -170,6 +175,7 @@ namespace ReGraph.ViewModels
 
             cropViewModel.SetGraphSource(args.Parameter as IGraphSpace);
         }
+        
 
         #endregion //METHODS
 

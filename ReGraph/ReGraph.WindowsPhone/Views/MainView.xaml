@@ -15,10 +15,18 @@
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
-                <AppBarButton Icon="OpenFile" Label="Open" caliburn:Message.Attach="[Event Click] = [Action OpenButton_Clicked]"/>
-                <AppBarButton Icon="Camera" Label="Camera" caliburn:Message.Attach="[Event Click] = [Action CameraButton_Clicked]"/>
-                <AppBarButton Icon="Crop" Label="Crop" caliburn:Message.Attach="[Event Click] = [Action CropButton_Clicked]" />
+                
+                <AppBarButton Icon="MapPin" Label="Scale" />
+                <AppBarButton Icon="FourBars" Label="Regraph"  />
+                <AppBarButton Icon="FontColor" Label="Axis" />
+                <AppBarButton Icon="AllApps" Label="Extras"  />
+                
             </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="OpenFile" Label="Open" caliburn:Message.Attach="[Event Click] = [Action OpenButton_Clicked]"/>
+                <AppBarButton Icon="Camera" Label="From camera"  />
+                <AppBarButton Icon="Save" Label="Save"  />
+            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
 

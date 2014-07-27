@@ -17,16 +17,19 @@
             <Grid Margin="0" Style="{StaticResource MainAppBarGridStyle}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
-                    <ColumnDefinition Width ="200" />
+                    <ColumnDefinition Width ="180" />
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <AppBarButton Icon="OpenFile" Style="{StaticResource MainAppBarButtonStyle}" caliburn:Message.Attach="[Event Click] = [Action OpenButton_Clicked]" />
-                    <AppBarButton Icon="Camera" Style="{StaticResource MainAppBarButtonStyle}" caliburn:Message.Attach="[Event Click] = [Action CameraButton_Clicked]"/>
-                    <AppBarButton Icon="Crop" Style="{StaticResource MainAppBarButtonStyle}" caliburn:Message.Attach="[Event Click] = [Action CropButton_Clicked]"/>
+                    <AppBarButton Icon="MapPin" Style="{StaticResource MainAppBarButtonStyle}" />
+                    <AppBarButton Icon="FourBars" Style="{StaticResource MainAppBarButtonStyle}" />
+                    <AppBarButton Icon="FontColor" Style="{StaticResource MainAppBarButtonStyle}"  />
+                    <AppBarButton Icon="AllApps" Style="{StaticResource MainAppBarButtonStyle}" />
+                    <AppBarButton Icon="Save" Style="{StaticResource MainAppBarButtonStyle}" />
                 </StackPanel>
-                <Image Grid.Column="1" Source="ms-appx:///Resources/Images/logo.png" RenderTransformOrigin="0.5,0.5">
+                <Image Grid.Column="1" Source="ms-appx:///Resources/Images/logo.png" RenderTransformOrigin="0.5,0.5" >
                     <Image.RenderTransform>
-                        <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
+                        <CompositeTransform ScaleX="0.9" ScaleY="0.9"/>
                     </Image.RenderTransform>
                 </Image>
             </Grid>
@@ -41,7 +44,7 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="0" BorderThickness="5" BorderBrush="#1ce8ea">
-            <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" /> <!--Width="{Binding Path=InputGraph.Width, Mode=OneTime}" Height="{Binding Path=InputGraph.Height, Mode=OneTime}"-->
+            <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" caliburn:Message.Attach="[Event PointerPressed] = [Action test]"/>
         </Border>
 
         <Border Grid.Column="1" BorderThickness="5" BorderBrush="#f90164">
