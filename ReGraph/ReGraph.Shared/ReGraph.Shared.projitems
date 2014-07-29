@@ -26,6 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\Point.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IGraphSpace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphSpace.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseSettingsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CropViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NewImageViewModel.cs" />

@@ -30,7 +30,7 @@
                     <AppBarButton Icon="MapPin" Style="{StaticResource MainAppBarButtonStyle}" >
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
-								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding BaseSettingsVM}"/>
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>

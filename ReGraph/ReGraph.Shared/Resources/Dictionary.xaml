@@ -67,5 +67,21 @@
             </Setter.Value>
         </Setter>
     </Style>
+	
+	<Style x:Key="FlyoutTextBlockDescriptionStyle" TargetType="TextBlock">
+		<Setter Property="HorizontalAlignment" Value="Center"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="FontSize" Value="18"/>
+		<Setter Property="TextWrapping" Value="Wrap"/>
+	</Style>
+
+	<Style x:Key="FlyoutTextBlockStyle" TargetType="TextBlock">
+		<Setter Property="HorizontalAlignment" Value="Center"/>
+		<Setter Property="VerticalAlignment" Value="Center"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="FontSize" Value="35"/>
+		<Setter Property="TextWrapping" Value="Wrap"/>
+	</Style>
 
 </ResourceDictionary>

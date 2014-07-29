@@ -35,6 +35,7 @@ namespace ReGraph.ViewModels
             InputGraph = new GraphSpace();
 
 			NewImageVM = new NewImageViewModel(EventAggregator, _NavigationService);
+			BaseSettingsVM = new BaseSettingsViewModel(EventAggregator, _NavigationService);
         }
 
         #region PROPERTIES
@@ -51,6 +52,7 @@ namespace ReGraph.ViewModels
         }
 
 		public NewImageViewModel NewImageVM { get; set; }
+		public BaseSettingsViewModel BaseSettingsVM { get; set; }
 
         #endregion //PROPERTIES
 
@@ -68,7 +70,6 @@ namespace ReGraph.ViewModels
 
 		}
 
-        
 
         public void CropButton_Clicked()
         {

@@ -19,7 +19,7 @@
                 <AppBarButton Icon="MapPin" Label="Scale" >
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Top"  >
-                                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding BaseSettingsVM}"/>
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>

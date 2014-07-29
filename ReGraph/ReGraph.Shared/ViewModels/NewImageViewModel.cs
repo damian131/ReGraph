@@ -30,7 +30,7 @@ namespace ReGraph.ViewModels
 		private readonly string SelectDestinationOperationName = "SelectDestination";
 		private readonly string[] _supportedImageFilePostfixes = { ".jpg", ".jpeg", ".png" };
 
-		public async void FromFileButton_Clicked()
+		public async void FromFileButton_Clicked() // TODO: correct file open in WP
 		{
 
 			var picker = new FileOpenPicker

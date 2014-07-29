@@ -32,7 +32,8 @@ namespace ReGraph
 
             container.Singleton<MainViewModel>()
                      .PerRequest<CropViewModel>()
-					 .PerRequest<NewImageViewModel>();
+					 .PerRequest<NewImageViewModel>()
+					 .PerRequest<BaseSettingsViewModel>();
 
 #if WINDOWS_PHONE_APP
             container.PerRequest<CapturePreviewViewModel>();
