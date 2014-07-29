@@ -1,0 +1,21 @@
+﻿<UserControl
+    x:Class="ReGraph.Views.NewImageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ReGraph.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+	xmlns:caliburn="using:Caliburn.Micro"
+	Width="200"
+	Height="150">
+
+	<Grid Style="{StaticResource MainAppBarGridStyle}">
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Button Content="From file" caliburn:Message.Attach="[Event Click] = [Action FromFileButton_Clicked]" FontSize="40" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+		<Button Grid.Row="1" caliburn:Message.Attach="[Event Click] = [Action CameraButton_Clicked]" Content="Camera" FontSize="40" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+    </Grid>
+</UserControl>

@@ -29,9 +29,8 @@
                 
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <AppBarButton Icon="OpenFile" Label="Open" caliburn:Message.Attach="[Event Click] = [Action OpenButton_Clicked]"/>
-                <AppBarButton Icon="Camera" Label="From camera"  />
-                <AppBarButton Icon="Save" Label="Save"  />
+                <AppBarButton Icon="OpenFile" Label="Open file" caliburn:Message.Attach="[Event Click] = [Action FromFileButton_Clicked]"/>
+                <AppBarButton Icon="Save" Label="Save" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

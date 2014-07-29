@@ -20,18 +20,17 @@
                     <ColumnDefinition Width ="180" />
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <!--TODO: separate view models with appropariate caliburn bindings-->
                     <AppBarButton Icon="OpenFile" Style="{StaticResource MainAppBarButtonStyle}" >
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" >
-                                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding NewImageVM}" />
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
                     <AppBarButton Icon="MapPin" Style="{StaticResource MainAppBarButtonStyle}" >
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
-                                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
