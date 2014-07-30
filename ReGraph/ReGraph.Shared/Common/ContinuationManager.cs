@@ -28,7 +28,7 @@ public class ContinuationManager
     internal void Continue(IContinuationActivatedEventArgs args)
     {
         //Continue(args, Window.Current.Content as Frame);
-        Continue(args, IoC.Get<MainViewModel>());
+        Continue(args, IoC.Get<NewImageViewModel>());
     }
 
     /// <summary>
