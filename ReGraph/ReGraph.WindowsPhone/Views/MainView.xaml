@@ -37,9 +37,15 @@
 						</Flyout>
 					</AppBarButton.Flyout>
 				</AppBarButton>
-				<AppBarButton Icon="AllApps" Label="Extras"  />
-                
-            </CommandBar.PrimaryCommands>
+				<AppBarButton Icon="AllApps" Label="Extras"  >
+					<AppBarButton.Flyout>
+						<Flyout  Placement="Top"  >
+							<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding ExtrasSettingsVM}"/>
+						</Flyout>
+					</AppBarButton.Flyout>
+				</AppBarButton>
+
+			</CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
                 <AppBarButton Icon="OpenFile" Label="Open file" caliburn:Message.Attach="[Event Click] = [Action FromFileButton_Clicked]"/>
                 <AppBarButton Icon="Save" Label="Save" />

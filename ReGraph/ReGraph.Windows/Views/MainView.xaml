@@ -50,7 +50,7 @@
                     </AppBarButton>
                     <AppBarButton Icon="AllApps" Style="{StaticResource MainAppBarButtonStyle}" >
                         <AppBarButton.Flyout>
-                            <Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" >
+							<Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" caliburn:View.Model="{Binding ExtrasSettingsVM}">
                                 <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                             </Flyout>
                         </AppBarButton.Flyout>

@@ -35,7 +35,8 @@ namespace ReGraph
 					 .PerRequest<NewImageViewModel>()
 					 .PerRequest<BaseSettingsViewModel>()
 					 .PerRequest<ReGraphModeViewModel>()
-					 .PerRequest<AxisSettingsViewModel>();
+					 .PerRequest<AxisSettingsViewModel>()
+					 .PerRequest<ExtrasSettingsViewModel>();
 
 #if WINDOWS_PHONE_APP
             container.PerRequest<CapturePreviewViewModel>();
