@@ -30,8 +30,14 @@
 						</Flyout>
 					</AppBarButton.Flyout>
 				</AppBarButton>
-				<AppBarButton Icon="FontColor" Label="Axis" />
-                <AppBarButton Icon="AllApps" Label="Extras"  />
+				<AppBarButton Icon="FontColor" Label="Axis" >
+					<AppBarButton.Flyout>
+						<Flyout  Placement="Top"  >
+							<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding AxisSettingsVM}"/>
+						</Flyout>
+					</AppBarButton.Flyout>
+				</AppBarButton>
+				<AppBarButton Icon="AllApps" Label="Extras"  />
                 
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>

@@ -37,6 +37,7 @@ namespace ReGraph.ViewModels
 			NewImageVM = new NewImageViewModel(EventAggregator, _NavigationService);
 			BaseSettingsVM = new BaseSettingsViewModel(EventAggregator, _NavigationService);
 			ReGraphVM = new ReGraphModeViewModel(EventAggregator, _NavigationService);
+			AxisSettingsVM = new AxisSettingsViewModel(EventAggregator, _NavigationService);
         }
 
         #region PROPERTIES
@@ -52,9 +53,10 @@ namespace ReGraph.ViewModels
             }
         }
 
-		public NewImageViewModel NewImageVM { get; set; }
-		public BaseSettingsViewModel BaseSettingsVM { get; set; }
-		public ReGraphModeViewModel ReGraphVM { get; set; }
+		public NewImageViewModel NewImageVM { get; private set; }
+		public BaseSettingsViewModel BaseSettingsVM { get; private set; }
+		public ReGraphModeViewModel ReGraphVM { get; private set; }
+		public AxisSettingsViewModel AxisSettingsVM { get; private set; }
 
         #endregion //PROPERTIES
 

@@ -81,6 +81,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ViewModels\CapturePreviewViewModel.cs" />
+    <Compile Include="Views\AxisSettingsView.xaml.cs">
+      <DependentUpon>AxisSettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BaseSettingsView.xaml.cs">
       <DependentUpon>BaseSettingsView.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
     <Content Include="Assets\WideLogo.scale-240.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\AxisSettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\BaseSettingsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

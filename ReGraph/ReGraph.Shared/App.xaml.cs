@@ -30,11 +30,12 @@ namespace ReGraph
 
             container.RegisterWinRTServices();
 
-            container.Singleton<MainViewModel>()
-                     .PerRequest<CropViewModel>()
+			container.Singleton<MainViewModel>()
+					 .PerRequest<CropViewModel>()
 					 .PerRequest<NewImageViewModel>()
 					 .PerRequest<BaseSettingsViewModel>()
-					 .PerRequest<ReGraphModeViewModel>();
+					 .PerRequest<ReGraphModeViewModel>()
+					 .PerRequest<AxisSettingsViewModel>();
 
 #if WINDOWS_PHONE_APP
             container.PerRequest<CapturePreviewViewModel>();
