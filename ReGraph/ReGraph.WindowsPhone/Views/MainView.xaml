@@ -23,8 +23,14 @@
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                <AppBarButton Icon="FourBars" Label="Regraph"  />
-                <AppBarButton Icon="FontColor" Label="Axis" />
+				<AppBarButton Icon="FourBars" Label="Regraph" >
+					<AppBarButton.Flyout>
+						<Flyout  Placement="Top"  >
+							<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding ReGraphVM}"/>
+						</Flyout>
+					</AppBarButton.Flyout>
+				</AppBarButton>
+				<AppBarButton Icon="FontColor" Label="Axis" />
                 <AppBarButton Icon="AllApps" Label="Extras"  />
                 
             </CommandBar.PrimaryCommands>

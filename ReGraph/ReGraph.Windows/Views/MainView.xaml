@@ -37,7 +37,7 @@
                     <AppBarButton Icon="FourBars" Style="{StaticResource MainAppBarButtonStyle}" >
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
-                                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding ReGraphVM}"/>
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>

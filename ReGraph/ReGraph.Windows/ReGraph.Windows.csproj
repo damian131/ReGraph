@@ -116,6 +116,9 @@
     <Compile Include="Views\NewImageView.xaml.cs">
       <DependentUpon>NewImageView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReGraphModeView.xaml.cs">
+      <DependentUpon>ReGraphModeView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -144,6 +147,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\NewImageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReGraphModeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

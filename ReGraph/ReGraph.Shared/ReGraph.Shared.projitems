@@ -30,6 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CropViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NewImageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ReGraphModeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Resources\Dictionary.xaml">
