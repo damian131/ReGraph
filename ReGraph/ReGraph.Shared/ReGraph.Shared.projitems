@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\CaptureElementSourceBinding.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Clip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\ContinuationManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Test.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\GraphDrawer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\GraphFileReader.cs" />
@@ -28,7 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphSpace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AxisSettingsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseSettingsViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CropViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\OCRViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ExtrasSettingsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NewImageViewModel.cs" />

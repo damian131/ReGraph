@@ -19,7 +19,7 @@
 			<RowDefinition Height="4"/>
 		</Grid.RowDefinitions>
 
-		<TextBlock Text="Set axis name using OCR and correct if necessary." Style="{StaticResource FlyoutTextBlockDescriptionStyle}" VerticalAlignment="Center"/>
+		<TextBlock Text="Set axis name using OCR and correct if necessary." Style="{StaticResource FlyoutTextBlockDescriptionPhoneStyle}" VerticalAlignment="Center"/>
 		<Grid Grid.Row="2">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>

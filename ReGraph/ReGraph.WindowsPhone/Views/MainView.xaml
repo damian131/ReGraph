@@ -55,13 +55,13 @@
 
     <Grid Style="{StaticResource MainGridStyle}">
         <Pivot Title="ReGraph">
-            <PivotItem Header="Graph">
+            <PivotItem Header="graph">
                 <Border BorderThickness="5" BorderBrush="#1ce8ea">
-                    
-                        <Image x:Name="image" Source="{Binding Path=InputGraph.Image}"/>
+
+					<Image x:Name="image" Source="{Binding Path=InputGraph.Image}" caliburn:Message.Attach="[Event PointerPressed] = [Action GraphImage_PointerPressed($eventArgs)]"/>
                 </Border>
             </PivotItem>
-            <PivotItem Header="ReGraph" >
+            <PivotItem Header="regraph" >
                 <Border BorderThickness="5" BorderBrush="#f90164">
                     <Charting:Chart x:Name="Graph">
                         

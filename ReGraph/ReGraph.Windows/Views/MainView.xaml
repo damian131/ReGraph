@@ -74,7 +74,7 @@
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="0" BorderThickness="5" BorderBrush="#1ce8ea">
-            <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" caliburn:Message.Attach="[Event PointerPressed] = [Action test]"/>
+            <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" caliburn:Message.Attach="[Event PointerPressed] = [Action GraphImage_PointerPressed($eventArgs)]"/>
         </Border>
 
         <Border Grid.Column="1" BorderThickness="5" BorderBrush="#f90164">

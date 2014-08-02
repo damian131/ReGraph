@@ -90,8 +90,8 @@
     <Compile Include="Views\CapturePreviewView.xaml.cs">
       <DependentUpon>CapturePreviewView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CropView.xaml.cs">
-      <DependentUpon>CropView.xaml</DependentUpon>
+    <Compile Include="Views\OCRView.xaml.cs">
+      <DependentUpon>OCRView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ExtrasSettingsView.xaml.cs">
       <DependentUpon>ExtrasSettingsView.xaml</DependentUpon>
@@ -130,7 +130,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CropView.xaml">
+    <Page Include="Views\OCRView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

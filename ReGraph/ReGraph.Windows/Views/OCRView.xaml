@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="ReGraph.Views.CropView"
+    x:Class="ReGraph.Views.OCRView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ReGraph.Views"
@@ -45,14 +45,14 @@
 				<StackPanel  Orientation="Horizontal">
 					<TextBlock x:Name="pageTitle" Text="OCR" Style="{StaticResource CropViewTextBlockStyle}" IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
 					<AppBarSeparator VerticalAlignment="Center" />
-					<AppBarButton x:Name="Crop" Label="Crop" VerticalAlignment="Center" Margin="0,10,0,0" Icon="Crop">
+					<AppBarButton x:Name="Crop" Label="Crop" VerticalAlignment="Center" Margin="0,10,0,0" Icon="Crop" IsEnabled="{Binding IsCropEnabled}" caliburn:Message.Attach="[Event Click] = [Action CropButton_Clicked]">
 						<SymbolIcon Symbol="Accept" RenderTransformOrigin="0.5,0.5" >
 							<SymbolIcon.RenderTransform>
 								<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
 							</SymbolIcon.RenderTransform>
 						</SymbolIcon>
 					</AppBarButton>
-					<AppBarButton x:Name="Ocr" Label="Recognize" VerticalAlignment="Center" Margin="0,10,0,0" Icon="FontSize">
+					<AppBarButton x:Name="Ocr" Label="Recognize" VerticalAlignment="Center" Margin="0,10,0,0" Icon="FontSize" IsEnabled="{Binding IsRecognizeEnabled}" caliburn:Message.Attach="[Event Click] = [Action RecognizeButton_Clicked]">
 						<SymbolIcon Symbol="Accept" RenderTransformOrigin="0.5,0.5" >
 							<SymbolIcon.RenderTransform>
 								<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
@@ -70,9 +70,9 @@
 
 		<Border Grid.Row="1" Margin="30,0,30,30" >
 			<Canvas caliburn:Message.Attach="[Event SizeChanged] = [Action CanvasSizeChanged($eventArgs)]" Common:Clip.ToBounds="True" >
-				<Image Canvas.Left="{Binding ImageLeft}" Canvas.Top="{Binding ImageTop}" Width="{Binding ImageWidth}" Height="{Binding ImageHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding Path=Workspace.Image}" Stretch="Uniform" />
+				<Image Canvas.Left="{Binding ImageLeft}" Canvas.Top="{Binding ImageTop}" Width="{Binding ImageWidth}" Height="{Binding ImageHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding Path=CroppedImage}" Stretch="Uniform" />
 
-				<Grid  Width="{Binding RectWidth}" Height="{Binding RectHeight}" Canvas.Top="{Binding RectTop}" Canvas.Left="{Binding RectLeft}" RenderTransformOrigin="0.5,0.5">
+				<Grid   Width="{Binding RectWidth}" Height="{Binding RectHeight}" Canvas.Top="{Binding RectTop}" Canvas.Left="{Binding RectLeft}" Visibility="{Binding SelectedAreaVisibility, Converter={StaticResource BooleanToVisibilityConverter}}" RenderTransformOrigin="0.5,0.5">
 					<Rectangle   ManipulationMode="All" caliburn:Message.Attach="[Event ManipulationStarted] = [Action ManipulationStarted($eventArgs)];[Event ManipulationCompleted] = [Action ManipulationCompleted($eventArgs)];[Event ManipulationDelta] = [Action ManipulationDelta($eventArgs)]" StrokeThickness="1"  Fill="#332F7A7A" Stroke="#7F102F74" />
 
 					<Rectangle Fill="#335164B6" Stroke="#661B325B" StrokeThickness="1" ManipulationMode="All" caliburn:Message.Attach="[Event ManipulationDelta] = [Action TopLeftManipulationDelta($eventArgs)];[Event ManipulationStarted] = [Action ManipulationStarted($eventArgs)];[Event ManipulationCompleted] = [Action ManipulationCompleted($eventArgs)]" HorizontalAlignment="Left" Height="11" VerticalAlignment="Top" Width="11"/>

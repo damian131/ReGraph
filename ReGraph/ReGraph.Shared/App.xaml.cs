@@ -31,7 +31,7 @@ namespace ReGraph
             container.RegisterWinRTServices();
 
 			container.Singleton<MainViewModel>()
-					 .PerRequest<CropViewModel>()
+					 .PerRequest<OCRViewModel>()
 					 .PerRequest<NewImageViewModel>()
 					 .PerRequest<BaseSettingsViewModel>()
 					 .PerRequest<ReGraphModeViewModel>()

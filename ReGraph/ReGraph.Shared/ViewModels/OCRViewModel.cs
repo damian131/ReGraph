@@ -12,12 +12,13 @@ using Windows.UI.Xaml.Media.Imaging;
 using WinRTXamlToolkit.Imaging;
 using WinRTXamlToolkit.Controls.Extensions;
 using Windows.Foundation;
+using Windows.UI.Xaml;
 namespace ReGraph.ViewModels
 {
     /// <summary>
-    /// The CropViewModel associated with CropView.
+    /// The OCRViewModel associated with CropView.
     /// </summary>
-    public class CropViewModel : Screen
+    public class OCRViewModel : Screen
     {
         /// <summary>
         /// Gets or sets the navigation service.
@@ -31,7 +32,7 @@ namespace ReGraph.ViewModels
         /// </summary>
         /// <param name="navigationService">The navigation service.</param>
         /// <param name="workspace">The workspace.</param>
-        public CropViewModel(INavigationService navigationService)
+        public OCRViewModel(INavigationService navigationService)
         {
             this.NavigationService = navigationService;
         }
@@ -39,7 +40,7 @@ namespace ReGraph.ViewModels
         /// <summary>
         /// Applies the crop operation.
         /// </summary>
-        public void Apply()
+        public void CropButton_Clicked()
         {
 
             //Workspace.Image = Windows.UI.Xaml.Media.Imaging.WriteableBitmapExtensions.Crop(Workspace.Image, (int)(ZoomFactor * (RectLeft - ImageLeft)), (int)(ZoomFactor * (RectTop - ImageTop)), (int)(ZoomFactor * RectWidth), (int)(ZoomFactor * RectHeight));
@@ -55,13 +56,22 @@ namespace ReGraph.ViewModels
             double h = RectHeight;
             h *= 1.0 / ZoomFactor;
 
-            Workspace.Image = Windows.UI.Xaml.Media.Imaging.WriteableBitmapExtensions.Crop(Workspace.Image, (int)x, (int)y, (int)w, (int)h);
+            CroppedImage = Windows.UI.Xaml.Media.Imaging.WriteableBitmapExtensions.Crop(Workspace.Image, (int)x, (int)y, (int)w, (int)h);
             //Workspace.UpdateActualSize(Workspace.Image.PixelWidth, Workspace.Image.PixelHeight);
             //Workspace.Zoom(1.0, WorkspacePart.Center);
             //Workspace.RefreshUI();
 
-            NavigationService.GoBack();
+			SelectedAreaVisibility = false;
+			IsCropEnabled = false;
+			IsRecognizeEnabled = true;
+
+            //NavigationService.GoBack();
         }
+
+		public void RecognizeButton_Clicked()
+		{
+
+		}
 
         /// <summary>
         /// The manipulation started event handler.
@@ -92,6 +102,16 @@ namespace ReGraph.ViewModels
             e.Handled = true;
         }
 
+		private bool _SelectedAreaVisibility = true;
+		public bool SelectedAreaVisibility
+		{
+			get { return _SelectedAreaVisibility; }
+			set
+			{
+				_SelectedAreaVisibility = value;
+				NotifyOfPropertyChange(() => SelectedAreaVisibility);
+			}
+		}
 
         /// <summary>
         /// The manipulation completed event handler.
@@ -277,6 +297,38 @@ namespace ReGraph.ViewModels
             }
         }
 
+		private WriteableBitmap _CroppedImage;
+		public WriteableBitmap CroppedImage
+		{
+			get { return _CroppedImage; }
+			set
+			{
+				_CroppedImage = value;
+				NotifyOfPropertyChange(() => CroppedImage);
+			}
+		}
+
+		private bool _IsCropEnabled = true;
+		public bool IsCropEnabled
+		{
+			get { return _IsCropEnabled; }
+			set
+			{
+				_IsCropEnabled = value;
+				NotifyOfPropertyChange(() => IsCropEnabled);
+			}
+		}
+
+		private bool _IsRecognizeEnabled = false;
+		public bool IsRecognizeEnabled
+		{
+			get { return _IsRecognizeEnabled; }
+			set
+			{
+				_IsRecognizeEnabled = value;
+				NotifyOfPropertyChange(() => IsRecognizeEnabled);
+			}
+		}
 
         /// <summary>
         /// Gets or sets the zoom factor.
@@ -469,6 +521,7 @@ namespace ReGraph.ViewModels
         public void SetGraphSource( IGraphSpace graphSpace )
         {
             this.Workspace = graphSpace;
+			this.CroppedImage = Workspace.Image.Copy();
         }
 
         //public Rect Rect1

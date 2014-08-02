@@ -16,7 +16,7 @@ namespace ReGraph.ViewModels
 			this._NavigationService = navigationService;
 		}
 
-		private string _XAxisName;
+		private string _XAxisName = String.Empty;
 		public string XAxisName
 		{
 			get { return _XAxisName; }
@@ -27,7 +27,7 @@ namespace ReGraph.ViewModels
 			}
 		}
 
-		private string _YAxisName;
+		private string _YAxisName  = String.Empty;
 		public string YAxisName
 		{
 			get { return _YAxisName; }
@@ -41,12 +41,12 @@ namespace ReGraph.ViewModels
 
 		public void XOCRButton_Clicked()
 		{
-
+			_EventAggregator.PublishOnCurrentThread(XAxisName);
 		}
 
 		public void YOCRButton_Clicked()
 		{
-
+			_EventAggregator.PublishOnCurrentThread(YAxisName);
 		}
     }
 }

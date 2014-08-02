@@ -16,12 +16,13 @@ using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 namespace ReGraph.ViewModels
 {
-	public class MainViewModel : Screen, IHandle<StorageFile>
+	public class MainViewModel : Screen, IHandle<StorageFile>, IHandle<String>
     {
 
         private INavigationService _NavigationService;
@@ -71,18 +72,10 @@ namespace ReGraph.ViewModels
 		}
 #endif
 
-		public void test()
+		public void GraphImage_PointerPressed(PointerRoutedEventArgs args)
 		{
 
 		}
-
-
-        public void CropButton_Clicked()
-        {
-            _NavigationService.Navigated += NavigationServiceOnNavigated;
-            _NavigationService.NavigateToViewModel<CropViewModel>(InputGraph);
-            _NavigationService.Navigated -= NavigationServiceOnNavigated;
-        }
 
         #endregion //EVENT HANDLERS
 
@@ -118,9 +111,9 @@ namespace ReGraph.ViewModels
         private void NavigationServiceOnNavigated(object sender, NavigationEventArgs args)
         {
             FrameworkElement view;
-            CropViewModel cropViewModel;
+            OCRViewModel cropViewModel;
             if ((view = args.Content as FrameworkElement) == null ||
-                (cropViewModel = view.DataContext as CropViewModel) == null ||
+                (cropViewModel = view.DataContext as OCRViewModel) == null ||
                  args.Parameter == null) return;
 
             cropViewModel.SetGraphSource(args.Parameter as IGraphSpace);
@@ -133,6 +126,13 @@ namespace ReGraph.ViewModels
         {
             await HandleSelectedImageFileAsync(message);
         }
+
+		public void Handle(String recognizedText)
+		{
+			_NavigationService.Navigated += NavigationServiceOnNavigated;
+			_NavigationService.NavigateToViewModel<OCRViewModel>(InputGraph);
+			_NavigationService.Navigated -= NavigationServiceOnNavigated;
+		}
 
 		#endregion //EVENT AGGREGATOR IMPLEMENTATION
     }
