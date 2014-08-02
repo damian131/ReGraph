@@ -38,5 +38,16 @@ namespace ReGraph.ViewModels
 			}
 		}
 
+		private bool _IsEnabled = false;
+		public bool IsEnabled
+		{
+			get { return _IsEnabled; }
+			set
+			{
+				_IsEnabled = value;
+				NotifyOfPropertyChange(() => IsEnabled);
+			}
+		}
+
     }
 }

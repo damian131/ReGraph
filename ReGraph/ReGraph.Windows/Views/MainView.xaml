@@ -20,42 +20,42 @@
                     <ColumnDefinition Width ="180" />
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <AppBarButton Icon="OpenFile" Style="{StaticResource MainAppBarButtonStyle}" >
+					<AppBarButton Icon="OpenFile" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding NewImageVM.IsEnabled}">
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" >
                                 <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding NewImageVM}" />
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton Icon="MapPin" Style="{StaticResource MainAppBarButtonStyle}" >
+					<AppBarButton Icon="MapPin" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding BaseSettingsVM.IsEnabled}">
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
 								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding BaseSettingsVM}"/>
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton Icon="FourBars" Style="{StaticResource MainAppBarButtonStyle}" >
+					<AppBarButton Icon="FourBars" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding ReGraphVM.IsEnabled}">
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
 								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding ReGraphVM}"/>
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton Icon="FontColor" Style="{StaticResource MainAppBarButtonStyle}"  >
+					<AppBarButton Icon="FontColor" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding AxisSettingsVM.IsEnabled}" >
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
 								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding AxisSettingsVM}"/> 
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton Icon="AllApps" Style="{StaticResource MainAppBarButtonStyle}" >
+					<AppBarButton Icon="AllApps" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding ExtrasSettingsVM.IsEnabled}" >
                         <AppBarButton.Flyout>
 							<Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" caliburn:View.Model="{Binding ExtrasSettingsVM}">
                                 <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton Icon="Save" Style="{StaticResource MainAppBarButtonStyle}" />
+					<AppBarButton Icon="Save" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding IsSaveEnabled}" caliburn:Message.Attach="[Event Click] = [Action SaveFileButton_Clicked]"/>
                 </StackPanel>
                 <Image Grid.Column="1" Source="ms-appx:///Resources/Images/logo.png" RenderTransformOrigin="0.5,0.5" >
                     <Image.RenderTransform>

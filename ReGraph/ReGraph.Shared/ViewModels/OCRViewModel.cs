@@ -64,8 +64,6 @@ namespace ReGraph.ViewModels
 			SelectedAreaVisibility = false;
 			IsCropEnabled = false;
 			IsRecognizeEnabled = true;
-
-            //NavigationService.GoBack();
         }
 
 		public void RecognizeButton_Clicked()

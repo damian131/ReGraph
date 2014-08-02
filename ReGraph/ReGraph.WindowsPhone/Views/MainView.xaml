@@ -15,29 +15,29 @@
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
-                
-                <AppBarButton Icon="MapPin" Label="Scale" >
+
+				<AppBarButton Icon="MapPin" Label="Scale" IsEnabled="{Binding BaseSettingsVM.IsEnabled}">
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Top"  >
                                 <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding BaseSettingsVM}"/>
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-				<AppBarButton Icon="FourBars" Label="Regraph" >
+				<AppBarButton Icon="FourBars" Label="Regraph" IsEnabled="{Binding ReGraphVM.IsEnabled}">
 					<AppBarButton.Flyout>
 						<Flyout  Placement="Top"  >
 							<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding ReGraphVM}"/>
 						</Flyout>
 					</AppBarButton.Flyout>
 				</AppBarButton>
-				<AppBarButton Icon="FontColor" Label="Axis" >
+				<AppBarButton Icon="FontColor" Label="Axis" IsEnabled="{Binding AxisSettingsVM.IsEnabled}">
 					<AppBarButton.Flyout>
 						<Flyout  Placement="Top"  >
 							<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding AxisSettingsVM}"/>
 						</Flyout>
 					</AppBarButton.Flyout>
 				</AppBarButton>
-				<AppBarButton Icon="AllApps" Label="Extras"  >
+				<AppBarButton Icon="AllApps" Label="Extras" IsEnabled="{Binding ExtrasSettingsVM.IsEnabled}" >
 					<AppBarButton.Flyout>
 						<Flyout  Placement="Top"  >
 							<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding ExtrasSettingsVM}"/>
@@ -47,8 +47,8 @@
 
 			</CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <AppBarButton Icon="OpenFile" Label="Open file" caliburn:Message.Attach="[Event Click] = [Action FromFileButton_Clicked]"/>
-                <AppBarButton Icon="Save" Label="Save" />
+				<AppBarButton Icon="OpenFile" Label="Open file" IsEnabled="{Binding NewImageVM.IsEnabled}" caliburn:Message.Attach="[Event Click] = [Action FromFileButton_Clicked]"/>
+                <AppBarButton Icon="Save" Label="Save" IsEnabled="{Binding IsSaveEnabled}" caliburn:Message.Attach="[Event Click] = [Action SaveFileButton_Clicked]"/>
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

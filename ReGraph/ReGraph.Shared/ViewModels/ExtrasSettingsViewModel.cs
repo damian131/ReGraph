@@ -38,7 +38,7 @@ namespace ReGraph.ViewModels
 			}
 		}
 
-		private string _LegendName;
+		private string _LegendName = String.Empty;
 		public string LegendName
 		{
 			get { return _LegendName; }
@@ -49,6 +49,17 @@ namespace ReGraph.ViewModels
 			}
 		}
 
+		private bool _IsEnabled = false;
+		public bool IsEnabled
+		{
+			get { return _IsEnabled; }
+			set
+			{
+				_IsEnabled = value;
+				NotifyOfPropertyChange(() => IsEnabled);
+			}
+		}
+
 		public void AddPoint_Clicked()
 		{
 
@@ -56,7 +67,7 @@ namespace ReGraph.ViewModels
 
 		public void LegendOCRButton_Clicked()
 		{
-
+			_EventAggregator.PublishOnCurrentThread(LegendName);
 		}
     }
 }

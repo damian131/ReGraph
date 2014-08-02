@@ -26,6 +26,17 @@ namespace ReGraph.ViewModels
 			this._NavigationService = navigationService;
 		}
 
+		private bool _IsEnabled = true;
+		public bool IsEnabled
+		{
+			get { return _IsEnabled; }
+			set
+			{
+				_IsEnabled = value;
+				NotifyOfPropertyChange(() => IsEnabled);
+			}
+		}
+
 		private readonly string SelectImageOperationName = "SelectImage";
 		private readonly string SelectDestinationOperationName = "SelectDestination";
 		private readonly string[] _supportedImageFilePostfixes = { ".jpg", ".jpeg", ".png" };
@@ -60,6 +71,8 @@ namespace ReGraph.ViewModels
 				_EventAggregator.PublishOnCurrentThread(file);
 			}
 #endif
+
+			_EventAggregator.PublishOnCurrentThread(true);
 		}
 
 		public async void CameraButton_Clicked()
@@ -88,6 +101,7 @@ namespace ReGraph.ViewModels
             _NavigationService.NavigateToViewModel<CapturePreviewViewModel>();
             await Task.Delay(0);
 #endif
+			_EventAggregator.PublishOnCurrentThread(true);
 		}
 
 

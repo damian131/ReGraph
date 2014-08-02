@@ -28,6 +28,17 @@ namespace ReGraph.ViewModels
 			}
 		}
 
+		private bool _IsEnabled = false;
+		public bool IsEnabled
+		{
+			get { return _IsEnabled; }
+			set
+			{
+				_IsEnabled = value;
+				NotifyOfPropertyChange(() => IsEnabled);
+			}
+		}
+
 		public void WhiteButton_Clicked()
 		{
 			SelectedColor = Colors.White;
