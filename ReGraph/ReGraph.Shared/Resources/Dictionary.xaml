@@ -30,8 +30,12 @@
     <Style x:Key="MainAppBarGridStyle" TargetType="Grid">
         <Setter Property="Background" Value="#FF7C8787" />
     </Style>
-    
-    <Style x:Key="CropViewTextBlockStyle" TargetType="TextBlock">
+
+	<Style x:Key="MainBorderStyle" TargetType="Border">
+		<Setter Property="Background" Value="#FF7C8787" />
+	</Style>
+
+	<Style x:Key="CropViewTextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="60" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="FontFamily" Value="Segoe UI Symbol" />
@@ -58,7 +62,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="FlyoutPresenter">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                    <Border Style="{StaticResource MainBorderStyle}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="30">
                         <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}">
                             <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </ScrollViewer>
@@ -72,7 +76,7 @@
 		<Setter Property="HorizontalAlignment" Value="Center"/>
 		<Setter Property="VerticalAlignment" Value="Center"/>
 		<Setter Property="Foreground" Value="White"/>
-		<Setter Property="FontSize" Value="18"/>
+		<Setter Property="FontSize" Value="15"/>
 		<Setter Property="TextWrapping" Value="Wrap"/>
 	</Style>
 
@@ -90,6 +94,7 @@
 		<Setter Property="BorderBrush" Value="{ThemeResource ButtonBorderThemeBrush}"/>
 		<Setter Property="BorderThickness" Value="{ThemeResource ButtonBorderThemeThickness}"/>
 		<!--<Setter Property="Padding" Value="12,4,12,4"/>-->
+		<Setter Property="Margin" Value="4,0,0,0"/>
 		<Setter Property="HorizontalAlignment" Value="Left"/>
 		<Setter Property="VerticalAlignment" Value="Center"/>
 		<Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>

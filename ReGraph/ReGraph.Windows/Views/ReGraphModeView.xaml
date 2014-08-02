@@ -12,17 +12,23 @@
 	Width="200"
 	Height="150">
 
-	<Grid Style="{StaticResource MainAppBarGridStyle}">
+	<Grid >
 		<Grid.RowDefinitions>
+			<RowDefinition Height="8"/>
 			<RowDefinition Height="Auto"/>
 			<RowDefinition/>
 			<RowDefinition Height="4"/>
 			<RowDefinition/>
-			<RowDefinition Height="4"/>
+			<RowDefinition Height="8"/>
 		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="8"/>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="8" />
+		</Grid.ColumnDefinitions>
 
-		<TextBlock Text="Set color and tap on the specified graph line." Style="{StaticResource FlyoutTextBlockDescriptionStyle}"/>
-		<Grid Grid.Row="1">
+		<TextBlock Grid.Column="1" Grid.Row="1" Text="Set color and tap on the specified graph line." Style="{StaticResource FlyoutTextBlockDescriptionStyle}"/>
+		<Grid Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
 				<ColumnDefinition />
@@ -40,7 +46,7 @@
 						</Core:ChangePropertyAction>
 					</Core:EventTriggerBehavior>
 				</Interactivity:Interaction.Behaviors>-->
-				<Rectangle Margin="4,0,0,0"  Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="White" RadiusX="3" RadiusY="3" />
+				<Rectangle  Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="White" RadiusX="3" RadiusY="3" />
 			</Button>
 			<Button Grid.Column="1" Style="{StaticResource ColorButtonTemplate}" caliburn:Message.Attach="[Event Click] = [Action GoldButton_Clicked]">
 				<!--<Interactivity:Interaction.Behaviors>
@@ -52,7 +58,7 @@
 						</Core:ChangePropertyAction>
 					</Core:EventTriggerBehavior>
 				</Interactivity:Interaction.Behaviors>-->
-				<Rectangle Margin="4,0,0,0"  Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="Gold" RadiusX="3" RadiusY="3" />
+				<Rectangle   Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="Gold" RadiusX="3" RadiusY="3" />
 			</Button>
 			<Button Grid.Column="2" Style="{StaticResource ColorButtonTemplate}" caliburn:Message.Attach="[Event Click] = [Action CrimsonButton_Clicked]">
 				<!--<Interactivity:Interaction.Behaviors>
@@ -64,7 +70,7 @@
 						</Core:ChangePropertyAction>
 					</Core:EventTriggerBehavior>
 				</Interactivity:Interaction.Behaviors>-->
-				<Rectangle Margin="4,0,0,0"  Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="Crimson" RadiusX="3" RadiusY="3" />
+				<Rectangle   Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="Crimson" RadiusX="3" RadiusY="3" />
 			</Button>
 			<Button Grid.Column="3" Style="{StaticResource ColorButtonTemplate}" caliburn:Message.Attach="[Event Click] = [Action MediumVioletRedButton_Clicked]">
 				<!--<Interactivity:Interaction.Behaviors>
@@ -76,11 +82,11 @@
 						</Core:ChangePropertyAction>
 					</Core:EventTriggerBehavior>
 				</Interactivity:Interaction.Behaviors>-->
-				<Rectangle Margin="4,0,0,0"  Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="MediumVioletRed" RadiusX="3" RadiusY="3" />
+				<Rectangle  Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="MediumVioletRed" RadiusX="3" RadiusY="3" />
 			</Button>
 		</Grid>
 
-		<Grid Grid.Row="3">
+		<Grid Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
 				<ColumnDefinition />
@@ -98,7 +104,7 @@
 						</Core:ChangePropertyAction>
 					</Core:EventTriggerBehavior>
 				</Interactivity:Interaction.Behaviors>-->
-				<Rectangle Margin="4,0,0,0"  Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="LimeGreen" RadiusX="3" RadiusY="3" />
+				<Rectangle   Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="LimeGreen" RadiusX="3" RadiusY="3" />
 			</Button>
 			<Button Grid.Column="1" Style="{StaticResource ColorButtonTemplate}" caliburn:Message.Attach="[Event Click] = [Action CyanButton_Clicked]">
 				<!--<Interactivity:Interaction.Behaviors>
@@ -110,7 +116,7 @@
 						</Core:ChangePropertyAction>
 					</Core:EventTriggerBehavior>
 				</Interactivity:Interaction.Behaviors>-->
-				<Rectangle Margin="4,0,0,0"  Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="Cyan" RadiusX="3" RadiusY="3" />
+				<Rectangle   Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="Cyan" RadiusX="3" RadiusY="3" />
 			</Button>
 			<Button Grid.Column="2" Style="{StaticResource ColorButtonTemplate}" caliburn:Message.Attach="[Event Click] = [Action DodgerBlueButton_Clicked]">
 				<!--<Interactivity:Interaction.Behaviors>
@@ -122,7 +128,7 @@
 						</Core:ChangePropertyAction>
 					</Core:EventTriggerBehavior>
 				</Interactivity:Interaction.Behaviors>-->
-				<Rectangle Margin="4,0,0,0"  Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="DodgerBlue" RadiusX="3" RadiusY="3" />
+				<Rectangle  Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="DodgerBlue" RadiusX="3" RadiusY="3" />
 			</Button>
 			<Button Grid.Column="3" Style="{StaticResource ColorButtonTemplate}" caliburn:Message.Attach="[Event Click] = [Action BlackButton_Clicked]">
 				<!--<Interactivity:Interaction.Behaviors>
@@ -134,7 +140,7 @@
 						</Core:ChangePropertyAction>
 					</Core:EventTriggerBehavior>
 				</Interactivity:Interaction.Behaviors>-->
-				<Rectangle Margin="4,0,0,0"  Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="Black" RadiusX="3" RadiusY="3" />
+				<Rectangle Width="40" Height="40" Stroke="#7F898989" StrokeThickness="1" Fill="Black" RadiusX="3" RadiusY="3" />
 			</Button>
 			
 		</Grid>

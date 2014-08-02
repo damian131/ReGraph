@@ -8,14 +8,23 @@
     mc:Ignorable="d"
 	xmlns:caliburn="using:Caliburn.Micro"
 	Width="200"
-	Height="150">
+	Height="170">
 
-	<Grid Style="{StaticResource MainAppBarGridStyle}">
+	<Grid>
 		<Grid.RowDefinitions>
+			<RowDefinition Height="10" />
+			<RowDefinition Height="Auto"/>
 			<RowDefinition/>
 			<RowDefinition/>
+			<RowDefinition Height="10" />
 		</Grid.RowDefinitions>
-		<Button Content="From file" caliburn:Message.Attach="[Event Click] = [Action FromFileButton_Clicked]" FontSize="40" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
-		<Button Grid.Row="1" caliburn:Message.Attach="[Event Click] = [Action CameraButton_Clicked]" Content="Camera" FontSize="40" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="10"/>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="10" />
+		</Grid.ColumnDefinitions>
+		<TextBlock Grid.Column="1" Grid.Row="1" Text="Choose a graph image" Style="{StaticResource FlyoutTextBlockDescriptionStyle}"/>
+		<Button Grid.Row="2" Grid.Column="1"  Content="From file" caliburn:Message.Attach="[Event Click] = [Action FromFileButton_Clicked]" FontSize="35" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+		<Button Grid.Row="3" Grid.Column="1" caliburn:Message.Attach="[Event Click] = [Action CameraButton_Clicked]" Content="Camera" FontSize="35" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
     </Grid>
 </UserControl>

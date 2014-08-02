@@ -10,34 +10,41 @@
 	Width="200"
 	Height="150">
 
-    <Grid Style="{StaticResource MainAppBarGridStyle}">
+    <Grid >
 		<Grid.RowDefinitions>
+			<RowDefinition Height="8" />
 			<RowDefinition Height="Auto"/>
-			<RowDefinition/>
+			<RowDefinition Height="8"/>
+			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="4"/>
-			<RowDefinition/>
-			<RowDefinition Height="4"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="8"/>
 		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="8"/>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="8" />
+		</Grid.ColumnDefinitions>
 		
-		<TextBlock Text="Set scale and select start of coordinate system." Style="{StaticResource FlyoutTextBlockDescriptionStyle}"/>
-		<Grid Grid.Row="1">
+		<TextBlock Grid.Row="1" Grid.Column="1" Text="Set scale and select start of coordinate system." Style="{StaticResource FlyoutTextBlockDescriptionStyle}"/>
+		<Grid Grid.Row="3" Grid.Column="1">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 
 			<TextBlock Text="X" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-			<TextBox Grid.Column="1" Margin="10,0,10,0" Text="{Binding XScale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<TextBox Grid.Column="1" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding XScale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 		</Grid>
 
-		<Grid Grid.Row="3">
+		<Grid Grid.Row="5" Grid.Column="1">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 
 			<TextBlock Text="Y" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-			<TextBox Grid.Column="1" Margin="10,0,10,0" Text="{Binding YScale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<TextBox Grid.Column="1" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YScale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 		</Grid>
 	</Grid>
 </UserControl>
