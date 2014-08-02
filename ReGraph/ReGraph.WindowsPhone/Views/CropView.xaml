@@ -29,16 +29,15 @@
                 <ColumnDefinition Width="120"/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
-                <TextBlock x:Name="pageTitle" Text="Crop" FontFamily="Segoe UI Symbol" FontSize="40" IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
+                <TextBlock x:Name="pageTitle" Text="OCR" FontFamily="Segoe UI Symbol" FontSize="40" IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
                 <AppBarSeparator VerticalAlignment="Center" />
-                <AppBarButton x:Name="Apply" Label="Apply" VerticalAlignment="Center" Margin="0,0,0,0">
-                    <SymbolIcon Symbol="Accept" RenderTransformOrigin="0.5,0.5" >
-                        <SymbolIcon.RenderTransform>
-                            <CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
-                        </SymbolIcon.RenderTransform>
-                    </SymbolIcon>
-                </AppBarButton>
-            </StackPanel>
+                <AppBarButton x:Name="Crop" Label="Crop" VerticalAlignment="Center" Margin="10,0,0,0">
+					<SymbolIcon Symbol="Crop" RenderTransformOrigin="0.5,0.5" />
+				</AppBarButton>
+				<AppBarButton x:Name="Ocr" Label="Recognize" VerticalAlignment="Center" Margin="0,0,0,0">
+					<SymbolIcon Symbol="FontSize" RenderTransformOrigin="0.5,0.5" />
+				</AppBarButton>
+			</StackPanel>
             <Image Grid.Column="1" Source="ms-appx:///Resources/Images/logo.png" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
