@@ -1,0 +1,43 @@
+﻿<UserControl
+    x:Class="ReGraph.Views.BaseSettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ReGraph.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+	xmlns:caliburn="using:Caliburn.Micro"
+	Height="150">
+
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="8"/>
+			<RowDefinition/>
+			<RowDefinition Height="4"/>
+			<RowDefinition/>
+			<RowDefinition Height="4"/>
+		</Grid.RowDefinitions>
+		
+		<TextBlock Text="Set scale and select start of coordinate system." Style="{StaticResource FlyoutTextBlockDescriptionStyle}" VerticalAlignment="Center"/>
+		<Grid Grid.Row="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Text="X" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
+			<TextBox Grid.Column="1" Margin="10,0,10,0" Text="{Binding XScale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+		</Grid>
+
+		<Grid Grid.Row="4">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Text="Y" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
+			<TextBox Grid.Column="1" Margin="10,0,10,0" Text="{Binding YScale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+		</Grid>
+	</Grid>
+</UserControl>

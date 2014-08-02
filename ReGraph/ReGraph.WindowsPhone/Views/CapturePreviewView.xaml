@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="ReGraph.Views.CapturePreviewView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ReGraph.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
+    xmlns:caliburn="using:Caliburn.Micro" 
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:common="using:ReGraph.Common"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <!--<Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="OpenFile" Label="Open" caliburn:Message.Attach="[Event Click] = [Action OpenButton_Clicked]"/>
+                <AppBarButton Icon="Camera" Label="Camera" caliburn:Message.Attach="[Event Click] = [Action CameraButton_Clicked]"/>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>-->
+
+    <Grid Style="{StaticResource MainGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <CaptureElement Grid.Row="0"/>
+        <AppBarButton Grid.Row="1" Icon="Camera" caliburn:Message.Attach="[Event Click] = [Action CaptureButton_Clicked]" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Margin="0,0,10,0">
+            <AppBarButton.RenderTransform>
+                <CompositeTransform ScaleX="2" ScaleY="2"/>
+            </AppBarButton.RenderTransform>
+        </AppBarButton>
+        
+    </Grid>
+</Page>
