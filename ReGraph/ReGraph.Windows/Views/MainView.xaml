@@ -79,7 +79,8 @@
 
         <Border Grid.Column="1" BorderThickness="5" BorderBrush="#f90164">
             <Grid>
-                <Charting:Chart x:Name="Graph" Background="Transparent" >
+                <Charting:Chart x:Name="Graph" Background="Transparent" 
+                                Title="{Binding Path=graphDrawer.Title}" Series="{Binding Path=graphDrawer.Series, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Axes="{Binding Path=graphDrawer.Axes}" >
 
                 </Charting:Chart>
 

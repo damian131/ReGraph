@@ -20,12 +20,11 @@ namespace ReGraph.Models.GraphDrawer
 
         public async void readFromFile(StorageFile file)
         {
-            Chart Graph = GraphControl.Chart;
             IList<string> lines = await FileIO.ReadLinesAsync(file);
 
             //reading titles
             string[] titles = lines[0].Split(',');
-            GraphControl.GraphTitle = titles[0];
+            GraphControl.Title = titles[0];
             GraphControl.HorizontalTitle = titles[1];
             GraphControl.VerticalTitle = titles[1];
             lines.RemoveAt(0);

@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using WinRTXamlToolkit.Controls.DataVisualization.Charting;
 
@@ -15,25 +18,23 @@ namespace ReGraph.Models.GraphDrawer
     /// <summary>
     /// Class for generating Graph. Before drawing starts Canvas need to be placed on screen (must have ActualWith and ActualHeight).
     /// </summary>
-    public class GraphDrawer
+    public class GraphDrawer : PropertyChangedBase
     {
         private List<Line> solidLines;
         private List<Line> dottedLines;
-        private Chart Graph;
         private LinearAxis x_Axis;
         private LinearAxis y_Axis;
-        public GraphDrawer(Chart chart)
+        public GraphDrawer()
         {
-            this.Graph = chart;
             x_Axis = new LinearAxis();
-            x_Axis.Orientation=AxisOrientation.X;
+            x_Axis.Orientation = AxisOrientation.X;
             x_Axis.ShowGridLines = true;
-            Graph.Axes.Add(x_Axis);
+            Axes.Add(x_Axis);
 
             y_Axis = new LinearAxis();
             y_Axis.Orientation = AxisOrientation.Y;
             y_Axis.ShowGridLines = true;
-            Graph.Axes.Add(y_Axis);
+            Axes.Add(y_Axis);
 
             solidLines = new List<Line>();
             dottedLines = new List<Line>();
@@ -41,11 +42,53 @@ namespace ReGraph.Models.GraphDrawer
             setVerticalRange(0, 100);
             _Width = 800;
             _Height = 600;
-            GraphTitle = "Main Title";
+            Title = "Main Title";
             HorizontalTitle = "OŚ X";
             VerticalTitle = "OŚ Y";
 
-            ReadFromCsv();
+            //ReadFromCsv();
+        }
+
+        private String _Title;
+        public String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                _Title = value;
+                NotifyOfPropertyChange(() => Title);
+            }
+        }
+
+        private BindableCollection<ISeries> _Series;
+        public BindableCollection<ISeries> Series
+        {
+            get
+            {
+                return _Series;
+            }
+            set
+            {
+                _Series = value;
+                NotifyOfPropertyChange(() => Series);
+            }
+        }
+
+        private Collection<IAxis> _Axes;
+        public Collection<IAxis> Axes
+        {
+            get
+            {
+                return _Axes;
+            }
+            set
+            {
+                _Axes = value;
+                NotifyOfPropertyChange(() => Axes);
+            }
         }
 
         public void addSolidLine(Line line)
@@ -58,22 +101,22 @@ namespace ReGraph.Models.GraphDrawer
             series.DependentValuePath = "Y";
             series.IsSelectionEnabled = true;
             series.ItemsSource = line.Points;
-            Graph.Series.Add(series);
+            Series.Add(series);
 
             solidLines.Add(line);
         }
 
         public void CleanGraph()
         {
-            Graph.Series.Clear();
+            Series.Clear();
             solidLines.Clear();
             dottedLines.Clear();
-            System.Diagnostics.Debug.WriteLine(Graph.Series.Count);
+            //System.Diagnostics.Debug.WriteLine(Series.Count);
         }
 
         public void ReDraw()
         {
-            Graph.Series.Clear();
+            Series.Clear();
             foreach (var line in solidLines)
                 addSolidLine(line);
             foreach (var line in dottedLines)
@@ -86,12 +129,6 @@ namespace ReGraph.Models.GraphDrawer
         }
 
 
-
-        public Chart Chart
-        {
-            get { return Graph;}
-            private set {}
-        }
 
         public LinearAxis HorizontalAxis
         {
@@ -115,7 +152,6 @@ namespace ReGraph.Models.GraphDrawer
             private set { }
         }
     
-        #region OutputImageSize
         private int _Width;
         public int Width
         {
@@ -142,8 +178,6 @@ namespace ReGraph.Models.GraphDrawer
             }
 
         }
-        #endregion
-        #region Ranges
 
         public void setHorizontalRange(double begin, double end)
         {
@@ -157,21 +191,9 @@ namespace ReGraph.Models.GraphDrawer
             y_Axis.Minimum = begin;
             y_Axis.Maximum = end;
         }
-        #endregion
-        #region Titles
-        private String _GraphTitle;
-        public String GraphTitle
-        {
-            get
-            {
-                return _GraphTitle;
-            }
-            set
-            {
-                _GraphTitle = value;
-                Graph.Title = value;
-            }
-        }
+
+
+
         private String _VerticalTitle;
         public String VerticalTitle
         {
@@ -198,8 +220,6 @@ namespace ReGraph.Models.GraphDrawer
                 x_Axis.Title = _HorizontalTitle;
             }
         }
-        #endregion
-        #region SaveToFile
         public async  void SaveAsCsv()
         {
             GraphFileWriter writer = new GraphFileWriter(this);
@@ -211,8 +231,6 @@ namespace ReGraph.Models.GraphDrawer
 
             writer.writeToFile(file);
         }
-        #endregion
-        #region ReadFromFile
         public async void ReadFromCsv()
         {
             CleanGraph();
@@ -243,6 +261,5 @@ namespace ReGraph.Models.GraphDrawer
             }
         }
         #endif*/
-        #endregion
     }
 }

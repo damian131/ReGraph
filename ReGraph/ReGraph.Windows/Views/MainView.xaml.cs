@@ -24,12 +24,9 @@ namespace ReGraph.Views
     /// </summary>
     public sealed partial class MainView : Page
     {
-        private GraphDrawer GraphControl;
         public MainView()
         {
             this.InitializeComponent();
-            GraphControl = new Models.GraphDrawer.GraphDrawer(Graph);
-            GraphControl.addSolidLine(Test.getTestLine());
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using Caliburn.Micro;
 using ReGraph.Common;
 using ReGraph.Models;
+using ReGraph.Models.GraphDrawer;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using WinRTXamlToolkit.Controls.DataVisualization.Charting;
 
 namespace ReGraph.ViewModels
 {
@@ -34,6 +37,7 @@ namespace ReGraph.ViewModels
 			this._NavigationService = NavigationService;
 
 			InputGraph = new GraphSpace();
+            graphDrawer = new GraphDrawer();
 
 			NewImageVM = new NewImageViewModel(EventAggregator, _NavigationService);
 			BaseSettingsVM = new BaseSettingsViewModel(EventAggregator, _NavigationService);
@@ -43,6 +47,18 @@ namespace ReGraph.ViewModels
 		}
 
 		#region PROPERTIES
+
+
+        private GraphDrawer _graphDrawer;
+        public GraphDrawer graphDrawer
+        {
+            get { return _graphDrawer; }
+            set
+            {
+                _graphDrawer = value;
+                NotifyOfPropertyChange(() => graphDrawer);
+            }
+        }
 
 		private IGraphSpace _InputGraph;
 		public IGraphSpace InputGraph

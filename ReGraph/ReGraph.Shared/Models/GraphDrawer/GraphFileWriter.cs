@@ -22,9 +22,8 @@ namespace ReGraph.Models.GraphDrawer
 
         public async void writeToFile(StorageFile file)
         {
-            Chart Graph = GraphControl.Chart;
             //writing graph titles
-            await FileIO.WriteTextAsync(file, Graph.Title + COMMA + GraphControl.HorizontalTitle + COMMA + GraphControl.VerticalTitle + ENDLINE);
+            await FileIO.WriteTextAsync(file, GraphControl.Title + COMMA + GraphControl.HorizontalTitle + COMMA + GraphControl.VerticalTitle + ENDLINE);
 
             //writing ranges
             await FileIO.AppendTextAsync(file, GraphControl.HorizontalAxis.Minimum.ToString()+COMMA+GraphControl.HorizontalAxis.Maximum.ToString()+COMMA);
