@@ -19,6 +19,7 @@ using Windows.Storage.Pickers;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.ApplicationModel.Activation;
+using ReGraph.ViewModels;
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace ReGraph.Views
@@ -28,12 +29,12 @@ namespace ReGraph.Views
     /// </summary>
     public sealed partial class MainView : Page
     {
-        private GraphDrawer GraphControl;
         public MainView()
         {
             this.InitializeComponent();
-            GraphControl = new Models.GraphDrawer.GraphDrawer(Graph);
-            GraphControl.addSolidLine(Test.getTestLine());
+            MainViewModel mvm = IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel;
+            mvm.graphDrawer.Axes = Graph.Axes;
+            mvm.graphDrawer.Series = Graph.Series;
         }
 
         /// <summary>

@@ -26,6 +26,11 @@ namespace ReGraph.Models.GraphDrawer
         private LinearAxis y_Axis;
         public GraphDrawer()
         {
+           
+        }
+
+        public void PrepareGraph()
+        {
             x_Axis = new LinearAxis();
             x_Axis.Orientation = AxisOrientation.X;
             x_Axis.ShowGridLines = true;
@@ -45,8 +50,6 @@ namespace ReGraph.Models.GraphDrawer
             Title = "Main Title";
             HorizontalTitle = "OŚ X";
             VerticalTitle = "OŚ Y";
-
-            //ReadFromCsv();
         }
 
         private String _Title;
@@ -63,8 +66,8 @@ namespace ReGraph.Models.GraphDrawer
             }
         }
 
-        private BindableCollection<ISeries> _Series;
-        public BindableCollection<ISeries> Series
+        private Collection<ISeries> _Series;
+        public Collection<ISeries> Series
         {
             get
             {
@@ -104,6 +107,18 @@ namespace ReGraph.Models.GraphDrawer
             Series.Add(series);
 
             solidLines.Add(line);
+        }
+
+        public void TestAddingLines()
+        {
+            Random rnd = new Random();
+            Line l = new Line();
+            for(int i =0;i<100;++i)
+            {
+                l.Points.Add(new Point() { X=rnd.NextDouble()*100, Y=rnd.NextDouble()*100});
+            }
+
+            addSolidLine(l);
         }
 
         public void CleanGraph()
