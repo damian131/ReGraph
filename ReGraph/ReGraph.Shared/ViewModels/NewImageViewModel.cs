@@ -57,7 +57,7 @@ namespace ReGraph.ViewModels
 			{
 				picker.FileTypeFilter.Add(postfix);
 			}
-
+            (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).CurrentFileAccess = ReGraph.ViewModels.MainViewModel.FileAccess.READ_IMAGE;
 #if WINDOWS_PHONE_APP
             await Task.Delay(0);
             picker.ContinuationData["Operation"] = SelectImageOperationName;
@@ -68,7 +68,6 @@ namespace ReGraph.ViewModels
 
 			if (file != null)
 			{
-                (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).CurrentFileAccess = ReGraph.ViewModels.MainViewModel.FileAccess.READ_IMAGE;
 				_EventAggregator.PublishOnCurrentThread(file);
 			}
 #endif

@@ -108,6 +108,11 @@ namespace ReGraph.ViewModels
         {
             SaveChartVM.SaveAsImage_Clicked();
         }
+
+        public void SaveAsCSVFileButton_Clicked()
+        {
+            SaveChartVM.SaveAsCSV_Clicked();
+        }
 #endif
 
 
@@ -172,7 +177,17 @@ namespace ReGraph.ViewModels
             {
                 await HandleSaveChartAsImageAsync(message);
             }
+            if(CurrentFileAccess == FileAccess.WRITE_CSV)
+            {
+                await HandleSaveChartAsCSVAsync(message);
+            }
             CurrentFileAccess = FileAccess.NONE;
+        }
+
+        private async Task HandleSaveChartAsCSVAsync(StorageFile message)
+        {
+            GraphFileWriter writer = new GraphFileWriter(graphDrawer);
+            writer.writeToFile(message);
         }
 
         private async Task HandleSaveChartAsImageAsync(StorageFile file)
