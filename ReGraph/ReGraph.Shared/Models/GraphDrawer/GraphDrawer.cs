@@ -31,15 +31,18 @@ namespace ReGraph.Models.GraphDrawer
 
         public void PrepareGraph()
         {
-            x_Axis = new LinearAxis();
-            x_Axis.Orientation = AxisOrientation.X;
-            x_Axis.ShowGridLines = true;
-            Axes.Add(x_Axis);
+
 
             y_Axis = new LinearAxis();
             y_Axis.Orientation = AxisOrientation.Y;
             y_Axis.ShowGridLines = true;
             Axes.Add(y_Axis);
+
+            x_Axis = new LinearAxis();
+            x_Axis.Orientation = AxisOrientation.X;
+            x_Axis.ShowGridLines = true;
+            Axes.Add(x_Axis);
+
 
             solidLines = new List<Line>();
             dottedLines = new List<Line>();

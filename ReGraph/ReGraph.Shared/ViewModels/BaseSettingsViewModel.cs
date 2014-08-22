@@ -14,30 +14,66 @@ namespace ReGraph.ViewModels
 		{
 			this._EventAggregator = eventAggregator;
 			this._NavigationService = navigationService;
+
 		}
 
-		private string _XScale;
-		public string XScale
+		private string _XBegin;
+		public string XBegin
 		{
-			get { return _XScale; }
+            get { return _XBegin; }
 			set
 			{
-				_XScale = value;
-				NotifyOfPropertyChange(() => XScale);
+                _XBegin = value;
+                if (XBegin != null && XEnd != null)
+                {
+                    (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.setHorizontalRange(double.Parse(XBegin), double.Parse(XEnd)); ;
+
+                }
+                NotifyOfPropertyChange(() => XBegin);
 			}
 		}
 
-		private string _YScale;
-		public string YScale
+        private string _XEnd;
+        public string XEnd
+        {
+            get { return _XEnd; }
+            set
+            {
+                _XBegin = value;
+                if (XBegin != null && XEnd != null)
+                {
+                    (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.setHorizontalRange(double.Parse(XBegin), double.Parse(XEnd));
+                }
+                NotifyOfPropertyChange(() => XEnd);
+            }
+        }
+		private string _YBegin;
+		public string YBegin
 		{
-			get { return _YScale; }
+            get { return _YBegin; }
 			set
 			{
-				_YScale = value;
-				NotifyOfPropertyChange(() => YScale);
+                _YBegin = value;
+                if (YBegin != null && YEnd != null)
+                {
+                    (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.setVerticalRange(double.Parse(YBegin), double.Parse(YEnd));
+                }
+                NotifyOfPropertyChange(() => YBegin);
 			}
 		}
-
+        private string _YEnd;
+        public string YEnd
+        {
+            get { return _YEnd; }
+            set
+            {
+                _YEnd = value;
+                if (YBegin != null && YEnd != null)
+                {
+                    (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.setVerticalRange(double.Parse(YBegin), double.Parse(YEnd));
+                } NotifyOfPropertyChange(() => YEnd);
+            }
+        }
 		private bool _IsEnabled = false;
 		public bool IsEnabled
 		{
