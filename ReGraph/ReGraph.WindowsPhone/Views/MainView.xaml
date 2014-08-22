@@ -47,7 +47,8 @@
 
 			</CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-				<AppBarButton Icon="OpenFile" Label="Open file" IsEnabled="{Binding NewImageVM.IsEnabled}" caliburn:Message.Attach="[Event Click] = [Action FromFileButton_Clicked]"/>
+				<AppBarButton Icon="OpenFile" Label="Open image" IsEnabled="{Binding NewImageVM.IsEnabled}" caliburn:Message.Attach="[Event Click] = [Action FromFileButton_Clicked]"/>
+                <AppBarButton Icon="OpenFile" Label="Open CSV file" IsEnabled="{Binding NewImageVM.IsEnabled}" caliburn:Message.Attach="[Event Click] = [Action FromCSVFileButton_Clicked]"/>
                 <AppBarButton Icon="Save" Label="Save as Image" IsEnabled="{Binding IsSaveEnabled}" caliburn:Message.Attach="[Event Click] = [Action SaveAsImageFileButton_Clicked]"/>
                 <AppBarButton Icon="Save" Label="Save as CSV" IsEnabled="{Binding IsSaveEnabled}" caliburn:Message.Attach="[Event Click] = [Action SaveAsCSVFileButton_Clicked]"/>
 

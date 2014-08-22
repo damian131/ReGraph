@@ -40,6 +40,7 @@ namespace ReGraph.ViewModels
 		private readonly string SelectImageOperationName = "SelectImage";
 		private readonly string SelectDestinationOperationName = "SelectDestination";
 		private readonly string[] _supportedImageFilePostfixes = { ".jpg", ".jpeg", ".png" };
+        private readonly string[] _supportedCSVFilePostfixes = { ".csv" };
 
 		public async void FromFileButton_Clicked()
 		{
@@ -74,7 +75,38 @@ namespace ReGraph.ViewModels
 
 			_EventAggregator.PublishOnCurrentThread(true);
 		}
+        public async void FromCSVButton_Clicked()
+        {
+            var picker = new FileOpenPicker
+            {
+                SuggestedStartLocation = PickerLocationId.PicturesLibrary,
+                ViewMode = PickerViewMode.Thumbnail
+            };
 
+            // Filter to include a sample subset of file types
+            picker.FileTypeFilter.Clear();
+
+            foreach (string postfix in _supportedCSVFilePostfixes)
+            {
+                picker.FileTypeFilter.Add(postfix);
+            }
+            (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).CurrentFileAccess = ReGraph.ViewModels.MainViewModel.FileAccess.READ_CSV;
+#if WINDOWS_PHONE_APP
+            await Task.Delay(0);
+            picker.ContinuationData["Operation"] = SelectImageOperationName;
+            picker.PickSingleFileAndContinue();
+#else
+
+			Windows.Storage.StorageFile file = await picker.PickSingleFileAsync();
+
+			if (file != null)
+			{
+				_EventAggregator.PublishOnCurrentThread(file);
+			}
+#endif
+
+            _EventAggregator.PublishOnCurrentThread(true);
+        }
 		public async void CameraButton_Clicked()
 		{
 #if WINDOWS_APP

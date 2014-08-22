@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
 	xmlns:caliburn="using:Caliburn.Micro"
-	Width="200"
-	Height="170">
+	Width="220"
+	Height="250">
 
 	<Grid>
 		<Grid.RowDefinitions>
@@ -16,6 +16,7 @@
 			<RowDefinition Height="Auto"/>
 			<RowDefinition/>
 			<RowDefinition/>
+            <RowDefinition/>
 			<RowDefinition Height="10" />
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
@@ -25,6 +26,8 @@
 		</Grid.ColumnDefinitions>
 		<TextBlock Grid.Column="1" Grid.Row="1" Text="Choose a graph image" Style="{StaticResource FlyoutTextBlockDescriptionStyle}"/>
 		<Button Grid.Row="2" Grid.Column="1"  Content="From file" caliburn:Message.Attach="[Event Click] = [Action FromFileButton_Clicked]" FontSize="35" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
-		<Button Grid.Row="3" Grid.Column="1" caliburn:Message.Attach="[Event Click] = [Action CameraButton_Clicked]" Content="Camera" FontSize="35" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+        <Button Grid.Row="3" Grid.Column="1" caliburn:Message.Attach="[Event Click] = [Action CameraButton_Clicked]" Content="Camera" FontSize="35" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+        <Button Grid.Row="4" Grid.Column="1" caliburn:Message.Attach="[Event Click] = [Action FromCSVButton_Clicked]" Content="From CSV" FontSize="35" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+
     </Grid>
 </UserControl>
