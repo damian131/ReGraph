@@ -41,7 +41,7 @@ namespace ReGraph.ViewModels
 		private readonly string SelectDestinationOperationName = "SelectDestination";
 		private readonly string[] _supportedImageFilePostfixes = { ".jpg", ".jpeg", ".png" };
 
-		public async void FromFileButton_Clicked() // TODO: correct file open in WP
+		public async void FromFileButton_Clicked()
 		{
 
 			var picker = new FileOpenPicker
@@ -68,6 +68,7 @@ namespace ReGraph.ViewModels
 
 			if (file != null)
 			{
+                (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).CurrentFileAccess = ReGraph.ViewModels.MainViewModel.FileAccess.READ_IMAGE;
 				_EventAggregator.PublishOnCurrentThread(file);
 			}
 #endif
@@ -94,7 +95,7 @@ namespace ReGraph.ViewModels
 
 			//await takePhotoManager.CapturePhotoToStreamAsync(imgFormat, stream);
 			await takePhotoManager.CapturePhotoToStorageFileAsync(imgFormat, file);
-
+            (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).CurrentFileAccess = ReGraph.ViewModels.MainViewModel.FileAccess.READ_IMAGE;
 			_EventAggregator.PublishOnCurrentThread(file);
 #else
             
@@ -118,6 +119,7 @@ namespace ReGraph.ViewModels
             else
             {
                 StorageFile file = args.Files[0];
+                (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).CurrentFileAccess = ReGraph.ViewModels.MainViewModel.FileAccess.READ_IMAGE;
                 _EventAggregator.PublishOnCurrentThread(file);
             }
 
@@ -145,6 +147,6 @@ namespace ReGraph.ViewModels
         }
 #endif
 
-		#endregion //CONTINUATION MANAGER IMPLEMENTATION
-	}
+        #endregion //CONTINUATION MANAGER IMPLEMENTATION
+    }
 }

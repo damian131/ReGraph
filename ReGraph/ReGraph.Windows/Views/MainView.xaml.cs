@@ -31,6 +31,7 @@ namespace ReGraph.Views
             MainViewModel mvm = IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel;
             mvm.graphDrawer.Axes = Graph.Axes;
             mvm.graphDrawer.Series = Graph.Series;
+            mvm.ChartView = Graph;
         }
     }
 }
