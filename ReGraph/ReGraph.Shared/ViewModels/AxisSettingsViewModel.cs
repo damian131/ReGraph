@@ -23,6 +23,7 @@ namespace ReGraph.ViewModels
 			set
 			{
 				_XAxisName = value;
+                (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.HorizontalTitle = value;
 				NotifyOfPropertyChange(() => XAxisName);
 			}
 		}
@@ -34,9 +35,22 @@ namespace ReGraph.ViewModels
 			set
 			{
 				_YAxisName = value;
+                (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.VerticalTitle = value;
 				NotifyOfPropertyChange(() => YAxisName);
 			}
 		}
+
+        private string _MainTittle = String.Empty;
+        public string MainTittle
+        {
+            get { return _MainTittle; }
+            set
+            {
+                _XAxisName = value;
+                (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.Title = value;
+                NotifyOfPropertyChange(() => MainTittle);
+            }
+        }
 
 		private bool _IsEnabled = false;
 		public bool IsEnabled
@@ -58,6 +72,10 @@ namespace ReGraph.ViewModels
 		public void YOCRButton_Clicked()
 		{
 			_EventAggregator.PublishOnCurrentThread(YAxisName);
+		}
+        public void MainOCRButton_Clicked()
+		{
+			_EventAggregator.PublishOnCurrentThread(MainTittle);
 		}
     }
 }
