@@ -39,7 +39,7 @@ namespace ReGraph.ViewModels
             get { return _XEnd; }
             set
             {
-                _XBegin = value;
+                _XEnd = value;
                 if (XBegin != null && XEnd != null)
                 {
                     (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.setHorizontalRange(double.Parse(XBegin), double.Parse(XEnd));

@@ -199,15 +199,21 @@ namespace ReGraph.Models.GraphDrawer
 
         public void setHorizontalRange(double begin, double end)
         {
-            x_Axis.Minimum = begin;
-            x_Axis.Maximum = end;
+            if(begin < end && begin >= 0)
+            {
+                x_Axis.Minimum = begin;
+                x_Axis.Maximum = end;
+            }
         }
 
 
         public void setVerticalRange(double begin, double end)
         {
-            y_Axis.Minimum = begin;
-            y_Axis.Maximum = end;
+            if (begin < end && begin >= 0)
+            {
+                y_Axis.Minimum = begin;
+                y_Axis.Maximum = end;
+            }
         }
 
 
