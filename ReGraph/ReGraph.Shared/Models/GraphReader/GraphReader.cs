@@ -16,10 +16,13 @@ namespace ReGraph.Models.GraphReader
         private GraphDrawer.GraphDrawer Drawer;
         public double xScale;
         public double yScale;
+        private double horizontalScale;
+        private double verticalScale;
         public GraphReader(WriteableBitmap img, GraphDrawer.GraphDrawer drawer)
         {
             this.InputImage = img;
             this.Drawer = drawer;
+
         }
 
         public void RecognizeLine(Point clickedPoint, Color color)
@@ -33,12 +36,27 @@ namespace ReGraph.Models.GraphReader
         {
             RescalePoint(middlePoint);
             StartPoint = middlePoint;
+
+            double graphWidth = InputImage.PixelWidth - StartPoint.X;
+            double graphHeight = InputImage.PixelHeight - StartPoint.Y;
+            double graphHorizontalRangeSize = (double)(Drawer.HorizontalAxis.ActualMaximum - Drawer.HorizontalAxis.ActualMinimum);
+            double graphVerticalRangeSize = (double)(Drawer.VerticalAxis.ActualMaximum - Drawer.VerticalAxis.ActualMinimum);
+
+            horizontalScale = graphHorizontalRangeSize / graphWidth;
+            verticalScale = graphVerticalRangeSize / graphHeight;
         }
 
         private void RescalePoint(Point p)
         {
             p.X = p.X * xScale;
             p.Y = p.Y * yScale;
+        }
+        private void TransformatePointValue(Point p)
+        {
+            p.Y = StartPoint.Y - p.Y;
+            p.X = p.X - StartPoint.X;
+            p.Y = p.Y * verticalScale + (double)Drawer.VerticalAxis.ActualMinimum;
+            p.X = p.X * horizontalScale + (double)Drawer.HorizontalAxis.ActualMinimum;
         }
     }
 }
