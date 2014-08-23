@@ -2,10 +2,7 @@
 /ReGraph/ReGraph.Windows/obj
 /ReGraph/ReGraph.WindowsPhone/bin
 /ReGraph/ReGraph.WindowsPhone/obj
-/ReGraph.suo
-/ReGraph/ReGraph.WindowsPhone/obj/Debug
-
-ReGraph.v12.suo
-ReGraph/ReGraph.Windows/ReGraph.Windows.csproj.user
 *.suo
 *.user
+*.v12.suo
+*.pfx
