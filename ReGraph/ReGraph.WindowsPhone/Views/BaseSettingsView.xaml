@@ -8,13 +8,15 @@
     mc:Ignorable="d"
 	xmlns:caliburn="using:Caliburn.Micro"
 	Width="300"
-	Height="150">
+	Height="190">
 
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="8" />
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="8"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="4"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="4"/>
             <RowDefinition Height="Auto"/>
@@ -51,9 +53,17 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="Y" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-            <TextBox Grid.Column="1" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YBegin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Grid.Column="1"  Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YBegin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock Grid.Column="2" Text="-" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-            <TextBox Grid.Column="3" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Grid.Column="3"  Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        </Grid>
+
+        <Grid Grid.Row="7" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="2" Grid.Column="1"  Content="Set start point" caliburn:Message.Attach="[Event Click] = [Action SetMiddlePointButton_Clicked]" FontSize="22" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+
         </Grid>
     </Grid>
 </UserControl>

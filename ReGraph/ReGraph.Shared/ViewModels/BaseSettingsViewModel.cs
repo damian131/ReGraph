@@ -85,5 +85,10 @@ namespace ReGraph.ViewModels
 			}
 		}
 
+        public void SetMiddlePointButton_Clicked()
+        {
+            (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).CurrentPointerMode = MainViewModel.PointerEventMode.MIDDLE_POINT;
+        }
+
     }
 }

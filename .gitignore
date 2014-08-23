@@ -6,3 +6,6 @@
 /ReGraph/ReGraph.WindowsPhone/obj/Debug
 
 ReGraph.v12.suo
+ReGraph/ReGraph.Windows/ReGraph.Windows.csproj.user
+*.suo
+*.user

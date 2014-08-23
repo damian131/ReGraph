@@ -24,6 +24,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using WinRTXamlToolkit.Controls.DataVisualization.Charting;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.UI.Input;
 
 namespace ReGraph.ViewModels
 {
@@ -120,11 +121,28 @@ namespace ReGraph.ViewModels
 
 
 #endif
-
-
-        public void GraphImage_PointerPressed(PointerRoutedEventArgs args)
+        public enum PointerEventMode { NONE, MIDDLE_POINT, RECOGNITION}
+        public PointerEventMode CurrentPointerMode =PointerEventMode.NONE;
+        public async void GraphImage_PointerPressed(PointerRoutedEventArgs args)
         {
-
+            if (CurrentPointerMode == PointerEventMode.NONE)
+            {
+                return;
+            }
+            if (CurrentPointerMode == PointerEventMode.MIDDLE_POINT)
+            {
+                await HandleSetStartPointAsync(args);
+            }
+        }
+        public ReGraph.Models.GraphDrawer.Point StartPoint;
+        private async Task HandleSetStartPointAsync(PointerRoutedEventArgs args)
+        {
+            PointerPoint p = args.GetCurrentPoint(args.OriginalSource as Image);
+            FrameworkElement element = args.OriginalSource as Image;
+            double xScale = InputGraph.Image.PixelWidth / element.ActualWidth;
+            double yScale = InputGraph.Image.PixelHeight / element.ActualHeight;
+            StartPoint = new ReGraph.Models.GraphDrawer.Point() { X = p.Position.X * xScale, Y = p.Position.Y * yScale };
+            CurrentPointerMode = PointerEventMode.NONE;
         }
 
         #endregion //EVENT HANDLERS
