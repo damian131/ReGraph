@@ -25,6 +25,7 @@ using Windows.UI.Xaml.Navigation;
 using WinRTXamlToolkit.Controls.DataVisualization.Charting;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.UI.Input;
+using ReGraph.Models.GraphReader;
 
 namespace ReGraph.ViewModels
 {
@@ -49,6 +50,7 @@ namespace ReGraph.ViewModels
             ExtrasSettingsVM = new ExtrasSettingsViewModel(EventAggregator, _NavigationService);
             CurrentFileAccess = FileAccess.NONE;
             SaveChartVM = new SaveChartViewModel(EventAggregator, _NavigationService);
+            graphReader = new GraphReader(InputGraph.Image, graphDrawer);
         }
 
         #region PROPERTIES
@@ -65,6 +67,16 @@ namespace ReGraph.ViewModels
             }
         }
 
+        private GraphReader _graphReader;
+        public GraphReader graphReader
+        {
+            get { return _graphReader; }
+            set
+            {
+                _graphReader = value;
+                NotifyOfPropertyChange(() => graphReader);
+            }
+        }
         private IGraphSpace _InputGraph;
         public IGraphSpace InputGraph
         {
@@ -133,15 +145,28 @@ namespace ReGraph.ViewModels
             {
                 await HandleSetStartPointAsync(args);
             }
+            if (CurrentPointerMode == PointerEventMode.RECOGNITION)
+            {
+                await HandleRecognizeLineAsync(args);
+            }
         }
-        public ReGraph.Models.GraphDrawer.Point StartPoint;
+
+        private async Task HandleRecognizeLineAsync(PointerRoutedEventArgs args)
+        {
+            FrameworkElement element = args.OriginalSource as Image;
+            PointerPoint p = args.GetCurrentPoint(args.OriginalSource as Image);
+            ReGraph.Models.GraphDrawer.Point clickedPoint = new ReGraph.Models.GraphDrawer.Point() { X = p.Position.X, Y = p.Position.Y };
+            graphReader.RecognizeLine(clickedPoint, ReGraphVM.SelectedColor);
+            CurrentPointerMode = PointerEventMode.NONE;
+        }
         private async Task HandleSetStartPointAsync(PointerRoutedEventArgs args)
         {
             PointerPoint p = args.GetCurrentPoint(args.OriginalSource as Image);
             FrameworkElement element = args.OriginalSource as Image;
-            double xScale = InputGraph.Image.PixelWidth / element.ActualWidth;
-            double yScale = InputGraph.Image.PixelHeight / element.ActualHeight;
-            StartPoint = new ReGraph.Models.GraphDrawer.Point() { X = p.Position.X * xScale, Y = p.Position.Y * yScale };
+            graphReader.xScale = InputGraph.Image.PixelWidth / element.ActualWidth;
+            graphReader.yScale = InputGraph.Image.PixelHeight / element.ActualHeight;
+            ReGraph.Models.GraphDrawer.Point StartPoint = new ReGraph.Models.GraphDrawer.Point() { X = p.Position.X, Y = p.Position.Y };
+            graphReader.SetMiddlePoint(StartPoint);
             CurrentPointerMode = PointerEventMode.NONE;
         }
 

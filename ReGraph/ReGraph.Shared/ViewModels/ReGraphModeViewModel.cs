@@ -18,12 +18,19 @@ namespace ReGraph.ViewModels
 		}
 
 		private Color _SelectedColor;
+
+        private void BeginRecognition()
+        {
+            (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).CurrentPointerMode = MainViewModel.PointerEventMode.RECOGNITION;
+
+        }
 		public Color SelectedColor
 		{
 			get { return _SelectedColor; }
 			set
 			{
 				_SelectedColor = value;
+                BeginRecognition();
 				NotifyOfPropertyChange(() => SelectedColor);
 			}
 		}
