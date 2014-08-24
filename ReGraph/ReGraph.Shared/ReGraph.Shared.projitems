@@ -26,6 +26,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\Line.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\Point.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphReader\GraphReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GraphReader\RGB.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IGraphSpace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphSpace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AxisSettingsViewModel.cs" />

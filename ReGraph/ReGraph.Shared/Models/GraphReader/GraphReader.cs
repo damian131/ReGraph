@@ -18,11 +18,24 @@ namespace ReGraph.Models.GraphReader
         public double yScale;
         private double horizontalScale;
         private double verticalScale;
+        private RGB[,] ImageData;
         public GraphReader(WriteableBitmap img, GraphDrawer.GraphDrawer drawer)
         {
             this.InputImage = img;
             this.Drawer = drawer;
 
+            ImageData = new RGB[InputImage.PixelWidth, InputImage.PixelHeight];
+            byte[] byteArray = InputImage.ToByteArray();
+            int width = InputImage.PixelWidth;
+            int height = InputImage.PixelHeight;
+            for (int i = 0; i < width; ++i)
+            {
+                for (int j = 0; j < height; ++j)
+                {
+                    int index = j * (width) * 4 + i * 4;
+                    ImageData[i, j] = new RGB(byteArray[index + 2], byteArray[index + 1], byteArray[index]);
+                }
+            }
         }
 
         public void RecognizeLine(Point clickedPoint, Color color)
