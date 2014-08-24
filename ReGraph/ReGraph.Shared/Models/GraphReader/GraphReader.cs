@@ -1,4 +1,6 @@
-﻿using ReGraph.Models.GraphDrawer;
+﻿using Caliburn.Micro;
+using ReGraph.Models.GraphDrawer;
+using ReGraph.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,11 +21,22 @@ namespace ReGraph.Models.GraphReader
         private double horizontalScale;
         private double verticalScale;
         private RGB[,] ImageData;
-        public GraphReader(WriteableBitmap img, GraphDrawer.GraphDrawer drawer)
-        {
-            this.InputImage = img;
-            this.Drawer = drawer;
+        public GraphReader()
+        {       
+        }
 
+        public void RecognizeLine(Point clickedPoint, Color color)
+        {
+            Line line = new Line();
+            RescalePoint(clickedPoint);
+
+            Drawer.addSolidLine(line);
+        }
+
+        public void SetMiddlePoint(Point middlePoint)
+        {
+            InputImage = (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).InputGraph.Image;
+            Drawer = (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer;
             ImageData = new RGB[InputImage.PixelWidth, InputImage.PixelHeight];
             byte[] byteArray = InputImage.ToByteArray();
             int width = InputImage.PixelWidth;
@@ -36,19 +49,11 @@ namespace ReGraph.Models.GraphReader
                     ImageData[i, j] = new RGB(byteArray[index + 2], byteArray[index + 1], byteArray[index]);
                 }
             }
-        }
 
-        public void RecognizeLine(Point clickedPoint, Color color)
-        {
-            Line line = new Line();
-
-            Drawer.addSolidLine(line);
-        }
-
-        public void SetMiddlePoint(Point middlePoint)
-        {
             RescalePoint(middlePoint);
             StartPoint = middlePoint;
+
+            InputImage.FillEllipseCentered((int)middlePoint.X, (int)middlePoint.Y, 8, 8, Colors.Red);
 
             double graphWidth = InputImage.PixelWidth - StartPoint.X;
             double graphHeight = InputImage.PixelHeight - StartPoint.Y;

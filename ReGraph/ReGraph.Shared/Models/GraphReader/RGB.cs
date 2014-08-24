@@ -91,5 +91,10 @@ namespace ReGraph.Models.GraphReader
             result += Math.Abs(color.B - B);
             return result;
         }
+
+        public String ToString()
+        {
+            return "R = " + R + ", G =" + G + ", B = " + B;
+        }
     }
 }

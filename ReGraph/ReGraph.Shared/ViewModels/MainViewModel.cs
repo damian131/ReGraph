@@ -33,6 +33,8 @@ namespace ReGraph.ViewModels
     {
         public enum FileAccess { NONE, READ_IMAGE, WRITE_IMAGE, READ_CSV, WRITE_CSV };
         public FileAccess CurrentFileAccess;
+        public enum PointerEventMode { NONE, MIDDLE_POINT, RECOGNITION }
+        public PointerEventMode CurrentPointerMode;
         private INavigationService _NavigationService;
 
         public MainViewModel(INavigationService NavigationService, IEventAggregator EventAggregator)
@@ -49,8 +51,9 @@ namespace ReGraph.ViewModels
             AxisSettingsVM = new AxisSettingsViewModel(EventAggregator, _NavigationService);
             ExtrasSettingsVM = new ExtrasSettingsViewModel(EventAggregator, _NavigationService);
             CurrentFileAccess = FileAccess.NONE;
+            CurrentPointerMode = PointerEventMode.NONE;
             SaveChartVM = new SaveChartViewModel(EventAggregator, _NavigationService);
-            graphReader = new GraphReader(InputGraph.Image, graphDrawer);
+            graphReader = new GraphReader();
         }
 
         #region PROPERTIES
@@ -133,8 +136,6 @@ namespace ReGraph.ViewModels
 
 
 #endif
-        public enum PointerEventMode { NONE, MIDDLE_POINT, RECOGNITION}
-        public PointerEventMode CurrentPointerMode =PointerEventMode.NONE;
         public async void GraphImage_PointerPressed(PointerRoutedEventArgs args)
         {
             if (CurrentPointerMode == PointerEventMode.NONE)
@@ -149,6 +150,7 @@ namespace ReGraph.ViewModels
             {
                 await HandleRecognizeLineAsync(args);
             }
+            CurrentPointerMode = PointerEventMode.NONE;
         }
 
         private async Task HandleRecognizeLineAsync(PointerRoutedEventArgs args)
@@ -157,7 +159,6 @@ namespace ReGraph.ViewModels
             PointerPoint p = args.GetCurrentPoint(args.OriginalSource as Image);
             ReGraph.Models.GraphDrawer.Point clickedPoint = new ReGraph.Models.GraphDrawer.Point() { X = p.Position.X, Y = p.Position.Y };
             graphReader.RecognizeLine(clickedPoint, ReGraphVM.SelectedColor);
-            CurrentPointerMode = PointerEventMode.NONE;
         }
         private async Task HandleSetStartPointAsync(PointerRoutedEventArgs args)
         {
@@ -167,7 +168,6 @@ namespace ReGraph.ViewModels
             graphReader.yScale = InputGraph.Image.PixelHeight / element.ActualHeight;
             ReGraph.Models.GraphDrawer.Point StartPoint = new ReGraph.Models.GraphDrawer.Point() { X = p.Position.X, Y = p.Position.Y };
             graphReader.SetMiddlePoint(StartPoint);
-            CurrentPointerMode = PointerEventMode.NONE;
         }
 
         #endregion //EVENT HANDLERS
