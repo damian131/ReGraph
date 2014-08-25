@@ -3,6 +3,7 @@ using ReGraph.Models.GraphDrawer;
 using ReGraph.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Text;
 using Windows.UI;
 using Windows.UI.Popups;
@@ -30,7 +31,7 @@ namespace ReGraph.Models.GraphReader
         {       
         }
 
-        public void RecognizeLine(Point clickedPoint, Color color)
+        public async void RecognizeLine(Point clickedPoint, Color color)
         {
             Line line = new Line();
             RescalePoint(clickedPoint);
@@ -39,15 +40,20 @@ namespace ReGraph.Models.GraphReader
             {
                 System.Diagnostics.Debug.WriteLine(ImageData[(int)clickedPoint.X, (int)clickedPoint.Y].ToString());
                 InputImage.FillEllipseCentered((int)clickedPoint.X, (int)clickedPoint.Y, 5, 5, Colors.Pink);
+                List<Point> points = GetLinePoints((int)clickedPoint.X, (int)clickedPoint.Y);
+                foreach (var p in points)
+                {
+                    TransformatePointValue(p);
+                }
+                line.Points = points;
                 Drawer.addSolidLine(line);
             }
             else
             {
                 MessageDialog msg = new MessageDialog("Wrong point clicked");
-                msg.ShowAsync();
+                await msg.ShowAsync();
             }
         }
-
         public void SetMiddlePoint(Point middlePoint)
         {
             InputImage = (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).InputGraph.Image;
@@ -146,6 +152,64 @@ namespace ReGraph.Models.GraphReader
                 }
             }
          return null;
+        }
+
+        private List<Point> GetLinePoints(int x, int y)
+        {
+            List<Point> points = new List<Point>();
+            RGB currentColor = ImageData[x, y].Clone();
+            Dictionary<int, List<int>> readedValues = new Dictionary<int, List<int>>();
+            for (int i = x; i < width; ++i)
+            {
+                List<int> list = new List<int>();
+                for (int j = 0; j < height; ++j)
+                {
+                    if (ImageData[i, j].PixelRecognitionStatus == RGB.RecognitionStasus.NONE && currentColor.getDifference(ImageData[i, j]) < TOLERANCE)
+                    {
+                        list.Add(j);
+                        ImageData[i, j].PixelRecognitionStatus = RGB.RecognitionStasus.SELECTED;
+                        currentColor.Average(ImageData[i, j]);
+                    }
+                }
+                readedValues.Add(i, list);
+
+            }
+            currentColor = ImageData[x, y].Clone();
+            for (int i = x - 1; i >= 0; --i)
+            {
+                List<int> list = new List<int>();
+                for (int j = 0; j < height; ++j)
+                {
+                    if (ImageData[i, j].PixelRecognitionStatus == RGB.RecognitionStasus.NONE && currentColor.getDifference(ImageData[i, j]) < TOLERANCE)
+                    {
+                        list.Add(j);
+                        ImageData[i, j].PixelRecognitionStatus = RGB.RecognitionStasus.SELECTED;
+                        currentColor.Average(ImageData[i, j]);
+                    }
+                }
+                readedValues.Add(i, list);
+
+            }
+            foreach (var element in readedValues)
+            {
+                int i = element.Key;
+                List<int> list = element.Value;
+                if (list.Count > 0)
+                {
+                    if (list.Count < 3)
+                    {
+                        points.Add(new Point() { X = i, Y = list[0] });
+                    }
+                    else
+                    {
+                        list.Sort();
+                        int middle = list.Count / 2;
+                        points.Add(new Point() { X = i, Y = list[middle] });
+
+                    }
+                }
+            }
+            return points;
         }
     }
 }

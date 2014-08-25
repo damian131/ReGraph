@@ -100,5 +100,13 @@ namespace ReGraph.Models.GraphReader
         {
             return "R = " + R + ", G =" + G + ", B = " + B;
         }
+
+        public void Average(RGB color)
+        {
+            R = (byte)((R + color.R) / 2);
+            G = (byte)((G + color.G) / 2);
+            B = (byte)((B + color.B) / 2);
+
+        }
     }
 }
