@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Windows.UI;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
@@ -21,6 +22,10 @@ namespace ReGraph.Models.GraphReader
         private double horizontalScale;
         private double verticalScale;
         private RGB[,] ImageData;
+        private int width;
+        private int height;
+        private const int TOLERANCE = 30;
+        private int LIMIT;
         public GraphReader()
         {       
         }
@@ -29,8 +34,18 @@ namespace ReGraph.Models.GraphReader
         {
             Line line = new Line();
             RescalePoint(clickedPoint);
-
-            Drawer.addSolidLine(line);
+            clickedPoint = ValidClickedPoint(clickedPoint);
+            if (clickedPoint != null)
+            {
+                System.Diagnostics.Debug.WriteLine(ImageData[(int)clickedPoint.X, (int)clickedPoint.Y].ToString());
+                InputImage.FillEllipseCentered((int)clickedPoint.X, (int)clickedPoint.Y, 5, 5, Colors.Pink);
+                Drawer.addSolidLine(line);
+            }
+            else
+            {
+                MessageDialog msg = new MessageDialog("Wrong point clicked");
+                msg.ShowAsync();
+            }
         }
 
         public void SetMiddlePoint(Point middlePoint)
@@ -39,8 +54,8 @@ namespace ReGraph.Models.GraphReader
             Drawer = (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer;
             ImageData = new RGB[InputImage.PixelWidth, InputImage.PixelHeight];
             byte[] byteArray = InputImage.ToByteArray();
-            int width = InputImage.PixelWidth;
-            int height = InputImage.PixelHeight;
+            width = InputImage.PixelWidth;
+            height = InputImage.PixelHeight;
             for (int i = 0; i < width; ++i)
             {
                 for (int j = 0; j < height; ++j)
@@ -62,6 +77,7 @@ namespace ReGraph.Models.GraphReader
 
             horizontalScale = graphHorizontalRangeSize / graphWidth;
             verticalScale = graphVerticalRangeSize / graphHeight;
+            LIMIT = (int)(0.2 * width * height);
         }
 
         private void RescalePoint(Point p)
@@ -75,6 +91,61 @@ namespace ReGraph.Models.GraphReader
             p.X = p.X - StartPoint.X;
             p.Y = p.Y * verticalScale + (double)Drawer.VerticalAxis.ActualMinimum;
             p.X = p.X * horizontalScale + (double)Drawer.HorizontalAxis.ActualMinimum;
+        }
+
+        public Point ValidClickedPoint(Point clickedPoint)
+        {
+            if (CountSimilarPoints((int)clickedPoint.X, (int)clickedPoint.Y) > LIMIT)
+            {
+                clickedPoint = FoundNewPoint((int)clickedPoint.X, (int)clickedPoint.Y);
+            }
+            return clickedPoint;
+        }
+
+        private int CountSimilarPoints(int x, int y)
+        {
+            int result = 0;
+            for (int i = 0; i < width; ++i)
+            {
+                for (int j = 0; j < height; ++j)
+                {
+                    if (ImageData[i, j].getDifference(ImageData[x, y]) < TOLERANCE)
+                    {
+                        ++result;
+                    }
+                }
+            }
+            return result;
+        }
+        private Point FoundNewPoint(int x, int y)
+        {
+            for (int i = 1; i <= 5; ++i)
+            {
+                Point p = SearchInRegion(x, y, i);
+                if (p != null)
+                {
+                    return p;
+                }
+            }
+            return null;
+        }
+        private Point SearchInRegion(int x, int y, int areaSize)
+        {
+            for (int i = -areaSize; i <= areaSize; ++i)
+            {
+                for (int j = -areaSize; j <= areaSize; ++j)
+                {
+                    if (ImageData[x + i, y + j].getDifference(ImageData[x, y]) > TOLERANCE)
+                    {
+                        if (CountSimilarPoints(x + i, y + j) < LIMIT)
+                        {
+                            Point p = new Point() { X = x + i, Y = y + j };
+                            return p;
+                        }
+                    }
+                }
+            }
+         return null;
         }
     }
 }

@@ -24,24 +24,28 @@ namespace ReGraph.Models.GraphReader
             R = 0;
             G = 0;
             B = 0;
+            PixelRecognitionStatus = RecognitionStasus.NONE;
         }
         public RGB(Color col)
         {
             R = col.R;
             G = col.G;
             B = col.B;
+            PixelRecognitionStatus = RecognitionStasus.NONE;
         }
         public RGB(RGB col)
         {
             R = col.R;
             G = col.G;
             B = col.B;
+            PixelRecognitionStatus = RecognitionStasus.NONE;
         }
         public RGB(byte col)
         {
             R = col;
             G = col;
             B = col;
+            PixelRecognitionStatus = RecognitionStasus.NONE;
         }
         public byte[] toByteArray()
         {
