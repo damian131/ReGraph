@@ -157,58 +157,91 @@ namespace ReGraph.Models.GraphReader
         private List<Point> GetLinePoints(int x, int y)
         {
             List<Point> points = new List<Point>();
+            const int regionSize = 20;
+            const double derivativeLimit = 0.5;
             RGB currentColor = ImageData[x, y].Clone();
-            Dictionary<int, List<int>> readedValues = new Dictionary<int, List<int>>();
+            int lastMiddle = y;
             for (int i = x; i < width; ++i)
             {
                 List<int> list = new List<int>();
-                for (int j = 0; j < height; ++j)
+                for (int j = lastMiddle - regionSize; j < lastMiddle + regionSize; ++j)
                 {
-                    if (ImageData[i, j].PixelRecognitionStatus == RGB.RecognitionStasus.NONE && currentColor.getDifference(ImageData[i, j]) < TOLERANCE)
+                    if (j >= 0 && j < height && ImageData[i, j].PixelRecognitionStatus == RGB.RecognitionStasus.NONE && currentColor.getDifference(ImageData[i, j]) < TOLERANCE)
                     {
                         list.Add(j);
                         ImageData[i, j].PixelRecognitionStatus = RGB.RecognitionStasus.SELECTED;
                         currentColor.Average(ImageData[i, j]);
                     }
                 }
-                readedValues.Add(i, list);
-
-            }
-            currentColor = ImageData[x, y].Clone();
-            for (int i = x - 1; i >= 0; --i)
-            {
-                List<int> list = new List<int>();
-                for (int j = 0; j < height; ++j)
-                {
-                    if (ImageData[i, j].PixelRecognitionStatus == RGB.RecognitionStasus.NONE && currentColor.getDifference(ImageData[i, j]) < TOLERANCE)
-                    {
-                        list.Add(j);
-                        ImageData[i, j].PixelRecognitionStatus = RGB.RecognitionStasus.SELECTED;
-                        currentColor.Average(ImageData[i, j]);
-                    }
-                }
-                readedValues.Add(i, list);
-
-            }
-            foreach (var element in readedValues)
-            {
-                int i = element.Key;
-                List<int> list = element.Value;
                 if (list.Count > 0)
                 {
                     if (list.Count < 3)
                     {
+                        lastMiddle = list[0];
                         points.Add(new Point() { X = i, Y = list[0] });
                     }
                     else
                     {
                         list.Sort();
                         int middle = list.Count / 2;
+                        lastMiddle = list[middle];
+                        points.Add(new Point() { X = i, Y = list[middle] });
+
+                    }
+                }
+
+            }
+            currentColor = ImageData[x, y].Clone();
+            lastMiddle = y;
+            for (int i = x - 1; i >= 0; --i)
+            {
+                List<int> list = new List<int>();
+                for (int j = lastMiddle - regionSize; j < lastMiddle + regionSize; ++j)
+                {
+                    if (j >= 0 && j < height && ImageData[i, j].PixelRecognitionStatus == RGB.RecognitionStasus.NONE && currentColor.getDifference(ImageData[i, j]) < TOLERANCE)
+                    {
+                        list.Add(j);
+                        ImageData[i, j].PixelRecognitionStatus = RGB.RecognitionStasus.SELECTED;
+                        currentColor.Average(ImageData[i, j]);
+                    }
+                }
+
+                if (list.Count > 0)
+                {
+                    if (list.Count < 3)
+                    {
+                        lastMiddle = list[0];
+                        points.Add(new Point() { X = i, Y = list[0] });
+                    }
+                    else
+                    {
+                        list.Sort();
+                        int middle = list.Count / 2;
+                        lastMiddle = list[middle];
                         points.Add(new Point() { X = i, Y = list[middle] });
 
                     }
                 }
             }
+            points.Sort();
+            int size = points.Count;
+            List<double> derivatives = new List<double>();
+            for (int i = 0; i < size - 1; ++i)
+            {
+                derivatives.Add(points[i].Y - points[i + 1].Y);
+            }
+
+            List<Point> tmp = new List<Point>();
+            tmp.Add(points[0]);
+            for (int i = 0; i < size - 2; ++i)
+            {
+                if (Math.Abs(derivatives[i] - derivatives[i+1]) > derivativeLimit)
+                {
+                    tmp.Add(points[i + 1]);
+                }
+            }
+            tmp.Add(points[size - 1]);
+            points = tmp;
             return points;
         }
     }
