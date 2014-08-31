@@ -29,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphReader\RGB.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\IGraphSpace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphSpace.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\OCR\OCRManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AxisSettingsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseSettingsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\OCRViewModel.cs" />
