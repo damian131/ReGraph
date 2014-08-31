@@ -25,7 +25,14 @@ namespace ReGraph.ViewModels
 			get { return _Angle.ToString(); }
 			set
 			{
-				_Angle = int.Parse(value);
+				try
+				{
+					_Angle = int.Parse(value);
+				}
+				catch(FormatException ex )
+				{
+					_Angle = 0;
+				}
 				NotifyOfPropertyChange(() => Angle);
 			}
 		}

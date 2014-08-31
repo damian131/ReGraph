@@ -49,8 +49,14 @@
             <CommandBar.SecondaryCommands>
 				<AppBarButton Icon="OpenFile" Label="Open image" IsEnabled="{Binding NewImageVM.IsEnabled}" caliburn:Message.Attach="[Event Click] = [Action FromFileButton_Clicked]"/>
                 <AppBarButton Icon="OpenFile" Label="Open CSV file" IsEnabled="{Binding NewImageVM.IsEnabled}" caliburn:Message.Attach="[Event Click] = [Action FromCSVFileButton_Clicked]"/>
-				<AppBarButton Icon="OpenFile" Label="Rotate" IsEnabled="{Binding RotateVM.IsEnabled}" caliburn:Message.Attach="[Event Click] = [Action RotateButton_Clicked]"/>
-                <AppBarButton Icon="Save" Label="Save as Image" IsEnabled="{Binding IsSaveEnabled}" caliburn:Message.Attach="[Event Click] = [Action SaveAsImageFileButton_Clicked]"/>
+				<AppBarButton Icon="Rotate" Label="Rotate" IsEnabled="{Binding RotationVM.IsEnabled}" >
+					<AppBarButton.Flyout>
+						<Flyout  Placement="Top"  >
+							<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding RotationVM}"/>
+						</Flyout>
+					</AppBarButton.Flyout>
+				</AppBarButton>
+				<AppBarButton Icon="Save" Label="Save as Image" IsEnabled="{Binding IsSaveEnabled}" caliburn:Message.Attach="[Event Click] = [Action SaveAsImageFileButton_Clicked]"/>
                 <AppBarButton Icon="Save" Label="Save as CSV" IsEnabled="{Binding IsSaveEnabled}" caliburn:Message.Attach="[Event Click] = [Action SaveAsCSVFileButton_Clicked]"/>
 
             </CommandBar.SecondaryCommands>

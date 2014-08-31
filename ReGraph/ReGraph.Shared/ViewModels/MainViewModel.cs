@@ -138,9 +138,8 @@ namespace ReGraph.ViewModels
             SaveChartVM.SaveAsCSV_Clicked();
         }
 
-
 #endif
-        public async void GraphImage_PointerPressed(PointerRoutedEventArgs args)
+		public async void GraphImage_PointerPressed(PointerRoutedEventArgs args)
         {
             if (CurrentPointerMode == PointerEventMode.NONE)
             {
