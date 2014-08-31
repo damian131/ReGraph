@@ -29,7 +29,15 @@ using ReGraph.Models.GraphReader;
 
 namespace ReGraph.ViewModels
 {
-    public class MainViewModel : Screen, IHandle<StorageFile>, IHandle<String>, IHandle<bool>
+
+	public enum AppCycleState
+	{
+		NoImageLoaded,
+		ImageLoaded,
+		SettingsEntered
+	}
+
+    public class MainViewModel : Screen, IHandle<StorageFile>, IHandle<String>, IHandle<AppCycleState>
     {
         public enum FileAccess { NONE, READ_IMAGE, WRITE_IMAGE, READ_CSV, WRITE_CSV };
         public FileAccess CurrentFileAccess;
@@ -55,12 +63,15 @@ namespace ReGraph.ViewModels
             CurrentFileAccess = FileAccess.NONE;
             CurrentPointerMode = PointerEventMode.NONE;
 
+			CurrentState = AppCycleState.NoImageLoaded;
+
             SaveChartVM = new SaveChartViewModel(EventAggregator, _NavigationService);
             graphReader = new GraphReader();
         }
 
         #region PROPERTIES
 
+		public AppCycleState CurrentState { get; private set; }
 
         private GraphDrawer _graphDrawer;
         public GraphDrawer graphDrawer
@@ -171,6 +182,8 @@ namespace ReGraph.ViewModels
             graphReader.yScale = InputGraph.Image.PixelHeight / element.ActualHeight;
             ReGraph.Models.GraphDrawer.Point StartPoint = new ReGraph.Models.GraphDrawer.Point() { X = p.Position.X, Y = p.Position.Y };
             graphReader.SetMiddlePoint(StartPoint);
+
+			Handle(AppCycleState.SettingsEntered);
         }
 
         #endregion //EVENT HANDLERS
@@ -277,15 +290,33 @@ namespace ReGraph.ViewModels
             _NavigationService.Navigated -= NavigationServiceOnNavigated;
         }
 
-        public void Handle(bool unblockButtons)
+        public void Handle(AppCycleState state)
         {
-			RotationVM.IsEnabled = true;
-            BaseSettingsVM.IsEnabled = true;
-            ReGraphVM.IsEnabled = true;
-            AxisSettingsVM.IsEnabled = true;
-            ExtrasSettingsVM.IsEnabled = true;
+			if (CurrentState == state)
+				return;
 
-            IsSaveEnabled = true;
+			CurrentState = state;
+
+			if (CurrentState == AppCycleState.ImageLoaded)
+			{
+				RotationVM.IsEnabled = true;
+				BaseSettingsVM.IsEnabled = true;
+				AxisSettingsVM.IsEnabled = true;
+				IsSaveEnabled = true;
+
+				ReGraphVM.IsEnabled = false;
+				ExtrasSettingsVM.IsEnabled = false;
+			}
+			else if (CurrentState == AppCycleState.SettingsEntered)
+			{
+				RotationVM.IsEnabled = false;
+				BaseSettingsVM.IsEnabled = false;
+				AxisSettingsVM.IsEnabled = false;
+
+				ReGraphVM.IsEnabled = true;
+				ExtrasSettingsVM.IsEnabled = true;
+			}
+			
         }
 
         #endregion //EVENT AGGREGATOR IMPLEMENTATION

@@ -73,7 +73,7 @@ namespace ReGraph.ViewModels
 			}
 #endif
 
-			_EventAggregator.PublishOnCurrentThread(true);
+			_EventAggregator.PublishOnCurrentThread(AppCycleState.ImageLoaded);
 		}
         public async void FromCSVButton_Clicked()
         {
@@ -105,7 +105,7 @@ namespace ReGraph.ViewModels
 			}
 #endif
 
-            _EventAggregator.PublishOnCurrentThread(true);
+			_EventAggregator.PublishOnCurrentThread(AppCycleState.ImageLoaded);
         }
 		public async void CameraButton_Clicked()
 		{
@@ -133,7 +133,7 @@ namespace ReGraph.ViewModels
             _NavigationService.NavigateToViewModel<CapturePreviewViewModel>();
             await Task.Delay(0);
 #endif
-			_EventAggregator.PublishOnCurrentThread(true);
+			_EventAggregator.PublishOnCurrentThread(AppCycleState.ImageLoaded);
 		}
 
 
