@@ -37,6 +37,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NewImageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ReGraphModeViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RotationViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SaveChartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

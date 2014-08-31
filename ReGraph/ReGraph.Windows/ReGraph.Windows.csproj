@@ -125,6 +125,9 @@
     <Compile Include="Views\ReGraphModeView.xaml.cs">
       <DependentUpon>ReGraphModeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RotationView.xaml.cs">
+      <DependentUpon>RotationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SaveChartView.xaml.cs">
       <DependentUpon>SaveChartView.xaml</DependentUpon>
     </Compile>
@@ -168,6 +171,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ReGraphModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RotationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

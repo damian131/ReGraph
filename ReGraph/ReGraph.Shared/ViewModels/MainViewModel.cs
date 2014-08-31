@@ -46,12 +46,15 @@ namespace ReGraph.ViewModels
             InputGraph = new GraphSpace();
             graphDrawer = new GraphDrawer();
             NewImageVM = new NewImageViewModel(EventAggregator, _NavigationService);
+			RotationVM = new RotationViewModel(EventAggregator, _NavigationService);
             BaseSettingsVM = new BaseSettingsViewModel(EventAggregator, _NavigationService);
             ReGraphVM = new ReGraphModeViewModel(EventAggregator, _NavigationService);
             AxisSettingsVM = new AxisSettingsViewModel(EventAggregator, _NavigationService);
             ExtrasSettingsVM = new ExtrasSettingsViewModel(EventAggregator, _NavigationService);
+
             CurrentFileAccess = FileAccess.NONE;
             CurrentPointerMode = PointerEventMode.NONE;
+
             SaveChartVM = new SaveChartViewModel(EventAggregator, _NavigationService);
             graphReader = new GraphReader();
         }
@@ -92,6 +95,7 @@ namespace ReGraph.ViewModels
         }
 
         public NewImageViewModel NewImageVM { get; private set; }
+		public RotationViewModel RotationVM { get; private set; }
         public BaseSettingsViewModel BaseSettingsVM { get; private set; }
         public ReGraphModeViewModel ReGraphVM { get; private set; }
         public AxisSettingsViewModel AxisSettingsVM { get; private set; }
@@ -276,6 +280,7 @@ namespace ReGraph.ViewModels
 
         public void Handle(bool unblockButtons)
         {
+			RotationVM.IsEnabled = true;
             BaseSettingsVM.IsEnabled = true;
             ReGraphVM.IsEnabled = true;
             AxisSettingsVM.IsEnabled = true;
