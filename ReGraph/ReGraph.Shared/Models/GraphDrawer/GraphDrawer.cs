@@ -50,9 +50,9 @@ namespace ReGraph.Models.GraphDrawer
             setVerticalRange(0, 100);
             _Width = 800;
             _Height = 600;
-            Title = "Main Title";
-            HorizontalTitle = "OŚ X";
-            VerticalTitle = "OŚ Y";
+			Title = "Main Title";
+			HorizontalTitle = "X Name";
+			VerticalTitle = "Y Name";
         }
 
         private String _Title;

@@ -17,7 +17,7 @@ namespace ReGraph.ViewModels
 
 		}
 
-		private string _XBegin;
+		private string _XBegin = "0";
 		public string XBegin
 		{
             get { return _XBegin; }
@@ -33,7 +33,7 @@ namespace ReGraph.ViewModels
 			}
 		}
 
-        private string _XEnd;
+        private string _XEnd = "100";
         public string XEnd
         {
             get { return _XEnd; }
@@ -47,7 +47,7 @@ namespace ReGraph.ViewModels
                 NotifyOfPropertyChange(() => XEnd);
             }
         }
-		private string _YBegin;
+		private string _YBegin = "0";
 		public string YBegin
 		{
             get { return _YBegin; }
@@ -61,7 +61,7 @@ namespace ReGraph.ViewModels
                 NotifyOfPropertyChange(() => YBegin);
 			}
 		}
-        private string _YEnd;
+        private string _YEnd = "100";
         public string YEnd
         {
             get { return _YEnd; }

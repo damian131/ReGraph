@@ -16,7 +16,7 @@ namespace ReGraph.ViewModels
 			this._NavigationService = navigationService;
 		}
 
-		private string _XAxisName = String.Empty;
+		private string _XAxisName = "X Name";
 		public string XAxisName
 		{
 			get { return _XAxisName; }
@@ -28,7 +28,7 @@ namespace ReGraph.ViewModels
 			}
 		}
 
-		private string _YAxisName  = String.Empty;
+		private string _YAxisName  = "Y Name";
 		public string YAxisName
 		{
 			get { return _YAxisName; }
@@ -40,15 +40,15 @@ namespace ReGraph.ViewModels
 			}
 		}
 
-        private string _MainTittle = String.Empty;
-        public string MainTittle
+        private string _MainTitle = "Main Title";
+        public string MainTitle
         {
-            get { return _MainTittle; }
+			get { return _MainTitle; }
             set
             {
                 _XAxisName = value;
                 (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.Title = value;
-                NotifyOfPropertyChange(() => MainTittle);
+				NotifyOfPropertyChange(() => MainTitle);
             }
         }
 
@@ -75,7 +75,7 @@ namespace ReGraph.ViewModels
 		}
         public void MainOCRButton_Clicked()
 		{
-			_EventAggregator.PublishOnCurrentThread(MainTittle);
+			_EventAggregator.PublishOnCurrentThread(MainTitle);
 		}
     }
 }

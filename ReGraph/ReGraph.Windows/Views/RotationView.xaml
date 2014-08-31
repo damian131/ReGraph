@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
 	xmlns:caliburn="using:Caliburn.Micro"
-	Width="300"
-	Height="145">
+	Width="220"
+	Height="155">
 
 	<Grid >
 		<Grid.RowDefinitions>
@@ -33,10 +33,9 @@
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 
-			<TextBlock Text="Angle" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
+			<TextBlock Text="Angle" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" FontSize="25"/>
 			<TextBox Grid.Column="1" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding Angle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-			
 		</Grid>
 		<Button Grid.Row="5" Grid.Column="1" caliburn:Message.Attach="[Event Click] = [Action ApplyButton_Clicked]" Content="Apply" FontSize="35" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
 	</Grid>

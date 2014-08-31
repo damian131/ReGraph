@@ -41,17 +41,17 @@
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
+					<AppBarButton Icon="FontColor" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding AxisSettingsVM.IsEnabled}" >
+						<AppBarButton.Flyout>
+							<Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
+								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding AxisSettingsVM}"/>
+							</Flyout>
+						</AppBarButton.Flyout>
+					</AppBarButton>
 					<AppBarButton Icon="FourBars" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding ReGraphVM.IsEnabled}">
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
 								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding ReGraphVM}"/>
-                            </Flyout>
-                        </AppBarButton.Flyout>
-                    </AppBarButton>
-					<AppBarButton Icon="FontColor" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding AxisSettingsVM.IsEnabled}" >
-                        <AppBarButton.Flyout>
-                            <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
-								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding AxisSettingsVM}"/> 
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>

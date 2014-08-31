@@ -7,9 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
 	xmlns:caliburn="using:Caliburn.Micro"
-	Height="180">
+	Height="190">
 
-	<Grid >
+	<Grid HorizontalAlignment="Center">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="8"/>
@@ -21,7 +21,7 @@
             <RowDefinition Height="4"/>
 		</Grid.RowDefinitions>
 
-		<TextBlock Text="Set axis name using OCR and correct if necessary." Style="{StaticResource FlyoutTextBlockDescriptionPhoneStyle}" VerticalAlignment="Center"/>
+		<TextBlock Text="Set axis name using OCR and correct if necessary." Margin="0,10,0,0" Style="{StaticResource FlyoutTextBlockDescriptionPhoneStyle}" VerticalAlignment="Center"/>
 		<Grid Grid.Row="2">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
@@ -52,7 +52,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="M" Margin="10,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
+            <TextBlock Text="T" Margin="10,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
             <TextBox Grid.Column="1" Margin="10,0,10,0" Text="{Binding MainTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
             <Button Grid.Column="2" Content="OCR" Foreground="White" caliburn:Message.Attach="[Event Click] = [Action MainOCRButton_Clicked]"/>
         </Grid>
