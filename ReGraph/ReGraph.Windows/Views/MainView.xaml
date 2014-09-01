@@ -10,6 +10,7 @@
     xmlns:common="using:ReGraph.Common"
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
+	NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
     <Page.TopAppBar>
