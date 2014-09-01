@@ -33,6 +33,8 @@ namespace ReGraph.Models.OCR
 
             ImageRGB = ByteArrayUtil.fromWriteableBitmap(image);
 
+            Utility.HistogramStrech(ImageRGB, width, height); 
+
             Utility.GrayScale(ImageRGB, width, height);
 
             Utility.SimpleBinarization(ImageRGB, width, height, 100);
@@ -42,6 +44,8 @@ namespace ReGraph.Models.OCR
             Utility.EraseOnePixelNoise(ImageBool, width, height);
 
 
+
+            //Utility.ShowDialog("" + width + "," + height);
 
 
 

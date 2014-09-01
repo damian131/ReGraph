@@ -266,6 +266,104 @@ namespace ReGraph.Models.OCR
         }
 
 
+        public static void Erosion(bool[,] image, int width, int height)
+        {
+            //bool[,] copy = (bool[,])image.Clone();
+
+            //for (int x = 0; x < width; ++x)
+            //{
+            //    for (int y = 0; y < height; ++y)
+            //    {
+            //            bool check = false;
+
+            //            for (int i = 0; i < 3; ++i)
+            //            {
+            //                for (int j = 0; j < 3; ++j)
+            //                {
+            //                    int X = x + i - 1;
+            //                    int Y = y + j - 1;
+            //                    if (X < 0) X = 0;
+            //                    if (X > width - 1) X = width - 1;
+            //                    if (Y < 0) Y = 0;
+            //                    if (Y > height - 1) Y = height - 1;
+
+            //                    if ((X != x || Y != y) && copy[X, Y] == true) check = true;
+            //                }
+            //            }
+            //            if (check) image[x, y] = true;
+            //    }
+            //}
+
+            bool[,] copy = (bool[,])image.Clone();
+
+            for (int i = 1; i < width - 1; i++)
+            {
+                for (int j = 1; j < height - 1; j++)
+                {
+
+                    image[i, j] = true;
+                    for (int k = -1; k <= 1; k++)
+                    {
+                        for (int l = -1; l <= 1; l++)
+                        {
+                            image[i, j] &= copy[i + k, j + l];
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+
+        public static void Dilation(bool[,] image, int width, int height)
+        {
+            bool[,] copy = (bool[,])image.Clone();
+
+            //for (int x = 0; x < width; ++x)
+            //{
+            //    for (int y = 0; y < height; ++y)
+            //    {
+            //        bool check = false;
+
+            //        for (int i = 0; i < 3; ++i)
+            //        {
+            //            for (int j = 0; j < 3; ++j)
+            //            {
+            //                int X = x + i - 1;
+            //                int Y = y + j - 1;
+            //                if (X < 0) X = 0;
+            //                if (X > width - 1) X = width - 1;
+            //                if (Y < 0) Y = 0;
+            //                if (Y > height - 1) Y = height - 1;
+
+            //                if ((X != x || Y != y) && copy[X, Y] == false) check = true;
+            //            }
+            //        }
+            //        if (check) image[x, y] = false;
+            //    }
+            //}
+
+            for (int i = 1; i < width - 1; i++)
+            {
+                for (int j = 1; j < height - 1; j++)
+                {
+
+                    image[i, j] = false;
+                    for (int k = -1; k <= 1; k++)
+                    {
+                        for (int l = -1; l <= 1; l++)
+                        {
+                            image[i, j] |= copy[i + k, j + l];
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+
         public static void Blur(RGB[,] image, int width, int height, int id) {
 
             RGB[,] copy = ByteArrayUtil.RGB_ArrayClone(image, width, height);
@@ -410,7 +508,145 @@ namespace ReGraph.Models.OCR
         }
 
 
+        public static void HistogramStrech(RGB[,] image, int width, int height)
+        {
+            int min_r = 255, max_r = 0, min_g = 255, max_g = 0, min_b = 255, max_b = 0;
 
+            for (int x = 0; x < width; ++x)
+            {
+                for (int y = 0; y < height; ++y)
+                {
+                    if (image[x, y].R < min_r) min_r = image[x, y].R;
+                    if (image[x, y].R > max_r) max_r = image[x, y].R;
+
+                    if (image[x, y].G < min_g) min_g = image[x, y].G;
+                    if (image[x, y].G > max_g) max_g = image[x, y].G;
+
+                    if (image[x, y].B < min_b) min_b = image[x, y].B;
+                    if (image[x, y].B > max_b) max_b = image[x, y].B;
+                }
+            }
+
+            for (int x = 0; x < width; ++x)
+            {
+                for (int y = 0; y < height; ++y)
+                {
+                    image[x, y].R = (byte)((image[x, y].R - min_r) * 255 / (max_r - min_r));
+                    image[x, y].G = (byte)((image[x, y].G - min_g) * 255 / (max_g - min_g));
+                    image[x, y].B = (byte)((image[x, y].B - min_b) * 255 / (max_b - min_b));
+                }
+            }
+        }
+
+
+
+        public static void kuhawaraGrayFilter(RGB[,] image, int width, int height, int mask_size)
+        {
+
+            int quarter_size = (mask_size + 1) * (mask_size + 1);
+            int size = (2 * mask_size + 1) * (2 * mask_size + 1);
+
+            RGB[,] copy = ByteArrayUtil.RGB_ArrayClone(image, width, height);
+            for (int i = mask_size; i < width - mask_size; i++)
+            {
+                for (int j = mask_size; j < height - mask_size; j++)
+                {
+                    int[] average = new int[4];
+                    double[] W = new double[4];
+                    int[] sum = new int[4];
+                    //pierwsza cwiartka
+                    for (int k = -mask_size; k <= 0; k++)
+                    {
+                        for (int l = -mask_size; l <= 0; l++)
+                        {
+                            sum[0] += copy[i + k, j + l].R;
+                        }
+                    }
+                    //druga cwiartka
+                    for (int k = 0; k <= mask_size; k++)
+                    {
+                        for (int l = -mask_size; l <= 0; l++)
+                        {
+                            sum[1] += copy[i + k, j + l].R;
+                        }
+                    }
+                    //trzecia cwiartka
+                    for (int k = -mask_size; k <= 0; k++)
+                    {
+                        for (int l = 0; l <= mask_size; l++)
+                        {
+                            sum[2] += copy[i + k, j + l].R;
+                        }
+                    }
+                    //czwarta cwiartka
+                    for (int k = 0; k <= mask_size; k++)
+                    {
+                        for (int l = 0; l <= mask_size; l++)
+                        {
+                            sum[3] += copy[i + k, j + l].R;
+                        }
+                    }
+
+                    //liczenie srednich
+
+                    for (int l = 0; l < 4; l++)
+                    {
+                        average[l] = sum[l] / quarter_size;
+                    }
+
+
+
+                    ///////liczenie wariancji
+                    //pierwsza cwiartka
+                    for (int k = -mask_size; k <= 0; k++)
+                    {
+                        for (int l = -mask_size; l <= 0; l++)
+                        {
+                            W[0] += Math.Pow(average[0] - copy[i + k, j + l].R, 2);
+                        }
+                    }
+                    //druga cwiartka
+                    for (int k = 0; k <= mask_size; k++)
+                    {
+                        for (int l = -mask_size; l <= 0; l++)
+                        {
+                            W[1] += Math.Pow(average[1] - copy[i + k, j + l].R, 2);
+                        }
+                    }
+                    //trzecia cwiartka
+                    for (int k = -mask_size; k <= 0; k++)
+                    {
+                        for (int l = 0; l <= mask_size; l++)
+                        {
+                            W[2] += Math.Pow(average[2] - copy[i + k, j + l].R, 2);
+                        }
+                    }
+                    //czwarta cwiartka
+                    for (int k = 0; k <= mask_size; k++)
+                    {
+                        for (int l = 0; l <= mask_size; l++)
+                        {
+                            W[3] += Math.Pow(average[3] - copy[i + k, j + l].R, 2);
+                        }
+                    }
+                    //dzielenie wariancji
+                    for (int k = 0; k < 4; k++) W[k] = W[k] / quarter_size;
+
+                    double min = W[0];
+                    int id = 0;
+                    for (int k = 1; k < 4; k++)
+                        if (W[k] < min)
+                        {
+                            min = W[k];
+                            id = k;
+                        }
+                    image[i, j] = new RGB((byte)average[id]);
+
+
+                }
+            }
+
+        }
 
 
 

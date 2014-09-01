@@ -30,6 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\IGraphSpace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphSpace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\OCR\ByteArrayUtil.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\OCR\ImageDivide.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\OCR\OCRManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\OCR\Utility.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AxisSettingsViewModel.cs" />
