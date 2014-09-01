@@ -345,6 +345,71 @@ namespace ReGraph.Models.OCR
         }
 
 
+        public static void AverageFilter(RGB[,] image, int width, int height, int mask_size)
+        {
+
+            int size = (2 * mask_size + 1) * (2 * mask_size + 1);
+            RGB[,] copy = ByteArrayUtil.RGB_ArrayClone(image, width, height);
+            for (int i = mask_size; i < width - mask_size; i++)
+            {
+                for (int j = mask_size; j < height - mask_size; j++)
+                {
+                    int[] sum = new int[3];
+                    for (int k = -mask_size; k <= mask_size; k++)
+                    {
+                        for (int l = -mask_size; l <= mask_size; l++)
+                        {
+                            sum[0] += copy[i + k, j + l].R;
+                            sum[1] += copy[i + k, j + l].G;
+                            sum[2] += copy[i + k, j + l].B;
+                        }
+                    }
+                    byte r = (byte)(sum[0] / size);
+                    byte g = (byte)(sum[1] / size);
+                    byte b = (byte)(sum[2] / size);
+                    image[i, j] = new RGB(r, g, b, 255);
+                }
+            }
+        }
+
+
+        public static void MedianFilter(RGB[,] image, int width, int height, int mask_size)
+        {
+
+            int size = (2 * mask_size + 1) * (2 * mask_size + 1);
+            int middle = (int)(size / 2);
+            RGB[,] copy = ByteArrayUtil.RGB_ArrayClone(image, width, height);
+            for (int i = mask_size; i < width - mask_size; i++)
+            {
+                for (int j = mask_size; j < height - mask_size; j++)
+                {
+                    List<byte> listR = new List<byte>();
+                    List<byte> listG = new List<byte>();
+                    List<byte> listB = new List<byte>();
+                    for (int k = -mask_size; k <= mask_size; k++)
+                    {
+                        for (int l = -mask_size; l <= mask_size; l++)
+                        {
+                            listR.Add(copy[i + k, j + l].R);
+                            listG.Add(copy[i + k, j + l].G);
+                            listB.Add(copy[i + k, j + l].B);
+                        }
+                    }
+                    listR.Sort();
+                    listB.Sort();
+                    listG.Sort();
+                    byte r = listR[middle];
+                    byte g = listG[middle];
+                    byte b = listB[middle];
+
+                    image[i, j] = new RGB(r, g, b, 255);
+
+
+                }
+            }
+        }
+
+
 
 
 
