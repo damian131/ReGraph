@@ -9,7 +9,7 @@
 	xmlns:caliburn="using:Caliburn.Micro"
 	Height="175">
 
-	<Grid >
+	<Grid HorizontalAlignment="Center">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="8"/>

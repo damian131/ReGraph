@@ -27,6 +27,20 @@
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
+					<AppBarButton Icon="Rotate" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding RotationVM.IsEnabled}">
+						<AppBarButton.Flyout>
+							<Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" >
+								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding RotationVM}" />
+							</Flyout>
+						</AppBarButton.Flyout>
+					</AppBarButton>
+					<AppBarButton Icon="FontColor" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding AxisSettingsVM.IsEnabled}" >
+						<AppBarButton.Flyout>
+							<Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
+								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding AxisSettingsVM}"/>
+							</Flyout>
+						</AppBarButton.Flyout>
+					</AppBarButton>
 					<AppBarButton Icon="MapPin" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding BaseSettingsVM.IsEnabled}">
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
@@ -38,13 +52,6 @@
                         <AppBarButton.Flyout>
                             <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
 								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding ReGraphVM}"/>
-                            </Flyout>
-                        </AppBarButton.Flyout>
-                    </AppBarButton>
-					<AppBarButton Icon="FontColor" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding AxisSettingsVM.IsEnabled}" >
-                        <AppBarButton.Flyout>
-                            <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
-								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding AxisSettingsVM}"/> 
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>

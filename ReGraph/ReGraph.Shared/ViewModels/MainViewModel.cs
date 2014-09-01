@@ -29,7 +29,15 @@ using ReGraph.Models.GraphReader;
 
 namespace ReGraph.ViewModels
 {
-    public class MainViewModel : Screen, IHandle<StorageFile>, IHandle<String>, IHandle<bool>
+
+	public enum AppCycleState
+	{
+		NoImageLoaded,
+		ImageLoaded,
+		SettingsEntered
+	}
+
+    public class MainViewModel : Screen, IHandle<StorageFile>, IHandle<String>, IHandle<AppCycleState>
     {
         public enum FileAccess { NONE, READ_IMAGE, WRITE_IMAGE, READ_CSV, WRITE_CSV };
         public FileAccess CurrentFileAccess;
@@ -46,18 +54,24 @@ namespace ReGraph.ViewModels
             InputGraph = new GraphSpace();
             graphDrawer = new GraphDrawer();
             NewImageVM = new NewImageViewModel(EventAggregator, _NavigationService);
+			RotationVM = new RotationViewModel(EventAggregator, _NavigationService);
             BaseSettingsVM = new BaseSettingsViewModel(EventAggregator, _NavigationService);
             ReGraphVM = new ReGraphModeViewModel(EventAggregator, _NavigationService);
             AxisSettingsVM = new AxisSettingsViewModel(EventAggregator, _NavigationService);
             ExtrasSettingsVM = new ExtrasSettingsViewModel(EventAggregator, _NavigationService);
+
             CurrentFileAccess = FileAccess.NONE;
             CurrentPointerMode = PointerEventMode.NONE;
+
+			CurrentState = AppCycleState.NoImageLoaded;
+
             SaveChartVM = new SaveChartViewModel(EventAggregator, _NavigationService);
             graphReader = new GraphReader();
         }
 
         #region PROPERTIES
 
+		public AppCycleState CurrentState { get; private set; }
 
         private GraphDrawer _graphDrawer;
         public GraphDrawer graphDrawer
@@ -92,6 +106,7 @@ namespace ReGraph.ViewModels
         }
 
         public NewImageViewModel NewImageVM { get; private set; }
+		public RotationViewModel RotationVM { get; private set; }
         public BaseSettingsViewModel BaseSettingsVM { get; private set; }
         public ReGraphModeViewModel ReGraphVM { get; private set; }
         public AxisSettingsViewModel AxisSettingsVM { get; private set; }
@@ -134,9 +149,8 @@ namespace ReGraph.ViewModels
             SaveChartVM.SaveAsCSV_Clicked();
         }
 
-
 #endif
-        public async void GraphImage_PointerPressed(PointerRoutedEventArgs args)
+		public async void GraphImage_PointerPressed(PointerRoutedEventArgs args)
         {
             if (CurrentPointerMode == PointerEventMode.NONE)
             {
@@ -168,6 +182,8 @@ namespace ReGraph.ViewModels
             graphReader.yScale = InputGraph.Image.PixelHeight / element.ActualHeight;
             ReGraph.Models.GraphDrawer.Point StartPoint = new ReGraph.Models.GraphDrawer.Point() { X = p.Position.X, Y = p.Position.Y };
             graphReader.SetMiddlePoint(StartPoint);
+
+			Handle(AppCycleState.SettingsEntered);
         }
 
         #endregion //EVENT HANDLERS
@@ -274,14 +290,33 @@ namespace ReGraph.ViewModels
             _NavigationService.Navigated -= NavigationServiceOnNavigated;
         }
 
-        public void Handle(bool unblockButtons)
+        public void Handle(AppCycleState state)
         {
-            BaseSettingsVM.IsEnabled = true;
-            ReGraphVM.IsEnabled = true;
-            AxisSettingsVM.IsEnabled = true;
-            ExtrasSettingsVM.IsEnabled = true;
+			if (CurrentState == state)
+				return;
 
-            IsSaveEnabled = true;
+			CurrentState = state;
+
+			if (CurrentState == AppCycleState.ImageLoaded)
+			{
+				RotationVM.IsEnabled = true;
+				BaseSettingsVM.IsEnabled = true;
+				AxisSettingsVM.IsEnabled = true;
+				IsSaveEnabled = true;
+
+				ReGraphVM.IsEnabled = false;
+				ExtrasSettingsVM.IsEnabled = false;
+			}
+			else if (CurrentState == AppCycleState.SettingsEntered)
+			{
+				RotationVM.IsEnabled = false;
+				BaseSettingsVM.IsEnabled = false;
+				AxisSettingsVM.IsEnabled = false;
+
+				ReGraphVM.IsEnabled = true;
+				ExtrasSettingsVM.IsEnabled = true;
+			}
+			
         }
 
         #endregion //EVENT AGGREGATOR IMPLEMENTATION

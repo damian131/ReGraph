@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
 	xmlns:caliburn="using:Caliburn.Micro"
-	Width="300"
-	Height="190">
+	Width="260"
+	Height="195">
 
     <Grid >
 		<Grid.RowDefinitions>
@@ -28,7 +28,7 @@
 			<ColumnDefinition Width="8" />
 		</Grid.ColumnDefinitions>
 		
-		<TextBlock Grid.Row="1" Grid.Column="1" Text="Set ranges and select start of coordinate system." Style="{StaticResource FlyoutTextBlockDescriptionStyle}"/>
+		<TextBlock Grid.Row="1" Grid.Column="1" Text="Set ranges and select start of coordinate system." Style="{StaticResource FlyoutTextBlockDescriptionStyle}" FontSize="13.5"/>
 		<Grid Grid.Row="3" Grid.Column="1">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto"/>
@@ -37,10 +37,10 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-			<TextBlock Text="X" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-			<TextBox Grid.Column="1" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding XBegin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Grid.Column="2" Text="-" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-            <TextBox Grid.Column="3" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding XEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<TextBlock Text="X" Margin="0,0,0,0" Style="{StaticResource FlyoutTextBlockStyle}" />
+			<TextBox Grid.Column="1" Margin="10,0,5,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding XBegin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Grid.Column="2" Text="-" Style="{StaticResource FlyoutTextBlockStyle}" />
+            <TextBox Grid.Column="3" Margin="5,0,5,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding XEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         </Grid>
 
@@ -52,10 +52,10 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Y" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-			<TextBox Grid.Column="1"  Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YBegin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Grid.Column="2" Text="-" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-            <TextBox Grid.Column="3"  Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Y" Margin="0,0,0,0" Style="{StaticResource FlyoutTextBlockStyle}" />
+			<TextBox Grid.Column="1"  Margin="10,0,5,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YBegin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Grid.Column="2" Text="-"  Style="{StaticResource FlyoutTextBlockStyle}" />
+            <TextBox Grid.Column="3"  Margin="5,0,5,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
         
         <Grid Grid.Row="7" Grid.Column="1">
