@@ -84,7 +84,11 @@
 										</Grid.ColumnDefinitions>
 
 										<TextBlock Text="Angle" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-										<TextBox Grid.Column="1" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding Angle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+										<TextBox Grid.Column="1" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding Angle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+											<Interactivity:Interaction.Behaviors>
+												<Common:NumericOnlyTextBoxBehavior/>
+											</Interactivity:Interaction.Behaviors>
+										</TextBox>
 
 									</Grid>
 									<Button Grid.Row="5" Grid.Column="1" caliburn:Message.Attach="[Event Click] = [Action ApplyButton_Clicked]" Content="Apply" FontSize="35" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>

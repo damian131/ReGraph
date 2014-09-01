@@ -11,27 +11,27 @@
 
     mc:Ignorable="d">
 
-    <Grid Style="{StaticResource MainGridStyle}">
-        <Grid.ChildrenTransitions>
-            <TransitionCollection>
-                <EntranceThemeTransition/>
-            </TransitionCollection>
-        </Grid.ChildrenTransitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+	<Grid Style="{StaticResource MainGridStyle}">
+		<Grid.ChildrenTransitions>
+			<TransitionCollection>
+				<EntranceThemeTransition/>
+			</TransitionCollection>
+		</Grid.ChildrenTransitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="80"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
 
-        <!-- Back button and page title -->
-        <Grid Style="{StaticResource MainAppBarGridStyle}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="120"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
-                <TextBlock x:Name="pageTitle" Text="OCR" FontFamily="Segoe UI Symbol" FontSize="30" IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
-                <AppBarSeparator VerticalAlignment="Center" />
-                <AppBarButton x:Name="Crop" Label="Crop" VerticalAlignment="Center" Margin="0,0,0,0" IsEnabled="{Binding IsCropEnabled}" caliburn:Message.Attach="[Event Click] = [Action CropButton_Clicked]">
+		<!-- Back button and page title -->
+		<Grid Style="{StaticResource MainAppBarGridStyle}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition Width="120"/>
+			</Grid.ColumnDefinitions>
+			<StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+				<TextBlock x:Name="pageTitle" Text="OCR" FontFamily="Segoe UI Symbol" FontSize="30" IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
+				<AppBarSeparator VerticalAlignment="Center" />
+				<AppBarButton x:Name="Crop" Label="Crop" VerticalAlignment="Center" Margin="0,0,0,0" IsEnabled="{Binding IsCropEnabled}" caliburn:Message.Attach="[Event Click] = [Action CropButton_Clicked]">
 					<SymbolIcon Symbol="Crop" RenderTransformOrigin="0.5,0.5" />
 				</AppBarButton>
 				<AppBarButton x:Name="Rotate" Label="Rotate" VerticalAlignment="Center" Margin="-15,0,0,0" IsEnabled="{Binding IsRotationEnabled}">
@@ -61,8 +61,11 @@
 									</Grid.ColumnDefinitions>
 
 									<TextBlock Text="Angle" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-									<TextBox Grid.Column="1" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding Angle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
+									<TextBox Grid.Column="1" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding Angle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+										<Interactivity:Interaction.Behaviors>
+											<Common:NumericOnlyTextBoxBehavior/>
+										</Interactivity:Interaction.Behaviors>
+									</TextBox>
 								</Grid>
 								<Button Grid.Row="5" Grid.Column="1" caliburn:Message.Attach="[Event Click] = [Action ApplyButton_Clicked]" Content="Apply" FontSize="35" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
 							</Grid>
@@ -74,29 +77,29 @@
 					<SymbolIcon Symbol="FontSize" RenderTransformOrigin="0.5,0.5" />
 				</AppBarButton>
 			</StackPanel>
-            <Image Grid.Column="1" Source="ms-appx:///Resources/Images/logo.png" RenderTransformOrigin="0.5,0.5">
-                <Image.RenderTransform>
-                    <CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
-                </Image.RenderTransform>
-            </Image>
-        </Grid>
+			<Image Grid.Column="1" Source="ms-appx:///Resources/Images/logo.png" RenderTransformOrigin="0.5,0.5">
+				<Image.RenderTransform>
+					<CompositeTransform ScaleX="0.8" ScaleY="0.8"/>
+				</Image.RenderTransform>
+			</Image>
+		</Grid>
 
-        <Border Grid.Row="1" Margin="30,0,30,30" >
-            <Canvas caliburn:Message.Attach="[Event SizeChanged] = [Action CanvasSizeChanged($eventArgs)]" Common:Clip.ToBounds="True" >
-                <Image Canvas.Left="{Binding ImageLeft}" Canvas.Top="{Binding ImageTop}" Width="{Binding ImageWidth}" Height="{Binding ImageHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding Path=CroppedImage}" Stretch="Uniform" />
+		<Border Grid.Row="1" Margin="30,0,30,30" >
+			<Canvas caliburn:Message.Attach="[Event SizeChanged] = [Action CanvasSizeChanged($eventArgs)]" Common:Clip.ToBounds="True" >
+				<Image Canvas.Left="{Binding ImageLeft}" Canvas.Top="{Binding ImageTop}" Width="{Binding ImageWidth}" Height="{Binding ImageHeight}" HorizontalAlignment="Center" VerticalAlignment="Center" Source="{Binding Path=CroppedImage}" Stretch="Uniform" />
 
 				<Grid  Width="{Binding RectWidth}" Height="{Binding RectHeight}" Canvas.Top="{Binding RectTop}" Canvas.Left="{Binding RectLeft}" Visibility="{Binding SelectedAreaVisibility, Converter={StaticResource BooleanToVisibilityConverter}}" RenderTransformOrigin="0.5,0.5">
-                    <Rectangle   ManipulationMode="All" caliburn:Message.Attach="[Event ManipulationStarted] = [Action ManipulationStarted($eventArgs)];[Event ManipulationCompleted] = [Action ManipulationCompleted($eventArgs)];[Event ManipulationDelta] = [Action ManipulationDelta($eventArgs)]" StrokeThickness="1"  Fill="#332F7A7A" Stroke="#7F102F74" />
+					<Rectangle   ManipulationMode="All" caliburn:Message.Attach="[Event ManipulationStarted] = [Action ManipulationStarted($eventArgs)];[Event ManipulationCompleted] = [Action ManipulationCompleted($eventArgs)];[Event ManipulationDelta] = [Action ManipulationDelta($eventArgs)]" StrokeThickness="1"  Fill="#332F7A7A" Stroke="#7F102F74" />
 
-                    <Rectangle Fill="#335164B6" Stroke="#661B325B" StrokeThickness="1" ManipulationMode="All" caliburn:Message.Attach="[Event ManipulationDelta] = [Action TopLeftManipulationDelta($eventArgs)];[Event ManipulationStarted] = [Action ManipulationStarted($eventArgs)];[Event ManipulationCompleted] = [Action ManipulationCompleted($eventArgs)]" HorizontalAlignment="Left" Height="11" VerticalAlignment="Top" Width="11"/>
+					<Rectangle Fill="#335164B6" Stroke="#661B325B" StrokeThickness="1" ManipulationMode="All" caliburn:Message.Attach="[Event ManipulationDelta] = [Action TopLeftManipulationDelta($eventArgs)];[Event ManipulationStarted] = [Action ManipulationStarted($eventArgs)];[Event ManipulationCompleted] = [Action ManipulationCompleted($eventArgs)]" HorizontalAlignment="Left" Height="11" VerticalAlignment="Top" Width="11"/>
 
-                    <Rectangle Fill="#335164B6" Stroke="#661B325B" StrokeThickness="1" ManipulationMode="All" caliburn:Message.Attach="[Event ManipulationDelta] = [Action TopRightManipulationDelta($eventArgs)];[Event ManipulationStarted] = [Action ManipulationStarted($eventArgs)];[Event ManipulationCompleted] = [Action ManipulationCompleted($eventArgs)]"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="11" Height="11" />
-                    <Rectangle Fill="#335164B6" Stroke="#661B325B" StrokeThickness="1" ManipulationMode="All" caliburn:Message.Attach="[Event ManipulationDelta] = [Action BottomLeftManipulationDelta($eventArgs)];[Event ManipulationStarted] = [Action ManipulationStarted($eventArgs)];[Event ManipulationCompleted] = [Action ManipulationCompleted($eventArgs)]" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="11" Height="11"  />
-                    <Rectangle Fill="#335164B6" Stroke="#661B325B" StrokeThickness="1" ManipulationMode="All" caliburn:Message.Attach="[Event ManipulationDelta] = [Action BottomRightManipulationDelta($eventArgs)];[Event ManipulationStarted] = [Action ManipulationStarted($eventArgs)];[Event ManipulationCompleted] = [Action ManipulationCompleted($eventArgs)]" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="11" Height="11" />
-                </Grid>
+					<Rectangle Fill="#335164B6" Stroke="#661B325B" StrokeThickness="1" ManipulationMode="All" caliburn:Message.Attach="[Event ManipulationDelta] = [Action TopRightManipulationDelta($eventArgs)];[Event ManipulationStarted] = [Action ManipulationStarted($eventArgs)];[Event ManipulationCompleted] = [Action ManipulationCompleted($eventArgs)]"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="11" Height="11" />
+					<Rectangle Fill="#335164B6" Stroke="#661B325B" StrokeThickness="1" ManipulationMode="All" caliburn:Message.Attach="[Event ManipulationDelta] = [Action BottomLeftManipulationDelta($eventArgs)];[Event ManipulationStarted] = [Action ManipulationStarted($eventArgs)];[Event ManipulationCompleted] = [Action ManipulationCompleted($eventArgs)]" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="11" Height="11"  />
+					<Rectangle Fill="#335164B6" Stroke="#661B325B" StrokeThickness="1" ManipulationMode="All" caliburn:Message.Attach="[Event ManipulationDelta] = [Action BottomRightManipulationDelta($eventArgs)];[Event ManipulationStarted] = [Action ManipulationStarted($eventArgs)];[Event ManipulationCompleted] = [Action ManipulationCompleted($eventArgs)]" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="11" Height="11" />
+				</Grid>
 
 
-            </Canvas>
-        </Border>
-    </Grid>
+			</Canvas>
+		</Border>
+	</Grid>
 </Page>

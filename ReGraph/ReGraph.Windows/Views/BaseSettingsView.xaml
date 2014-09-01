@@ -7,6 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
 	xmlns:caliburn="using:Caliburn.Micro"
+	xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+	xmlns:common="using:ReGraph.Common"
 	Width="260"
 	Height="195">
 
@@ -38,11 +40,19 @@
             </Grid.ColumnDefinitions>
 
 			<TextBlock Text="X" Margin="0,0,0,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-			<TextBox Grid.Column="1" Margin="10,0,5,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding XBegin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Grid.Column="2" Text="-" Style="{StaticResource FlyoutTextBlockStyle}" />
-            <TextBox Grid.Column="3" Margin="5,0,5,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding XEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+			<TextBox Grid.Column="1" Margin="10,0,5,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding XBegin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+				<Interactivity:Interaction.Behaviors>
+					<common:NumericOnlyTextBoxBehavior/>
+				</Interactivity:Interaction.Behaviors>
+			</TextBox>
+			<TextBlock Grid.Column="2" Text="-" Style="{StaticResource FlyoutTextBlockStyle}" />
+			<TextBox Grid.Column="3" Margin="5,0,5,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding XEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+				<Interactivity:Interaction.Behaviors>
+					<common:NumericOnlyTextBoxBehavior/>
+				</Interactivity:Interaction.Behaviors>
+			</TextBox>
 
-        </Grid>
+		</Grid>
 
 		<Grid Grid.Row="5" Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -53,10 +63,18 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="Y" Margin="0,0,0,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-			<TextBox Grid.Column="1"  Margin="10,0,5,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YBegin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            <TextBlock Grid.Column="2" Text="-"  Style="{StaticResource FlyoutTextBlockStyle}" />
-            <TextBox Grid.Column="3"  Margin="5,0,5,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        </Grid>
+			<TextBox Grid.Column="1"  Margin="10,0,5,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YBegin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+				<Interactivity:Interaction.Behaviors>
+					<common:NumericOnlyTextBoxBehavior/>
+				</Interactivity:Interaction.Behaviors>
+			</TextBox>
+			<TextBlock Grid.Column="2" Text="-"  Style="{StaticResource FlyoutTextBlockStyle}" />
+			<TextBox Grid.Column="3"  Margin="5,0,5,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding YEnd, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+				<Interactivity:Interaction.Behaviors>
+					<common:NumericOnlyTextBoxBehavior/>
+				</Interactivity:Interaction.Behaviors>
+			</TextBox>
+		</Grid>
         
         <Grid Grid.Row="7" Grid.Column="1">
             <Grid.ColumnDefinitions>
