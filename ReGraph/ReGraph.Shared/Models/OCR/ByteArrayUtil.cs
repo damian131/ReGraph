@@ -115,6 +115,8 @@ namespace ReGraph.Models.OCR
             return out_mask;
         }
 
+
+
         public static RGB[,] RGB_from_mask(bool[,] bool_array, int width, int height)
         {
             RGB[,] result = new RGB[width, height];
@@ -128,6 +130,22 @@ namespace ReGraph.Models.OCR
                 }
             }
 
+            return result;
+        }
+
+
+
+        public static RGB[,] RGB_ArrayClone(RGB[,] image, int width, int height)
+        {
+            RGB[,] result = new RGB[width, height];
+
+            for (int i = 0; i < width; ++i)
+            {
+                for (int j = 0; j < height; ++j)
+                {
+                    result[i, j] = image[i, j].Clone();
+                }
+            }
             return result;
         }
 

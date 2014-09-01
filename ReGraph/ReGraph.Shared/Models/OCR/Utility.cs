@@ -227,6 +227,12 @@ namespace ReGraph.Models.OCR
         //}
 
 
+        /// <summary>
+        /// delete single black pixels on the image
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
         public static void EraseOnePixelNoise(bool[,] image, int width, int height)
         {
             bool[,] copy = (bool[,])image.Clone();
@@ -258,6 +264,89 @@ namespace ReGraph.Models.OCR
                 }
             }
         }
+
+
+        public static void Blur(RGB[,] image, int width, int height, int id) {
+
+            RGB[,] copy = ByteArrayUtil.RGB_ArrayClone(image, width, height);
+
+            int[, ,] maski = {
+                             {{1,1,1},{1,1,1},{1,1,1} },
+                             {{1,1,1},{1,2,1},{1,1,1} },
+                             {{1,2,1},{2,4,2},{1,2,1} }
+                             };
+
+            int sum;
+            for (int i = 1; i < width - 1; i++)
+            {
+                for (int j = 1; j < height - 1; j++)
+                {
+                    int[] wynik = new int[3];
+                    wynik[0] = wynik[1] = wynik[2] = 0;
+                    sum = 0;
+                    for (int k = -1; k <= 1; k++)
+                    {
+                        for (int l = -1; l <= 1; l++)
+                        {
+                            sum += maski[id, k + 1, l + 1];
+                            wynik[0] += copy[i + k, j + l].R * maski[id, k + 1, l + 1];
+                            wynik[1] += copy[i + k, j + l].G * maski[id, k + 1, l + 1];
+                            wynik[2] += copy[i + k, j + l].B * maski[id, k + 1, l + 1];
+
+                        }
+                    }
+
+                    byte r = (byte)(wynik[0] / sum);
+                    byte g = (byte)(wynik[1] / sum);
+                    byte b = (byte)(wynik[2] / sum);
+                    image[i, j] = new RGB(r, g, b, 255);
+                }
+            }
+        }
+
+
+        public static void MakeSharper(RGB[,] image, int width, int height, int id)
+        {
+            RGB[,] copy = ByteArrayUtil.RGB_ArrayClone(image, width, height);
+
+            int[, ,] maski = {
+                             {{0,-1,0},{-1,5,-1},{0,-1,0} },
+                             {{-1,-1,-1},{-1,9,-1},{-1,-1,-1} },
+                             {{1,-2,1},{-2,5,-2},{1,-2,1} }
+                             };
+
+            int sum = 0;
+            for (int i = 1; i < width - 1; i++)
+            {
+                for (int j = 1; j < height - 1; j++)
+                {
+                    int[] wynik = new int[3];
+                    wynik[0] = wynik[1] = wynik[2] = 0;
+                    sum = 0;
+                    for (int k = -1; k <= 1; k++)
+                    {
+                        for (int l = -1; l <= 1; l++)
+                        {
+                            sum += maski[id, k + 1, l + 1];
+                            wynik[0] += copy[i + k, j + l].R * maski[id, k + 1, l + 1];
+                            wynik[1] += copy[i + k, j + l].G * maski[id, k + 1, l + 1];
+                            wynik[2] += copy[i + k, j + l].B * maski[id, k + 1, l + 1];
+
+                        }
+                    }
+                    for (int k = 0; k < 3; k++) if (wynik[k] > 255) wynik[k] = 255;
+                    for (int k = 0; k < 3; k++) if (wynik[k] < 0) wynik[k] = 0;
+                    byte r = (byte)(wynik[0] / sum);
+                    byte g = (byte)(wynik[1] / sum);
+                    byte b = (byte)(wynik[2] / sum);
+                    image[i, j] = new RGB(r, g, b, 255);
+                }
+            }
+        }
+
+
+
+
 
 
 
