@@ -24,11 +24,11 @@ namespace ReGraph.ViewModels
 			set
 			{
                 _XBegin = value;
-                if (XBegin != null && XEnd != null)
-                {
-                    (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.setHorizontalRange(double.Parse(XBegin), double.Parse(XEnd)); ;
+				if (XBegin != String.Empty && XEnd != String.Empty)
+				{
+					(IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.setHorizontalRange(double.Parse(XBegin), double.Parse(XEnd)); ;
 
-                }
+				}
                 NotifyOfPropertyChange(() => XBegin);
 			}
 		}
@@ -40,7 +40,7 @@ namespace ReGraph.ViewModels
             set
             {
                 _XEnd = value;
-                if (XBegin != null && XEnd != null)
+                if (XBegin != String.Empty && XEnd != String.Empty)
                 {
                     (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.setHorizontalRange(double.Parse(XBegin), double.Parse(XEnd));
                 }

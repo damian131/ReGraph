@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Behaviors\NumericOnlyTextBoxBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\CaptureElementSourceBinding.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Clip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\ContinuationManager.cs" />
@@ -50,8 +51,5 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Resources\Images\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Common\Behaviors\" />
   </ItemGroup>
 </Project>

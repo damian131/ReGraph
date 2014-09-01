@@ -7,6 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
 	xmlns:caliburn="using:Caliburn.Micro"
+	xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+	xmlns:common="using:ReGraph.Common"
 	Height="175">
 
 	<Grid HorizontalAlignment="Center">
@@ -34,7 +36,11 @@
 			</Grid.ColumnDefinitions>
 
 			<TextBlock Text="X" Margin="10,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-			<TextBox Grid.Column="1" Margin="10,0,10,0" Text="{Binding XCoordinate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+			<TextBox Grid.Column="1" Margin="10,0,10,0" Text="{Binding XCoordinate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center">
+				<Interactivity:Interaction.Behaviors>
+					<common:NumericOnlyTextBoxBehavior/>
+				</Interactivity:Interaction.Behaviors>
+			</TextBox>
 		</Grid>
 
 		<Grid Grid.Row="4">
@@ -44,9 +50,13 @@
 			</Grid.ColumnDefinitions>
 
 			<TextBlock Text="Y" Margin="10,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-			<TextBox Grid.Column="1" Margin="10,0,10,0" Text="{Binding YCoordinate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+			<TextBox Grid.Column="1" Margin="10,0,10,0" Text="{Binding YCoordinate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center">
+				<Interactivity:Interaction.Behaviors>
+					<common:NumericOnlyTextBoxBehavior/>
+				</Interactivity:Interaction.Behaviors>
+			</TextBox>
 		</Grid>
-		
+
 		<AppBarButton Icon="Add" Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" Foreground="White" VerticalAlignment="Center" Margin="-10,10,0,0" caliburn:Message.Attach="[Event Click] = [Action AddPoint_Clicked]" HorizontalAlignment="Center" Style="{StaticResource AppBarButtonStyle1}"/>
 
 		<Grid Grid.Row="6">
@@ -58,7 +68,7 @@
 
 			<TextBlock Text="L" Margin="10,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
 			<TextBox Grid.Column="1" Margin="10,0,10,0" Text="{Binding LegendName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
-			
+
 		</Grid>
 		<Button Grid.Column="1" Grid.Row="6" Content="OCR" Foreground="White" caliburn:Message.Attach="[Event Click] = [Action LegendOCRButton_Clicked]"/>
 	</Grid>
