@@ -126,10 +126,15 @@ namespace ReGraph.Models.GraphDrawer
 
         public void CleanGraph()
         {
-            Series.Clear();
-            solidLines.Clear();
-            dottedLines.Clear();
-            //System.Diagnostics.Debug.WriteLine(Series.Count);
+            if (Axes != null)
+            {
+                Axes.Clear();
+            }
+            if (Series != null)
+            {
+                Series.Clear();
+            }
+
         }
 
         public void ReDraw()
@@ -244,46 +249,5 @@ namespace ReGraph.Models.GraphDrawer
                 x_Axis.Title = _HorizontalTitle;
             }
         }
-        public async  void SaveAsCsv()
-        {
-            GraphFileWriter writer = new GraphFileWriter(this);
-            FileSavePicker savePicker = new FileSavePicker();
-            savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            savePicker.FileTypeChoices.Add("CSV", new List<string>() { ".csv" });
-            savePicker.SuggestedFileName = "Graph";
-            var file = await savePicker.PickSaveFileAsync();
-
-            writer.writeToFile(file);
-        }
-        public async void ReadFromCsv()
-        {
-            CleanGraph();
-            FileOpenPicker openPicker = new FileOpenPicker();
-            openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            openPicker.FileTypeFilter.Add(".csv");
-            /*
-            #if WINDOWS_PHONE_APP
-            openPicker.ContinuationData["Operation"] = "UpdateProfilePicture";
-            openPicker.PickSingleFileAndContinue();
-            #else*/
-            GraphFileReader reader = new GraphFileReader(this);
-            //var file = await openPicker.PickSingleFileAsync();
-            //reader.readFromFile(file);
-            //#endif
-
-        }
-        /*
-        #if WINDOWS_PHONE_APP
-        public async void ContinueFileOpenPicker(FileOpenPickerContinuationEventArgs args)
-        {
-            if ((args.ContinuationData["Operation"] as string) == "UpdateProfilePicture" &&
-                args.Files.Count > 0)
-            {
-                StorageFile file = args.Files[0];
-                GraphFileReader reader = new GraphFileReader(this);
-                reader.readFromFile(file);
-            }
-        }
-        #endif*/
     }
 }

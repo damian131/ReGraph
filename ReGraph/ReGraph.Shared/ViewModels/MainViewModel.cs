@@ -210,6 +210,8 @@ namespace ReGraph.ViewModels
             try
             {
                 InputGraph.Image = await GetWritableBitmapFromStream(fileStream, file);
+                ChartView = new Chart();
+                graphDrawer.CleanGraph();
                 graphDrawer.PrepareGraph();
             }
             catch (Exception e)
