@@ -112,18 +112,6 @@ namespace ReGraph.Models.GraphDrawer
             solidLines.Add(line);
         }
 
-        public void TestAddingLines()
-        {
-            Random rnd = new Random();
-            Line l = new Line();
-            for(int i =0;i<100;++i)
-            {
-                l.Points.Add(new Point() { X=rnd.NextDouble()*100, Y=rnd.NextDouble()*100});
-            }
-
-            addSolidLine(l);
-        }
-
         public void CleanGraph()
         {
             if (Axes != null)
@@ -139,12 +127,20 @@ namespace ReGraph.Models.GraphDrawer
 
         public void ReDraw()
         {
-            Series.Clear();
             foreach (var line in solidLines)
-                addSolidLine(line);
-            foreach (var line in dottedLines)
-                addDottedLine(line);
+            {
+                LineSeries series = new LineSeries();
+                series.Title = line.Name;
+                series.Foreground = new SolidColorBrush(line.Color);
+                series.Margin = new Windows.UI.Xaml.Thickness(0, 0, 0, 0);
+                series.IndependentValuePath = "X";
+                series.DependentValuePath = "Y";
+                series.IsSelectionEnabled = true;
+                series.ItemsSource = line.Points;
+                Series.Add(series);
+            }
         }
+
 
         public void addDottedLine(Line line)
         {
@@ -247,6 +243,16 @@ namespace ReGraph.Models.GraphDrawer
             {
                 _HorizontalTitle = value;
                 x_Axis.Title = _HorizontalTitle;
+            }
+        }
+
+        public void AddPoint(Point p)
+        {
+            if (p.X >= x_Axis.ActualMinimum && p.X <= x_Axis.ActualMaximum && p.Y >= y_Axis.ActualMinimum && p.Y <= y_Axis.ActualMaximum)
+            {
+                solidLines[0].Points.Add(p);
+                Series.Clear();
+                ReDraw();
             }
         }
     }
