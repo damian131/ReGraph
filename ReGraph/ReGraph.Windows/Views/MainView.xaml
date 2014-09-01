@@ -13,21 +13,21 @@
 	NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
-    <Page.TopAppBar>
-        <AppBar Height="100">
-            <Grid Margin="0" Style="{StaticResource MainAppBarGridStyle}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width ="180" />
-                </Grid.ColumnDefinitions>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+	<Page.TopAppBar>
+		<AppBar Height="100">
+			<Grid Margin="0" Style="{StaticResource MainAppBarGridStyle}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition />
+					<ColumnDefinition Width ="180" />
+				</Grid.ColumnDefinitions>
+				<StackPanel Orientation="Horizontal" VerticalAlignment="Center" ScrollViewer.HorizontalScrollMode="Enabled">
 					<AppBarButton Icon="OpenFile" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding NewImageVM.IsEnabled}">
-                        <AppBarButton.Flyout>
-                            <Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" >
-                                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding NewImageVM}" />
-                            </Flyout>
-                        </AppBarButton.Flyout>
-                    </AppBarButton>
+						<AppBarButton.Flyout>
+							<Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" >
+								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding NewImageVM}" />
+							</Flyout>
+						</AppBarButton.Flyout>
+					</AppBarButton>
 					<AppBarButton Icon="Rotate" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding RotationVM.IsEnabled}">
 						<AppBarButton.Flyout>
 							<Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" >
@@ -43,65 +43,65 @@
 						</AppBarButton.Flyout>
 					</AppBarButton>
 					<AppBarButton Icon="MapPin" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding BaseSettingsVM.IsEnabled}">
-                        <AppBarButton.Flyout>
-                            <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
+						<AppBarButton.Flyout>
+							<Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
 								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding BaseSettingsVM}"/>
-                            </Flyout>
-                        </AppBarButton.Flyout>
-                    </AppBarButton>
+							</Flyout>
+						</AppBarButton.Flyout>
+					</AppBarButton>
 					<AppBarButton Icon="FourBars" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding ReGraphVM.IsEnabled}">
-                        <AppBarButton.Flyout>
-                            <Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
+						<AppBarButton.Flyout>
+							<Flyout  Placement="Bottom"  FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}">
 								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding ReGraphVM}"/>
-                            </Flyout>
-                        </AppBarButton.Flyout>
-                    </AppBarButton>
+							</Flyout>
+						</AppBarButton.Flyout>
+					</AppBarButton>
 					<AppBarButton Icon="AllApps" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding ExtrasSettingsVM.IsEnabled}" >
-                        <AppBarButton.Flyout>
+						<AppBarButton.Flyout>
 							<Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" caliburn:View.Model="{Binding ExtrasSettingsVM}">
-                                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-                            </Flyout>
-                        </AppBarButton.Flyout>
-                    </AppBarButton>
-                    <AppBarButton Icon="Save" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding IsSaveEnabled}" >
-                        <AppBarButton.Flyout>
-                            <Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" >
-                                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding SaveChartVM}" />
-                            </Flyout>
-                        </AppBarButton.Flyout>
-                    </AppBarButton>
-                </StackPanel>
-                <Image Grid.Column="1" Source="ms-appx:///Resources/Images/logo.png" RenderTransformOrigin="0.5,0.5" >
-                    <Image.RenderTransform>
-                        <CompositeTransform ScaleX="0.9" ScaleY="0.9"/>
-                    </Image.RenderTransform>
-                </Image>
-            </Grid>
-            
-        </AppBar>
-    </Page.TopAppBar>
-    
-    <Grid Background="#FF3A3A3A">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+							</Flyout>
+						</AppBarButton.Flyout>
+					</AppBarButton>
+					<AppBarButton Icon="Save" Style="{StaticResource MainAppBarButtonStyle}" IsEnabled="{Binding IsSaveEnabled}" >
+						<AppBarButton.Flyout>
+							<Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" >
+								<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding SaveChartVM}" />
+							</Flyout>
+						</AppBarButton.Flyout>
+					</AppBarButton>
+				</StackPanel>
+				<Image Grid.Column="1" Source="ms-appx:///Resources/Images/logo.png" RenderTransformOrigin="0.5,0.5" >
+					<Image.RenderTransform>
+						<CompositeTransform ScaleX="0.9" ScaleY="0.9"/>
+					</Image.RenderTransform>
+				</Image>
+			</Grid>
 
-        <Border Grid.Column="0" BorderThickness="5" BorderBrush="#1ce8ea">
-            <Image x:Name="image" Source="{Binding Path=InputGraph.Image}" caliburn:Message.Attach="[Event PointerPressed] = [Action GraphImage_PointerPressed($eventArgs)]"/>
-        </Border>
+		</AppBar>
+	</Page.TopAppBar>
 
-        <Border Grid.Column="1" BorderThickness="5" BorderBrush="#f90164">
-            <Grid>
-                <Charting:Chart x:Name="Graph" Background="Transparent" 
+	<Grid Background="#FF3A3A3A">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+
+		<Border Grid.Column="0" BorderThickness="5" BorderBrush="#1ce8ea">
+			<Image x:Name="image" Source="{Binding Path=InputGraph.Image}" caliburn:Message.Attach="[Event PointerPressed] = [Action GraphImage_PointerPressed($eventArgs)]"/>
+		</Border>
+
+		<Border Grid.Column="1" BorderThickness="5" BorderBrush="#f90164">
+			<Grid>
+				<Charting:Chart x:Name="Graph" Background="Transparent" 
                                 Title="{Binding Path=graphDrawer.Title}" >
 
-                </Charting:Chart>
+				</Charting:Chart>
 
-            </Grid>
-        </Border>
+			</Grid>
+		</Border>
 
 
-    </Grid>
+	</Grid>
 </Page>
 

@@ -28,13 +28,49 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="120"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal" Margin="20,0,0,0">
-                <TextBlock x:Name="pageTitle" Text="OCR" FontFamily="Segoe UI Symbol" FontSize="40" IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
+            <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+                <TextBlock x:Name="pageTitle" Text="OCR" FontFamily="Segoe UI Symbol" FontSize="30" IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
                 <AppBarSeparator VerticalAlignment="Center" />
-                <AppBarButton x:Name="Crop" Label="Crop" VerticalAlignment="Center" Margin="10,0,0,0" IsEnabled="{Binding IsCropEnabled}" caliburn:Message.Attach="[Event Click] = [Action CropButton_Clicked]">
+                <AppBarButton x:Name="Crop" Label="Crop" VerticalAlignment="Center" Margin="0,0,0,0" IsEnabled="{Binding IsCropEnabled}" caliburn:Message.Attach="[Event Click] = [Action CropButton_Clicked]">
 					<SymbolIcon Symbol="Crop" RenderTransformOrigin="0.5,0.5" />
 				</AppBarButton>
-				<AppBarButton x:Name="Ocr" Label="Recognize" VerticalAlignment="Center" Margin="0,0,0,0" IsEnabled="{Binding IsRecognizeEnabled}" caliburn:Message.Attach="[Event Click] = [Action RecognizeButton_Clicked]">
+				<AppBarButton x:Name="Rotate" Label="Rotate" VerticalAlignment="Center" Margin="-15,0,0,0" IsEnabled="{Binding IsRotationEnabled}">
+					<AppBarButton.Flyout>
+						<Flyout  Placement="Bottom"  >
+							<Grid HorizontalAlignment="Center">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="10" />
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="4"/>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="4"/>
+									<RowDefinition Height="Auto"/>
+									<RowDefinition Height="8"/>
+								</Grid.RowDefinitions>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="8"/>
+									<ColumnDefinition/>
+									<ColumnDefinition Width="8" />
+								</Grid.ColumnDefinitions>
+
+								<TextBlock Grid.Row="1" Grid.Column="1" Text="Rotate image whether it is neccesary." Style="{StaticResource FlyoutTextBlockDescriptionStyle}" />
+								<Grid Grid.Row="3" Grid.Column="1">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto"/>
+										<ColumnDefinition />
+									</Grid.ColumnDefinitions>
+
+									<TextBlock Text="Angle" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
+									<TextBox Grid.Column="1" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding Angle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+								</Grid>
+								<Button Grid.Row="5" Grid.Column="1" caliburn:Message.Attach="[Event Click] = [Action ApplyButton_Clicked]" Content="Apply" FontSize="35" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+							</Grid>
+						</Flyout>
+					</AppBarButton.Flyout>
+					<SymbolIcon Symbol="Rotate" RenderTransformOrigin="0.5,0.5" />
+				</AppBarButton>
+				<AppBarButton x:Name="Ocr" Label="Recognize" VerticalAlignment="Center" Margin="-15,0,0,0" IsEnabled="{Binding IsRecognizeEnabled}" caliburn:Message.Attach="[Event Click] = [Action RecognizeButton_Clicked]">
 					<SymbolIcon Symbol="FontSize" RenderTransformOrigin="0.5,0.5" />
 				</AppBarButton>
 			</StackPanel>
