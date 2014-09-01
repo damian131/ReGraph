@@ -10,6 +10,7 @@ namespace ReGraph.Models.GraphReader
         public byte R;
         public byte G;
         public byte B;
+        public byte A;
         public enum RecognitionStasus { NONE, SELECTED, DELETED };
         public RecognitionStasus PixelRecognitionStatus;
         public RGB(byte red, byte green, byte blue)
@@ -19,6 +20,15 @@ namespace ReGraph.Models.GraphReader
             B = blue;
             PixelRecognitionStatus = RecognitionStasus.NONE;
         }
+
+        public RGB(byte red, byte green, byte blue, byte alpha)
+        {
+            R = red;
+            G = green;
+            B = blue;
+            A = alpha;
+        }
+
         public RGB()
         {
             R = 0;
@@ -107,6 +117,11 @@ namespace ReGraph.Models.GraphReader
             G = (byte)((G + color.G) / 2);
             B = (byte)((B + color.B) / 2);
 
+        }
+
+        public bool isWhite()
+        {
+            return Equals(Colors.White);
         }
     }
 }

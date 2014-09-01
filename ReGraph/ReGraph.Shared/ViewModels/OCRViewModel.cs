@@ -13,6 +13,7 @@ using WinRTXamlToolkit.Imaging;
 using WinRTXamlToolkit.Controls.Extensions;
 using Windows.Foundation;
 using Windows.UI.Xaml;
+using ReGraph.Models.OCR;
 namespace ReGraph.ViewModels
 {
     /// <summary>
@@ -36,7 +37,7 @@ namespace ReGraph.ViewModels
         {
             this.NavigationService = navigationService;
         }
-
+        
         /// <summary>
         /// Applies the crop operation.
         /// </summary>
@@ -68,7 +69,8 @@ namespace ReGraph.ViewModels
 
 		public void RecognizeButton_Clicked()
 		{
-
+            OCRManager ocr = new OCRManager();
+            String text = ocr.Recognize(Workspace.Image);
 		}
 
         /// <summary>
