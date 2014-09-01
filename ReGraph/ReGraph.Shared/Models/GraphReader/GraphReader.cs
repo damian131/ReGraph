@@ -45,6 +45,7 @@ namespace ReGraph.Models.GraphReader
                 {
                     TransformatePointValue(p);
                 }
+                Point x = points[points.Count - 1];
                 line.Points = points;
                 Drawer.addSolidLine(line);
             }
@@ -77,7 +78,7 @@ namespace ReGraph.Models.GraphReader
             InputImage.FillEllipseCentered((int)middlePoint.X, (int)middlePoint.Y, 8, 8, Colors.Red);
 
             double graphWidth = InputImage.PixelWidth - StartPoint.X;
-            double graphHeight = InputImage.PixelHeight - StartPoint.Y;
+            double graphHeight = StartPoint.Y;
             double graphHorizontalRangeSize = (double)(Drawer.HorizontalAxis.ActualMaximum - Drawer.HorizontalAxis.ActualMinimum);
             double graphVerticalRangeSize = (double)(Drawer.VerticalAxis.ActualMaximum - Drawer.VerticalAxis.ActualMinimum);
 
