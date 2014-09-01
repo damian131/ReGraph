@@ -52,6 +52,46 @@
 							</SymbolIcon.RenderTransform>
 						</SymbolIcon>
 					</AppBarButton>
+					<AppBarButton x:Name="Rotate" Label="Rotate" VerticalAlignment="Center" Margin="0,10,0,0" Icon="Rotate" IsEnabled="{Binding IsRotationEnabled}">
+						<SymbolIcon Symbol="Rotate" RenderTransformOrigin="0.5,0.5" >
+							<SymbolIcon.RenderTransform>
+								<CompositeTransform ScaleX="1.5" ScaleY="1.5"/>
+							</SymbolIcon.RenderTransform>
+						</SymbolIcon>
+						<AppBarButton.Flyout>
+							<Flyout  Placement="Bottom" FlyoutPresenterStyle="{StaticResource OptionsFlyoutStyle}" >
+								<Grid HorizontalAlignment="Center">
+									<Grid.RowDefinitions>
+										<RowDefinition Height="10" />
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="4"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="4"/>
+										<RowDefinition Height="Auto"/>
+										<RowDefinition Height="8"/>
+									</Grid.RowDefinitions>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="8"/>
+										<ColumnDefinition/>
+										<ColumnDefinition Width="8" />
+									</Grid.ColumnDefinitions>
+
+									<TextBlock Grid.Row="1" Grid.Column="1" Text="Rotate image whether it is neccesary." Style="{StaticResource FlyoutTextBlockDescriptionStyle}" />
+									<Grid Grid.Row="3" Grid.Column="1">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto"/>
+											<ColumnDefinition />
+										</Grid.ColumnDefinitions>
+
+										<TextBlock Text="Angle" Margin="20,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
+										<TextBox Grid.Column="1" Margin="10,0,10,0" Padding="0" FontSize="22" VerticalContentAlignment="Center" Text="{Binding Angle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+									</Grid>
+									<Button Grid.Row="5" Grid.Column="1" caliburn:Message.Attach="[Event Click] = [Action ApplyButton_Clicked]" Content="Apply" FontSize="35" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="White"/>
+								</Grid>
+							</Flyout>
+						</AppBarButton.Flyout>
+					</AppBarButton>
 					<AppBarButton x:Name="Ocr" Label="Recognize" VerticalAlignment="Center" Margin="0,10,0,0" Icon="FontSize" IsEnabled="{Binding IsRecognizeEnabled}" caliburn:Message.Attach="[Event Click] = [Action RecognizeButton_Clicked]">
 						<SymbolIcon Symbol="Accept" RenderTransformOrigin="0.5,0.5" >
 							<SymbolIcon.RenderTransform>

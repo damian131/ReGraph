@@ -64,6 +64,7 @@ namespace ReGraph.ViewModels
 
 			SelectedAreaVisibility = false;
 			IsCropEnabled = false;
+			IsRotationEnabled = true;
 			IsRecognizeEnabled = true;
         }
 
@@ -319,6 +320,17 @@ namespace ReGraph.ViewModels
 			}
 		}
 
+		private bool _IsRotationEnabled = false;
+		public bool IsRotationEnabled
+		{
+			get { return _IsRotationEnabled; }
+			set
+			{
+				_IsRotationEnabled = value;
+				NotifyOfPropertyChange(() => IsRotationEnabled);
+			}
+		}
+
 		private bool _IsRecognizeEnabled = false;
 		public bool IsRecognizeEnabled
 		{
@@ -328,6 +340,32 @@ namespace ReGraph.ViewModels
 				_IsRecognizeEnabled = value;
 				NotifyOfPropertyChange(() => IsRecognizeEnabled);
 			}
+		}
+
+		private int _Angle = 0;
+		public string Angle
+		{
+			get { return _Angle.ToString(); }
+			set
+			{
+				try
+				{
+					_Angle = int.Parse(value);
+				}
+				catch (FormatException ex)
+				{
+					_Angle = 0;
+				}
+				NotifyOfPropertyChange(() => Angle);
+			}
+		}
+
+		public void ApplyButton_Clicked()
+		{
+			if (_Angle % 360 == 0)
+				return;
+
+			CroppedImage = CroppedImage.Rotate(_Angle);
 		}
 
         /// <summary>
