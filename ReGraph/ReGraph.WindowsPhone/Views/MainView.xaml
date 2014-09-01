@@ -10,6 +10,7 @@
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:common="using:ReGraph.Common"
     xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
+	NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
     <Page.BottomAppBar>
