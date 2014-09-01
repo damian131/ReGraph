@@ -13,9 +13,9 @@
 	NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
-    <Page.BottomAppBar>
-        <CommandBar>
-            <CommandBar.PrimaryCommands>
+	<Page.BottomAppBar>
+		<CommandBar>
+			<CommandBar.PrimaryCommands>
 
 				<AppBarButton Icon="FontColor" Label="Axis" IsEnabled="{Binding AxisSettingsVM.IsEnabled}">
 					<AppBarButton.Flyout>
@@ -25,12 +25,12 @@
 					</AppBarButton.Flyout>
 				</AppBarButton>
 				<AppBarButton Icon="MapPin" Label="Scale" IsEnabled="{Binding BaseSettingsVM.IsEnabled}">
-                        <AppBarButton.Flyout>
-                            <Flyout  Placement="Top"  >
-                                <ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding BaseSettingsVM}"/>
-                            </Flyout>
-                        </AppBarButton.Flyout>
-                    </AppBarButton>
+					<AppBarButton.Flyout>
+						<Flyout  Placement="Top"  >
+							<ContentControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" caliburn:View.Model="{Binding BaseSettingsVM}"/>
+						</Flyout>
+					</AppBarButton.Flyout>
+				</AppBarButton>
 				<AppBarButton Icon="FourBars" Label="Regraph" IsEnabled="{Binding ReGraphVM.IsEnabled}">
 					<AppBarButton.Flyout>
 						<Flyout  Placement="Top"  >
@@ -47,9 +47,9 @@
 				</AppBarButton>
 
 			</CommandBar.PrimaryCommands>
-            <CommandBar.SecondaryCommands>
+			<CommandBar.SecondaryCommands>
 				<AppBarButton Icon="OpenFile" Label="Open image" IsEnabled="{Binding NewImageVM.IsEnabled}" caliburn:Message.Attach="[Event Click] = [Action FromFileButton_Clicked]"/>
-                <AppBarButton Icon="OpenFile" Label="Open CSV file" IsEnabled="{Binding NewImageVM.IsEnabled}" caliburn:Message.Attach="[Event Click] = [Action FromCSVFileButton_Clicked]"/>
+				<AppBarButton Icon="OpenFile" Label="Open CSV file" IsEnabled="{Binding NewImageVM.IsEnabled}" caliburn:Message.Attach="[Event Click] = [Action FromCSVFileButton_Clicked]"/>
 				<AppBarButton Icon="Rotate" Label="Rotate" IsEnabled="{Binding RotationVM.IsEnabled}" >
 					<AppBarButton.Flyout>
 						<Flyout  Placement="Top"  >
@@ -58,28 +58,28 @@
 					</AppBarButton.Flyout>
 				</AppBarButton>
 				<AppBarButton Icon="Save" Label="Save as Image" IsEnabled="{Binding IsSaveEnabled}" caliburn:Message.Attach="[Event Click] = [Action SaveAsImageFileButton_Clicked]"/>
-                <AppBarButton Icon="Save" Label="Save as CSV" IsEnabled="{Binding IsSaveEnabled}" caliburn:Message.Attach="[Event Click] = [Action SaveAsCSVFileButton_Clicked]"/>
+				<AppBarButton Icon="Save" Label="Save as CSV" IsEnabled="{Binding IsSaveEnabled}" caliburn:Message.Attach="[Event Click] = [Action SaveAsCSVFileButton_Clicked]"/>
 
-            </CommandBar.SecondaryCommands>
-        </CommandBar>
-    </Page.BottomAppBar>
+			</CommandBar.SecondaryCommands>
+		</CommandBar>
+	</Page.BottomAppBar>
 
-    <Grid Style="{StaticResource MainGridStyle}">
-        <Pivot Title="ReGraph">
-            <PivotItem Header="graph">
-                <Border BorderThickness="5" BorderBrush="#1ce8ea">
+	<Grid Style="{StaticResource MainGridStyle}">
+		<Pivot Title="ReGraph">
+			<PivotItem Header="graph">
+				<Border BorderThickness="5" BorderBrush="#1ce8ea">
 
 					<Image x:Name="image" Source="{Binding Path=InputGraph.Image}" caliburn:Message.Attach="[Event PointerPressed] = [Action GraphImage_PointerPressed($eventArgs)]"/>
-                </Border>
-            </PivotItem>
-            <PivotItem Header="regraph" >
-                <Border BorderThickness="5" BorderBrush="#f90164">
-                    <Charting:Chart x:Name="Graph">
-                        
-                    </Charting:Chart>
-                </Border>
-            </PivotItem>
+				</Border>
+			</PivotItem>
+			<PivotItem Header="regraph" >
+				<Border BorderThickness="5" BorderBrush="#f90164">
+					<Charting:Chart x:Name="Graph">
 
-        </Pivot>
-    </Grid>
+					</Charting:Chart>
+				</Border>
+			</PivotItem>
+
+		</Pivot>
+	</Grid>
 </Page>
