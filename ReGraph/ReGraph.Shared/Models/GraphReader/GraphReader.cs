@@ -25,7 +25,7 @@ namespace ReGraph.Models.GraphReader
         private RGB[,] ImageData;
         private int width;
         private int height;
-        private const int TOLERANCE = 30;
+        private const int TOLERANCE = 15;
         private int LIMIT;
         public GraphReader()
         {       
@@ -45,6 +45,7 @@ namespace ReGraph.Models.GraphReader
                 {
                     TransformatePointValue(p);
                 }
+                Point x = points[points.Count - 1];
                 line.Points = points;
                 Drawer.addSolidLine(line);
             }
@@ -77,7 +78,7 @@ namespace ReGraph.Models.GraphReader
             InputImage.FillEllipseCentered((int)middlePoint.X, (int)middlePoint.Y, 8, 8, Colors.Red);
 
             double graphWidth = InputImage.PixelWidth - StartPoint.X;
-            double graphHeight = InputImage.PixelHeight - StartPoint.Y;
+            double graphHeight = StartPoint.Y;
             double graphHorizontalRangeSize = (double)(Drawer.HorizontalAxis.ActualMaximum - Drawer.HorizontalAxis.ActualMinimum);
             double graphVerticalRangeSize = (double)(Drawer.VerticalAxis.ActualMaximum - Drawer.VerticalAxis.ActualMinimum);
 
@@ -157,7 +158,7 @@ namespace ReGraph.Models.GraphReader
         private List<Point> GetLinePoints(int x, int y)
         {
             List<Point> points = new List<Point>();
-            const int regionSize = 20;
+            const int regionSize = 30;
             const double derivativeLimit = 0.5;
             RGB currentColor = ImageData[x, y].Clone();
             int lastMiddle = y;

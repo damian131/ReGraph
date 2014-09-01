@@ -112,34 +112,35 @@ namespace ReGraph.Models.GraphDrawer
             solidLines.Add(line);
         }
 
-        public void TestAddingLines()
-        {
-            Random rnd = new Random();
-            Line l = new Line();
-            for(int i =0;i<100;++i)
-            {
-                l.Points.Add(new Point() { X=rnd.NextDouble()*100, Y=rnd.NextDouble()*100});
-            }
-
-            addSolidLine(l);
-        }
-
         public void CleanGraph()
         {
-            Series.Clear();
-            solidLines.Clear();
-            dottedLines.Clear();
-            //System.Diagnostics.Debug.WriteLine(Series.Count);
+            if (Axes != null)
+            {
+                Axes.Clear();
+            }
+            if (Series != null)
+            {
+                Series.Clear();
+            }
+
         }
 
         public void ReDraw()
         {
-            Series.Clear();
             foreach (var line in solidLines)
-                addSolidLine(line);
-            foreach (var line in dottedLines)
-                addDottedLine(line);
+            {
+                LineSeries series = new LineSeries();
+                series.Title = line.Name;
+                series.Foreground = new SolidColorBrush(line.Color);
+                series.Margin = new Windows.UI.Xaml.Thickness(0, 0, 0, 0);
+                series.IndependentValuePath = "X";
+                series.DependentValuePath = "Y";
+                series.IsSelectionEnabled = true;
+                series.ItemsSource = line.Points;
+                Series.Add(series);
+            }
         }
+
 
         public void addDottedLine(Line line)
         {
@@ -244,46 +245,15 @@ namespace ReGraph.Models.GraphDrawer
                 x_Axis.Title = _HorizontalTitle;
             }
         }
-        public async  void SaveAsCsv()
-        {
-            GraphFileWriter writer = new GraphFileWriter(this);
-            FileSavePicker savePicker = new FileSavePicker();
-            savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            savePicker.FileTypeChoices.Add("CSV", new List<string>() { ".csv" });
-            savePicker.SuggestedFileName = "Graph";
-            var file = await savePicker.PickSaveFileAsync();
 
-            writer.writeToFile(file);
-        }
-        public async void ReadFromCsv()
+        public void AddPoint(Point p)
         {
-            CleanGraph();
-            FileOpenPicker openPicker = new FileOpenPicker();
-            openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            openPicker.FileTypeFilter.Add(".csv");
-            /*
-            #if WINDOWS_PHONE_APP
-            openPicker.ContinuationData["Operation"] = "UpdateProfilePicture";
-            openPicker.PickSingleFileAndContinue();
-            #else*/
-            GraphFileReader reader = new GraphFileReader(this);
-            //var file = await openPicker.PickSingleFileAsync();
-            //reader.readFromFile(file);
-            //#endif
-
-        }
-        /*
-        #if WINDOWS_PHONE_APP
-        public async void ContinueFileOpenPicker(FileOpenPickerContinuationEventArgs args)
-        {
-            if ((args.ContinuationData["Operation"] as string) == "UpdateProfilePicture" &&
-                args.Files.Count > 0)
+            if (p.X >= x_Axis.ActualMinimum && p.X <= x_Axis.ActualMaximum && p.Y >= y_Axis.ActualMinimum && p.Y <= y_Axis.ActualMaximum)
             {
-                StorageFile file = args.Files[0];
-                GraphFileReader reader = new GraphFileReader(this);
-                reader.readFromFile(file);
+                solidLines[0].Points.Add(p);
+                Series.Clear();
+                ReDraw();
             }
         }
-        #endif*/
     }
 }

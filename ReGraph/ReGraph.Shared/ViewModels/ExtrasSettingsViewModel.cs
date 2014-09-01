@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using ReGraph.Models.GraphDrawer;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -62,7 +63,8 @@ namespace ReGraph.ViewModels
 
 		public void AddPoint_Clicked()
 		{
-
+            Point p = new Point() { X = Double.Parse(_XCoordinate), Y = Double.Parse(YCoordinate) };
+            (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.AddPoint(p);
 		}
 
 		public void LegendOCRButton_Clicked()
