@@ -55,6 +55,11 @@ namespace ReGraph.Models.OCR
 
             List<double> heightToWidth = Base.HeightToWidth(letters);
             List<double[]> blackToAll = Base.BlackToAll(letters);
+            List<int> spaces = ImageDivide.CalculateSpaces(letters);
+
+            string result = Base.CompareWithBase(heightToWidth, blackToAll, spaces);
+
+            Utility.ShowDialog(result);
 
             //SaveTXT(heightToWidth, blackToAll, Base.names);
             //Save1(heightToWidth, blackToAll, Base.names);

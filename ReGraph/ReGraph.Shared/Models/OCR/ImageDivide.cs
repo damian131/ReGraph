@@ -150,5 +150,26 @@ namespace ReGraph.Models.OCR
 
             return letters;
         }
+
+
+
+        public static List<int> CalculateSpaces(List<List<bool[,]>> images)
+        {
+            List<int> spaces = new List<int>();
+
+            int temp = 0;
+
+            for (int i = 0; i < images.Count; ++i)
+            {
+                temp += images[i].Count;
+                spaces.Add(i - 1);
+            }
+
+                return spaces;
+        }
+
+
+
+
     }
 }
