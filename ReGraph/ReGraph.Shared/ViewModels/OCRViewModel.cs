@@ -365,7 +365,7 @@ namespace ReGraph.ViewModels
 			if (_Angle % 360 == 0)
 				return;
 
-			CroppedImage = CroppedImage.Rotate(_Angle);
+			CroppedImage = CroppedImage.RotateFree(_Angle, false);
 		}
 
         /// <summary>
