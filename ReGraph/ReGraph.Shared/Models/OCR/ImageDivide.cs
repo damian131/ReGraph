@@ -132,7 +132,7 @@ namespace ReGraph.Models.OCR
                         }
                     }
                     
-                    if (count_white_space > 6 && word.Count != 0)
+                    if (count_white_space > 4 && word.Count != 0)
                     {
                         letters.Add(word);
                         word = new List<bool[,]>();
