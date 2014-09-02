@@ -22,7 +22,7 @@ namespace ReGraph.Models.OCR
         private int height;
         private bool[,] ImageBool;
         private List<bool[,]> lines;
-        private List<bool[,]> letters;
+        private List<List<bool[,]>> letters = new List<List<bool[,]>>(); // contains lists with words
 
 
         public string Recognize(WriteableBitmap image)
@@ -48,28 +48,19 @@ namespace ReGraph.Models.OCR
 
             lines = ImageDivide.DivideOnLines(ImageBool, width, height);
 
-            letters = ImageDivide.DivideOnLetters(lines[0], lines[0].GetLength(0), lines[0].GetLength(1));
+            for (int i = 0; i < lines.Count; ++i)
+            {
+                MergeLists(letters, ImageDivide.DivideOnLetters(lines[i], lines[i].GetLength(0), lines[i].GetLength(1)));
+            }
 
-            
 
-
-            //Utility.ShowDialog("" + letters.Count + "," + letters[0].GetLength(0) + "," + letters[0].GetLength(1));
 
             Save(letters);
+            Save(ImageBool, "tekst");
+            Save(lines[0], "linia1");
+            Save(lines[1], "linia2");
 
 
-
-
-            /////////////// TO SAVE IMAGE //////////////////////////////////
-
-            //ImageRGB = ByteArrayUtil.RGB_from_mask(ImageBool, width, height);
-
-            //byte[] src = ByteArrayUtil.toByteArray(ImageRGB, width, height);
-
-            //copy.FromByteArray(src);
-            
-
-            //SaveData(copy,"obrazek","jpg");
 
             return "cos";
 
@@ -105,6 +96,8 @@ namespace ReGraph.Models.OCR
 
             // Optionally overwrite any existing file with CreationCollisionOption
             StorageFile file = await localFolder.CreateFileAsync(full_name, CreationCollisionOption.ReplaceExisting);
+
+            //Utility.ShowDialog(file.Path);    --- display dialog with path to file
             
 
             try
@@ -131,15 +124,58 @@ namespace ReGraph.Models.OCR
 
         private void Save(List<bool[,]> images) {
             for(int i=0; i<images.Count; ++i) {
-            RGB[,] ImRGB = ByteArrayUtil.RGB_from_mask(images[i], images[i].GetLength(0), images[i].GetLength(1));
+                RGB[,] ImRGB = ByteArrayUtil.RGB_from_mask(images[i], images[i].GetLength(0), images[i].GetLength(1));
+
+                byte[] src = ByteArrayUtil.toByteArray(ImRGB, ImRGB.GetLength(0), ImRGB.GetLength(1));
+
+                WriteableBitmap cop = new WriteableBitmap(ImRGB.GetLength(0), ImRGB.GetLength(1));
+                cop.FromByteArray(src);
+            
+
+                SaveData(cop,""+i,"jpg");
+            }
+        }
+
+        private void Save(bool[,] image, string name)
+        {
+            RGB[,] ImRGB = ByteArrayUtil.RGB_from_mask(image, image.GetLength(0), image.GetLength(1));
 
             byte[] src = ByteArrayUtil.toByteArray(ImRGB, ImRGB.GetLength(0), ImRGB.GetLength(1));
 
             WriteableBitmap cop = new WriteableBitmap(ImRGB.GetLength(0), ImRGB.GetLength(1));
             cop.FromByteArray(src);
-            
 
-            SaveData(cop,""+i,"jpg");
+
+            SaveData(cop, name, "jpg");
+        }
+
+
+        private void Save(List<List<bool[,]>> images)
+        {
+            for (int i = 0; i < images.Count; ++i)
+            {
+                for (int j = 0; j < images[i].Count; ++j)
+                {
+                    List<bool[,]> image = images[i];
+                    RGB[,] ImRGB = ByteArrayUtil.RGB_from_mask(image[j], image[j].GetLength(0), image[j].GetLength(1));
+
+                    byte[] src = ByteArrayUtil.toByteArray(ImRGB, ImRGB.GetLength(0), ImRGB.GetLength(1));
+
+                    WriteableBitmap cop = new WriteableBitmap(ImRGB.GetLength(0), ImRGB.GetLength(1));
+                    cop.FromByteArray(src);
+
+
+                    SaveData(cop, "" + i + "_" + j, "jpg");
+                }
+            }
+        }
+
+
+        private void MergeLists(List<List<bool[,]>> first, List<List<bool[,]>> second)
+        {
+            for (int i = 0; i < second.Count; ++i)
+            {
+                first.Add(second[i]);
             }
         }
 

@@ -70,13 +70,17 @@ namespace ReGraph.Models.OCR
             return lines;
         }
 
-        public static List<bool[,]> DivideOnLetters(bool[,] image, int width, int height)
+        public static List<List<bool[,]>> DivideOnLetters(bool[,] image, int width, int height)
         {
-
-            List<bool[,]> letters = new List<bool[,]>();
+            List<bool[,]> word = new List<bool[,]>();
+            List<List<bool[,]>> letters = new List<List<bool[,]>>();
 
             int actuall_x = 0;
             bool white = true;
+
+            int count_white_space = 0;
+
+            bool first_word = false;
 
             while (actuall_x < width)
             {
@@ -85,6 +89,8 @@ namespace ReGraph.Models.OCR
 
                 if (white)
                 {
+                    count_white_space = 0;
+                    
                     while (white && check_column < width)
                     {
                         for (int i = 0; i < height; ++i)
@@ -92,9 +98,11 @@ namespace ReGraph.Models.OCR
                             if (image[check_column, i] == false) white = false;
                         }
                         ++check_column;
+                        ++count_white_space;
                     }
 
                     start = check_column - 1;
+                    
 
                     while (!white && check_column < width)
                     {
@@ -123,8 +131,14 @@ namespace ReGraph.Models.OCR
                             new_image[x-start, y] = image[x, y];
                         }
                     }
+                    
+                    if (count_white_space > 6 && word.Count != 0)
+                    {
+                        letters.Add(word);
+                        word = new List<bool[,]>();
+                    }
+                    word.Add(new_image);
 
-                    letters.Add(new_image);
                 }
 
                 actuall_x = check_column;
