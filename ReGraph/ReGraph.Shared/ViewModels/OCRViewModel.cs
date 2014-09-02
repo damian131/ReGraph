@@ -57,14 +57,14 @@ namespace ReGraph.ViewModels
             double h = RectHeight;
             h *= 1.0 / ZoomFactor;
 
-            CroppedImage = Windows.UI.Xaml.Media.Imaging.WriteableBitmapExtensions.Crop(Workspace.Image, (int)x, (int)y, (int)w, (int)h);
+            CroppedImage = Windows.UI.Xaml.Media.Imaging.WriteableBitmapExtensions.Crop(CroppedImage, (int)x, (int)y, (int)w, (int)h);
             //Workspace.UpdateActualSize(Workspace.Image.PixelWidth, Workspace.Image.PixelHeight);
             //Workspace.Zoom(1.0, WorkspacePart.Center);
             //Workspace.RefreshUI();
 
 			SelectedAreaVisibility = false;
 			IsCropEnabled = false;
-			IsRotationEnabled = true;
+			//IsRotationEnabled = true;
 			IsRecognizeEnabled = true;
         }
 
@@ -320,7 +320,7 @@ namespace ReGraph.ViewModels
 			}
 		}
 
-		private bool _IsRotationEnabled = false;
+		private bool _IsRotationEnabled = true;
 		public bool IsRotationEnabled
 		{
 			get { return _IsRotationEnabled; }
@@ -365,7 +365,7 @@ namespace ReGraph.ViewModels
 			if (_Angle % 360 == 0)
 				return;
 
-			CroppedImage = CroppedImage.Rotate(_Angle);
+			CroppedImage = CroppedImage.RotateFree(_Angle, false);
 		}
 
         /// <summary>
