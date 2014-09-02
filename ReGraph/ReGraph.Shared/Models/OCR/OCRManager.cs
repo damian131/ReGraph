@@ -53,12 +53,18 @@ namespace ReGraph.Models.OCR
                 MergeLists(letters, ImageDivide.DivideOnLetters(lines[i], lines[i].GetLength(0), lines[i].GetLength(1)));
             }
 
+            List<double> heightToWidth = Base.HeightToWidth(letters);
+            List<double[]> blackToAll = Base.BlackToAll(letters);
+
+            //SaveTXT(heightToWidth, blackToAll, Base.names);
+            //Save1(heightToWidth, blackToAll, Base.names);
+            //Save2(heightToWidth, blackToAll, Base.names);
 
 
-            Save(letters);
-            Save(ImageBool, "tekst");
-            Save(lines[0], "linia1");
-            Save(lines[1], "linia2");
+            //Save(letters);
+            //Save(ImageBool, "tekst");
+            //Save(lines[0], "linia1");
+            //Save(lines[1], "linia2");
 
 
 
@@ -178,6 +184,76 @@ namespace ReGraph.Models.OCR
                 first.Add(second[i]);
             }
         }
+
+
+        private static async void SaveTXT(List<double> first, List<double[]> second, string[] names) {
+
+            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            StorageFile sampleFile = await folder.CreateFileAsync("base.txt", CreationCollisionOption.ReplaceExisting);
+
+            List<string> text = new List<string>();
+
+            for(int i=0; i<names.GetLength(0); ++i) {
+                string s = "";
+                s += names[i];
+                s += ":   ";
+                s += first[i];
+                s += "  ,  (";
+                s += (second[i])[0];
+                s += ";";
+                s += (second[i])[1];
+                s += ";";
+                s += (second[i])[2];
+                s += ";";
+                s += (second[i])[3];
+                s += ")";
+                //await Windows.Storage.FileIO.AppendTextAsync(sampleFile, s);
+                text.Add(s);
+                
+            }
+            await Windows.Storage.FileIO.AppendLinesAsync(sampleFile, text);
+
+        }
+
+        private static async void Save1(List<double> first, List<double[]> second, string[] names)
+        {
+            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            StorageFile sampleFile = await folder.CreateFileAsync("heighttowidth.txt", CreationCollisionOption.ReplaceExisting);
+
+            string s = "";
+            for (int i = 0; i < names.GetLength(0); ++i)
+            {
+                s += first[i];
+                s += ",";
+
+            }
+            await Windows.Storage.FileIO.WriteTextAsync(sampleFile, s);
+        }
+
+        private static async void Save2(List<double> first, List<double[]> second, string[] names)
+        {
+            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            StorageFile sampleFile = await folder.CreateFileAsync("blacktoall.txt", CreationCollisionOption.ReplaceExisting);
+
+            string s = "";
+            for (int i = 0; i < names.GetLength(0); ++i)
+            {
+                s += "{";
+                s += (second[i])[0];
+                s += ",";
+                s += (second[i])[1];
+                s += ",";
+                s += (second[i])[2];
+                s += ",";
+                s += (second[i])[0];
+                s += "}";
+                s += ",";
+
+            }
+            await Windows.Storage.FileIO.WriteTextAsync(sampleFile, s);
+        }
+
+    
 
 
     }

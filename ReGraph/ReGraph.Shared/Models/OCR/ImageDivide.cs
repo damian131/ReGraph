@@ -78,9 +78,11 @@ namespace ReGraph.Models.OCR
             int actuall_x = 0;
             bool white = true;
 
+            bool[,] new_image;
+
             int count_white_space = 0;
 
-            bool first_word = false;
+            //bool first_word = false;
 
             while (actuall_x < width)
             {
@@ -122,7 +124,7 @@ namespace ReGraph.Models.OCR
 
                 if (check_column < width)
                 {
-                    bool[,] new_image = new bool[new_width, height];
+                    new_image = new bool[new_width, height];
 
                     for (int x = start; x <= end; ++x)
                     {
@@ -143,6 +145,8 @@ namespace ReGraph.Models.OCR
 
                 actuall_x = check_column;
             }
+
+            letters.Add(word);
 
             return letters;
         }

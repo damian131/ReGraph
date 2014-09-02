@@ -652,6 +652,79 @@ namespace ReGraph.Models.OCR
         }
 
 
+        public static bool[,] FitImageToShape(bool[,] image)
+        {
+            int left, right, top, bot;
+
+            int max = image.GetLength(0) + 1;
+            for (int x = 0; x < image.GetLength(0); ++x)
+            {
+                for (int y = 0; y < image.GetLength(1); ++y)
+                {
+                    if (image[x, y] == false)
+                    {
+                        if (x < max) max = x;
+                    }
+                }
+            }
+            left = max;
+
+            max = 0;
+            for (int x = 0; x < image.GetLength(0); ++x)
+            {
+                for (int y = 0; y < image.GetLength(1); ++y)
+                {
+                    if (image[x, y] == false)
+                    {
+                        if (x > max) max = x;
+                    }
+                }
+            }
+            right = max;
+
+            max = image.GetLength(1) +1;
+            for (int x = 0; x < image.GetLength(0); ++x)
+            {
+                for (int y = 0; y < image.GetLength(1); ++y)
+                {
+                    if (image[x, y] == false)
+                    {
+                        if (y < max) max = y;
+                    }
+                }
+            }
+            top = max;
+
+            max = 0;
+            for (int x = 0; x < image.GetLength(0); ++x)
+            {
+                for (int y = 0; y < image.GetLength(1); ++y)
+                {
+                    if (image[x, y] == false)
+                    {
+                        if (y > max) max = y;
+                    }
+                }
+            }
+            bot = max;
+
+            int new_width = right - left + 1;
+            int new_height = bot - top + 1;
+            bool[,] result = new bool[new_width, new_height];
+
+            for (int x = 0; x < new_width; ++x)
+            {
+                for (int y = 0; y < new_height; ++y)
+                {
+                    result[x, y] = image[x + left, y + top];
+                }
+            }
+
+            return result;
+
+        }
+
+
 
 
 
