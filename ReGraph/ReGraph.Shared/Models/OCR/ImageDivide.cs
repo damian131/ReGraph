@@ -70,11 +70,65 @@ namespace ReGraph.Models.OCR
             return lines;
         }
 
-        public static List<bool[,]> DivideOnLetters(bool[,] line)
+        public static List<bool[,]> DivideOnLetters(bool[,] image, int width, int height)
         {
-            throw new NotImplementedException();
 
             List<bool[,]> letters = new List<bool[,]>();
+
+            int actuall_x = 0;
+            bool white = true;
+
+            while (actuall_x < width)
+            {
+                int check_column = actuall_x;
+                int start = 0, end = 0, new_width = 0;
+
+                if (white)
+                {
+                    while (white && check_column < width)
+                    {
+                        for (int i = 0; i < height; ++i)
+                        {
+                            if (image[check_column, i] == false) white = false;
+                        }
+                        ++check_column;
+                    }
+
+                    start = check_column - 1;
+
+                    while (!white && check_column < width)
+                    {
+                        white = true;
+                        for (int i = 0; i < height; ++i)
+                        {
+                            if (image[check_column, i] == false) white = false;
+                        }
+                        ++check_column;
+                    }
+
+                    end = check_column - 2;
+
+                    new_width = end - start + 1;
+
+                }
+
+                if (check_column < width)
+                {
+                    bool[,] new_image = new bool[new_width, height];
+
+                    for (int x = start; x <= end; ++x)
+                    {
+                        for (int y = 0; y < height; ++y)
+                        {
+                            new_image[x-start, y] = image[x, y];
+                        }
+                    }
+
+                    letters.Add(new_image);
+                }
+
+                actuall_x = check_column;
+            }
 
             return letters;
         }

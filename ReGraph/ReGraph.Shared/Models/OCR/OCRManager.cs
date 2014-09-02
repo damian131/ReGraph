@@ -21,6 +21,8 @@ namespace ReGraph.Models.OCR
         private int width;
         private int height;
         private bool[,] ImageBool;
+        private List<bool[,]> lines;
+        private List<bool[,]> letters;
 
 
         public string Recognize(WriteableBitmap image)
@@ -43,11 +45,12 @@ namespace ReGraph.Models.OCR
 
             Utility.EraseOnePixelNoise(ImageBool, width, height);
 
-            List<bool[,]> lines = ImageDivide.DivideOnLines(ImageBool, width, height);
+            lines = ImageDivide.DivideOnLines(ImageBool, width, height);
+
+            letters = ImageDivide.DivideOnLetters(lines[0], lines[0].GetLength(0), lines[0].GetLength(1));
 
 
-
-            Utility.ShowDialog("" + lines.Count);
+            //Utility.ShowDialog("" + letters.Count + "," + letters[0].GetLength(0) + "," + letters[0].GetLength(1));
 
 
 
