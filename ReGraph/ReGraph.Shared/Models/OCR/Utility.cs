@@ -155,6 +155,56 @@ namespace ReGraph.Models.OCR
         //}
 
 
+        public static void OtsuBinarization(RGB[,] image, int width, int height)
+        {
+            int[] H = new int[256];
+            int number_of_pixels = width * height;
+            int val = 0;
+
+            for (int x = 0; x < width; ++x)
+            {
+                for (int y = 0; y < height; ++y)
+                {
+                    val = image[x, y].R;
+                    H[val]++;
+                }
+            }
+
+            int SU = 0;
+            for (int i = 0; i < 256; ++i) SU += i * H[i];
+
+            double R = 0, MAX = 0, SG = 0, SD = 0, W = 0, SUP = 0, WP = 0, T1 = 0, T2 = 0;
+
+            for (int i = 0; i < 256; ++i)
+            {
+                W += H[i];
+                if (W == 0) continue;
+                WP = number_of_pixels - W;
+                if (WP == 0) break;
+                SUP += i * H[i];
+                SG = SUP / W;
+                SD = (SU - SUP) / WP;
+                R = W * WP * Math.Pow((SG - SD), 2);
+                if (R >= MAX)
+                {
+                    T1 = i;
+                    if (R > MAX) T2 = i;
+                    MAX = R;
+                }
+            }
+
+            double threshold = (T1+T2) / 2.0;
+
+            for(int x=0; x<width; ++x) {
+                for(int y=0; y<height; ++y) {
+                    if(image[x,y].R < threshold) image[x,y] = new RGB(Colors.Black);
+                    else image[x,y] = new RGB(Colors.White);
+                }
+            }
+
+        }
+
+
 
         ///// <summary>
         ///// Operation of erosion on the image
@@ -266,33 +316,9 @@ namespace ReGraph.Models.OCR
         }
 
 
-        public static void Erosion(bool[,] image, int width, int height)
+        public static void Dilation(bool[,] image, int width, int height)
         {
-            //bool[,] copy = (bool[,])image.Clone();
 
-            //for (int x = 0; x < width; ++x)
-            //{
-            //    for (int y = 0; y < height; ++y)
-            //    {
-            //            bool check = false;
-
-            //            for (int i = 0; i < 3; ++i)
-            //            {
-            //                for (int j = 0; j < 3; ++j)
-            //                {
-            //                    int X = x + i - 1;
-            //                    int Y = y + j - 1;
-            //                    if (X < 0) X = 0;
-            //                    if (X > width - 1) X = width - 1;
-            //                    if (Y < 0) Y = 0;
-            //                    if (Y > height - 1) Y = height - 1;
-
-            //                    if ((X != x || Y != y) && copy[X, Y] == true) check = true;
-            //                }
-            //            }
-            //            if (check) image[x, y] = true;
-            //    }
-            //}
 
             bool[,] copy = (bool[,])image.Clone();
 
@@ -316,33 +342,10 @@ namespace ReGraph.Models.OCR
         }
 
 
-        public static void Dilation(bool[,] image, int width, int height)
+        public static void Erosion(bool[,] image, int width, int height)
         {
             bool[,] copy = (bool[,])image.Clone();
 
-            //for (int x = 0; x < width; ++x)
-            //{
-            //    for (int y = 0; y < height; ++y)
-            //    {
-            //        bool check = false;
-
-            //        for (int i = 0; i < 3; ++i)
-            //        {
-            //            for (int j = 0; j < 3; ++j)
-            //            {
-            //                int X = x + i - 1;
-            //                int Y = y + j - 1;
-            //                if (X < 0) X = 0;
-            //                if (X > width - 1) X = width - 1;
-            //                if (Y < 0) Y = 0;
-            //                if (Y > height - 1) Y = height - 1;
-
-            //                if ((X != x || Y != y) && copy[X, Y] == false) check = true;
-            //            }
-            //        }
-            //        if (check) image[x, y] = false;
-            //    }
-            //}
 
             for (int i = 1; i < width - 1; i++)
             {
