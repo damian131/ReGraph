@@ -71,7 +71,7 @@ namespace ReGraph.ViewModels
 		public void RecognizeButton_Clicked()
 		{
             OCRManager ocr = new OCRManager();
-            String text = ocr.Recognize(Workspace.Image);
+            String text = ocr.Recognize(CroppedImage);
 		}
 
         /// <summary>

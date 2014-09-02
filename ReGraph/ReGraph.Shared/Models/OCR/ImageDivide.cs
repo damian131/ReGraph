@@ -9,10 +9,63 @@ namespace ReGraph.Models.OCR
     {
         public static List<bool[,]> DivideOnLines(bool[,] image, int width, int height)
         {
-            throw new NotImplementedException();
-
 
             List<bool[,]> lines = new List<bool[,]>();
+
+            int actuall_y = 0;
+            bool white = true;
+
+            while (actuall_y < height)
+            {
+                int check_line = actuall_y;
+                int start = 0, end = 0, new_height = 0;
+
+                if (white)
+                {
+                    while (white && check_line < height)
+                    {
+                        for (int i = 0; i < width; ++i)
+                        {
+                            if (image[i, check_line] == false) white = false;
+                        }
+                        ++check_line;
+                    }
+
+                    start = check_line - 1;
+
+                    while (!white && check_line < height)
+                    {
+                        white = true;
+                        for (int i = 0; i < width; ++i)
+                        {
+                            if (image[i, check_line] == false) white = false;
+                        }
+                        ++check_line;
+                    }
+
+                    end = check_line - 2;
+
+                    new_height = end - start + 1;
+
+                }
+
+                if (check_line < height)
+                {
+                    bool[,] new_image = new bool[width, new_height];
+
+                    for (int x = 0; x < width; ++x)
+                    {
+                        for (int y = start; y <= end; ++y)
+                        {
+                            new_image[x, y - start] = image[x, y];
+                        }
+                    }
+
+                    lines.Add(new_image);
+                }
+
+                actuall_y = check_line;
+            }
 
             return lines;
         }

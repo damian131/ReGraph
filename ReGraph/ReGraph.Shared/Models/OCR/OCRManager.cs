@@ -43,9 +43,11 @@ namespace ReGraph.Models.OCR
 
             Utility.EraseOnePixelNoise(ImageBool, width, height);
 
+            List<bool[,]> lines = ImageDivide.DivideOnLines(ImageBool, width, height);
 
 
-            //Utility.ShowDialog("" + width + "," + height);
+
+            Utility.ShowDialog("" + lines.Count);
 
 
 
@@ -61,7 +63,7 @@ namespace ReGraph.Models.OCR
             copy.FromByteArray(src);
             
 
-            Save(copy);
+            //Save(copy);
 
             return "cos";
 
