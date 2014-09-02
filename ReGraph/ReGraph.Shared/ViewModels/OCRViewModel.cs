@@ -14,6 +14,7 @@ using WinRTXamlToolkit.Controls.Extensions;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 using ReGraph.Models.OCR;
+using ReGraph.Common;
 namespace ReGraph.ViewModels
 {
     /// <summary>
@@ -64,7 +65,7 @@ namespace ReGraph.ViewModels
 
 			SelectedAreaVisibility = false;
 			IsCropEnabled = false;
-			//IsRotationEnabled = true;
+			IsRotationEnabled = true;
 			IsRecognizeEnabled = true;
         }
 
@@ -320,7 +321,7 @@ namespace ReGraph.ViewModels
 			}
 		}
 
-		private bool _IsRotationEnabled = true;
+		private bool _IsRotationEnabled = false;
 		public bool IsRotationEnabled
 		{
 			get { return _IsRotationEnabled; }
@@ -352,7 +353,7 @@ namespace ReGraph.ViewModels
 				{
 					_Angle = int.Parse(value);
 				}
-				catch (FormatException ex)
+				catch (FormatException )
 				{
 					_Angle = 0;
 				}
@@ -366,6 +367,8 @@ namespace ReGraph.ViewModels
 				return;
 
 			CroppedImage = CroppedImage.RotateFree(_Angle, false);
+
+			//UpdateCanvasSize(new CustomSizeChangedEventArgs(CroppedImage.PixelWidth, CroppedImage.PixelHeight));
 		}
 
         /// <summary>
@@ -382,32 +385,36 @@ namespace ReGraph.ViewModels
         /// <param name="e">The <see cref="Windows.UI.Xaml.SizeChangedEventArgs"/> instance containing the event data.</param>
         public void CanvasSizeChanged(Windows.UI.Xaml.SizeChangedEventArgs e)
         {
-            double WorkspaceWidth = e.NewSize.Width;
-            double WorkspaceHeight = e.NewSize.Height;
-
-            double ActualWidth = Workspace.Image.PixelWidth;
-            double ActualHeight = Workspace.Image.PixelHeight;
-
-            ZoomFactor = 1.0;
-            if (WorkspaceWidth < ActualWidth)
-                ZoomFactor = WorkspaceWidth / ActualWidth;
-
-            if (WorkspaceHeight < ActualHeight && WorkspaceHeight / ActualHeight < ZoomFactor)
-                ZoomFactor = WorkspaceHeight / ActualHeight;
-
-            ImageWidth = ActualWidth * ZoomFactor;
-            ImageHeight = ActualHeight * ZoomFactor;
-
-            ImageLeft = (WorkspaceWidth - ImageWidth) / 2.0;
-            ImageTop = (WorkspaceHeight - ImageHeight) / 2.0;
-
-            RectWidth = Math.Min(300, ImageWidth);
-            RectHeight = Math.Min(300, ImageHeight);
-
-            RectLeft = (WorkspaceWidth - RectWidth) / 2.0;
-            RectTop = (WorkspaceHeight - RectHeight) / 2.0;
-
+			UpdateCanvasSize(new CustomSizeChangedEventArgs(e.NewSize.Width, e.NewSize.Height));
         }
+
+		private void UpdateCanvasSize(CustomSizeChangedEventArgs args)
+		{
+			double WorkspaceWidth = args.NewWidth;
+			double WorkspaceHeight = args.NewHeight;
+
+			double ActualWidth = Workspace.Image.PixelWidth;
+			double ActualHeight = Workspace.Image.PixelHeight;
+
+			ZoomFactor = 1.0;
+			if (WorkspaceWidth < ActualWidth)
+				ZoomFactor = WorkspaceWidth / ActualWidth;
+
+			if (WorkspaceHeight < ActualHeight && WorkspaceHeight / ActualHeight < ZoomFactor)
+				ZoomFactor = WorkspaceHeight / ActualHeight;
+
+			ImageWidth = ActualWidth * ZoomFactor;
+			ImageHeight = ActualHeight * ZoomFactor;
+
+			ImageLeft = (WorkspaceWidth - ImageWidth) / 2.0;
+			ImageTop = (WorkspaceHeight - ImageHeight) / 2.0;
+
+			RectWidth = Math.Min(300, ImageWidth);
+			RectHeight = Math.Min(300, ImageHeight);
+
+			RectLeft = (WorkspaceWidth - RectWidth) / 2.0;
+			RectTop = (WorkspaceHeight - RectHeight) / 2.0;
+		}
 
         private double _RectHeight;
         /// <summary>

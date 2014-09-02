@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\Clip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\ContinuationManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\CustomSizeChangedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Test.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\GraphDrawer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\GraphFileReader.cs" />

@@ -56,7 +56,7 @@ namespace ReGraph.Common
                 // whenever the element which this property is attached to is loaded
                 // or re-sizes, we need to update its clipping geometry
                 fe.Loaded += new RoutedEventHandler(fe_Loaded);
-                fe.SizeChanged += new SizeChangedEventHandler(fe_SizeChanged);
+                //fe.SizeChanged += new SizeChangedEventHandler(fe_SizeChanged);
             }
         }
 
@@ -82,8 +82,8 @@ namespace ReGraph.Common
         /// Handles the SizeChanged event of the fe control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="SizeChangedEventArgs"/> instance containing the event data.</param>
-        static void fe_SizeChanged(object sender, SizeChangedEventArgs e)
+        /// <param name="e">The <see cref="CustomSizeChangedEventArgs"/> instance containing the event data.</param>
+        static void fe_SizeChanged(object sender, CustomSizeChangedEventArgs e)
         {
             ClipToBounds(sender as FrameworkElement);
         }
