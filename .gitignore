@@ -3,5 +3,5 @@
 /ReGraph/ReGraph.WindowsPhone/bin
 /ReGraph/ReGraph.WindowsPhone/obj
 
-*.suo
 *.user
+*.suo
