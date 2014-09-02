@@ -36,7 +36,7 @@ namespace UnitConverter
             var control = VisualStateUtilities.FindNearestStatefulControl(this.AssociatedObject as FrameworkElement);
             if (control == null)
             {
-                System.Diagnostics.Debugger.Break();
+                //System.Diagnostics.Debugger.Break();
                 return;
             }
 

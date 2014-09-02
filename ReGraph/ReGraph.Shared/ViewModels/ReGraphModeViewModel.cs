@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using ReGraph.Models.OCR;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,7 +7,7 @@ using Windows.UI;
 
 namespace ReGraph.ViewModels
 {
-    public class ReGraphModeViewModel : Screen
+    public class ReGraphModeViewModel : Screen, IHandle<OCRResultWrapper>
     {
 		private INavigationService _NavigationService;
 		private IEventAggregator _EventAggregator;
@@ -15,6 +16,8 @@ namespace ReGraph.ViewModels
 		{
 			this._EventAggregator = eventAggregator;
 			this._NavigationService = navigationService;
+
+			_EventAggregator.Subscribe(this);
 		}
 
 
@@ -99,7 +102,13 @@ namespace ReGraph.ViewModels
 		}
         public void LegendOCRButton_Clicked()
         {
-            _EventAggregator.PublishOnCurrentThread(LegendName);
+            _EventAggregator.PublishOnCurrentThread(OCRTypeResult.Legend);
         }
-    }
+
+		public void Handle(OCRResultWrapper message)
+		{
+			if (message.ResultType == OCRTypeResult.Legend)
+				LegendName = message.Result;
+		}
+	}
 }

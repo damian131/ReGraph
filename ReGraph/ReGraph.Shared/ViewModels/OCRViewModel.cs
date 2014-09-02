@@ -17,6 +17,14 @@ using ReGraph.Models.OCR;
 using ReGraph.Common;
 namespace ReGraph.ViewModels
 {
+	public enum OCRTypeResult
+	{
+		XName,
+		YName,
+		MainTitle,
+		Legend
+	}
+
     /// <summary>
     /// The OCRViewModel associated with CropView.
     /// </summary>
@@ -29,14 +37,16 @@ namespace ReGraph.ViewModels
         /// The navigation service.
         /// </value>
         private INavigationService NavigationService { get; set; }
+		private IEventAggregator _EventAggregator { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CropViewModel"/> class.
         /// </summary>
         /// <param name="navigationService">The navigation service.</param>
         /// <param name="workspace">The workspace.</param>
-        public OCRViewModel(INavigationService navigationService)
+        public OCRViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
         {
             this.NavigationService = navigationService;
+			this._EventAggregator = eventAggregator;
         }
         
         /// <summary>
@@ -69,10 +79,16 @@ namespace ReGraph.ViewModels
 			IsRecognizeEnabled = true;
         }
 
+		public OCRTypeResult CurrentResultType { get; private set; }
+
 		public void RecognizeButton_Clicked()
 		{
-            OCRManager ocr = new OCRManager();
-            String text = ocr.Recognize(CroppedImage);
+			OCRManager ocr = new OCRManager();
+			String text = ocr.Recognize(CroppedImage);
+
+			_EventAggregator.PublishOnCurrentThread(new OCRResultWrapper(text, CurrentResultType));
+
+			GoBack();
 		}
 
         /// <summary>
@@ -563,10 +579,12 @@ namespace ReGraph.ViewModels
             }
         }
 
-        public void SetGraphSource( IGraphSpace graphSpace )
+        public void SetInputDataSource( IGraphSpace graphSpace, OCRTypeResult typeResult )
         {
             this.Workspace = graphSpace;
 			this.CroppedImage = Workspace.Image.Copy();
+
+			this.CurrentResultType = typeResult;
         }
 
         //public Rect Rect1

@@ -26,6 +26,7 @@ using WinRTXamlToolkit.Controls.DataVisualization.Charting;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.UI.Input;
 using ReGraph.Models.GraphReader;
+using ReGraph.Models.OCR;
 
 namespace ReGraph.ViewModels
 {
@@ -37,7 +38,7 @@ namespace ReGraph.ViewModels
 		SettingsEntered
 	}
 
-    public class MainViewModel : Screen, IHandle<StorageFile>, IHandle<String>, IHandle<AppCycleState>
+    public class MainViewModel : Screen, IHandle<StorageFile>, IHandle<OCRTypeResult>, IHandle<AppCycleState>
     {
         public enum FileAccess { NONE, READ_IMAGE, WRITE_IMAGE, READ_CSV, WRITE_CSV };
         public FileAccess CurrentFileAccess;
@@ -228,7 +229,7 @@ namespace ReGraph.ViewModels
                 (cropViewModel = view.DataContext as OCRViewModel) == null ||
                  args.Parameter == null) return;
 
-            cropViewModel.SetGraphSource(args.Parameter as IGraphSpace);
+			cropViewModel.SetInputDataSource((args.Parameter as OCRInputDataPackage).InputGraph, (args.Parameter as OCRInputDataPackage).ResultType);
         }
 
 
@@ -285,10 +286,12 @@ namespace ReGraph.ViewModels
             }
         }
 
-        public void Handle(String recognizedText)
+        public void Handle(OCRTypeResult ocrResultType)
         {
+			var package = new OCRInputDataPackage(InputGraph, ocrResultType);
+
             _NavigationService.Navigated += NavigationServiceOnNavigated;
-            _NavigationService.NavigateToViewModel<OCRViewModel>(InputGraph);
+            _NavigationService.NavigateToViewModel<OCRViewModel>(package);
             _NavigationService.Navigated -= NavigationServiceOnNavigated;
         }
 
