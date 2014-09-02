@@ -14,8 +14,17 @@ using WinRTXamlToolkit.Controls.Extensions;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 using ReGraph.Models.OCR;
+using ReGraph.Common;
 namespace ReGraph.ViewModels
 {
+	public enum OCRTypeResult
+	{
+		XName,
+		YName,
+		MainTitle,
+		Legend
+	}
+
     /// <summary>
     /// The OCRViewModel associated with CropView.
     /// </summary>
@@ -28,14 +37,16 @@ namespace ReGraph.ViewModels
         /// The navigation service.
         /// </value>
         private INavigationService NavigationService { get; set; }
+		private IEventAggregator _EventAggregator { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CropViewModel"/> class.
         /// </summary>
         /// <param name="navigationService">The navigation service.</param>
         /// <param name="workspace">The workspace.</param>
-        public OCRViewModel(INavigationService navigationService)
+        public OCRViewModel(INavigationService navigationService, IEventAggregator eventAggregator)
         {
             this.NavigationService = navigationService;
+			this._EventAggregator = eventAggregator;
         }
         
         /// <summary>
@@ -64,14 +75,20 @@ namespace ReGraph.ViewModels
 
 			SelectedAreaVisibility = false;
 			IsCropEnabled = false;
-			//IsRotationEnabled = true;
+			IsRotationEnabled = true;
 			IsRecognizeEnabled = true;
         }
 
+		public OCRTypeResult CurrentResultType { get; private set; }
+
 		public void RecognizeButton_Clicked()
 		{
-            OCRManager ocr = new OCRManager();
-            String text = ocr.Recognize(CroppedImage);
+			OCRManager ocr = new OCRManager();
+			String text = ocr.Recognize(CroppedImage);
+
+			_EventAggregator.PublishOnCurrentThread(new OCRResultWrapper(text, CurrentResultType));
+
+			GoBack();
 		}
 
         /// <summary>
@@ -320,7 +337,7 @@ namespace ReGraph.ViewModels
 			}
 		}
 
-		private bool _IsRotationEnabled = true;
+		private bool _IsRotationEnabled = false;
 		public bool IsRotationEnabled
 		{
 			get { return _IsRotationEnabled; }
@@ -352,7 +369,7 @@ namespace ReGraph.ViewModels
 				{
 					_Angle = int.Parse(value);
 				}
-				catch (FormatException ex)
+				catch (FormatException )
 				{
 					_Angle = 0;
 				}
@@ -366,6 +383,8 @@ namespace ReGraph.ViewModels
 				return;
 
 			CroppedImage = CroppedImage.RotateFree(_Angle, false);
+
+			//UpdateCanvasSize(new CustomSizeChangedEventArgs(CroppedImage.PixelWidth, CroppedImage.PixelHeight));
 		}
 
         /// <summary>
@@ -382,32 +401,36 @@ namespace ReGraph.ViewModels
         /// <param name="e">The <see cref="Windows.UI.Xaml.SizeChangedEventArgs"/> instance containing the event data.</param>
         public void CanvasSizeChanged(Windows.UI.Xaml.SizeChangedEventArgs e)
         {
-            double WorkspaceWidth = e.NewSize.Width;
-            double WorkspaceHeight = e.NewSize.Height;
-
-            double ActualWidth = Workspace.Image.PixelWidth;
-            double ActualHeight = Workspace.Image.PixelHeight;
-
-            ZoomFactor = 1.0;
-            if (WorkspaceWidth < ActualWidth)
-                ZoomFactor = WorkspaceWidth / ActualWidth;
-
-            if (WorkspaceHeight < ActualHeight && WorkspaceHeight / ActualHeight < ZoomFactor)
-                ZoomFactor = WorkspaceHeight / ActualHeight;
-
-            ImageWidth = ActualWidth * ZoomFactor;
-            ImageHeight = ActualHeight * ZoomFactor;
-
-            ImageLeft = (WorkspaceWidth - ImageWidth) / 2.0;
-            ImageTop = (WorkspaceHeight - ImageHeight) / 2.0;
-
-            RectWidth = Math.Min(300, ImageWidth);
-            RectHeight = Math.Min(300, ImageHeight);
-
-            RectLeft = (WorkspaceWidth - RectWidth) / 2.0;
-            RectTop = (WorkspaceHeight - RectHeight) / 2.0;
-
+			UpdateCanvasSize(new CustomSizeChangedEventArgs(e.NewSize.Width, e.NewSize.Height));
         }
+
+		private void UpdateCanvasSize(CustomSizeChangedEventArgs args)
+		{
+			double WorkspaceWidth = args.NewWidth;
+			double WorkspaceHeight = args.NewHeight;
+
+			double ActualWidth = Workspace.Image.PixelWidth;
+			double ActualHeight = Workspace.Image.PixelHeight;
+
+			ZoomFactor = 1.0;
+			if (WorkspaceWidth < ActualWidth)
+				ZoomFactor = WorkspaceWidth / ActualWidth;
+
+			if (WorkspaceHeight < ActualHeight && WorkspaceHeight / ActualHeight < ZoomFactor)
+				ZoomFactor = WorkspaceHeight / ActualHeight;
+
+			ImageWidth = ActualWidth * ZoomFactor;
+			ImageHeight = ActualHeight * ZoomFactor;
+
+			ImageLeft = (WorkspaceWidth - ImageWidth) / 2.0;
+			ImageTop = (WorkspaceHeight - ImageHeight) / 2.0;
+
+			RectWidth = Math.Min(300, ImageWidth);
+			RectHeight = Math.Min(300, ImageHeight);
+
+			RectLeft = (WorkspaceWidth - RectWidth) / 2.0;
+			RectTop = (WorkspaceHeight - RectHeight) / 2.0;
+		}
 
         private double _RectHeight;
         /// <summary>
@@ -556,10 +579,12 @@ namespace ReGraph.ViewModels
             }
         }
 
-        public void SetGraphSource( IGraphSpace graphSpace )
+        public void SetInputDataSource( IGraphSpace graphSpace, OCRTypeResult typeResult )
         {
             this.Workspace = graphSpace;
 			this.CroppedImage = Workspace.Image.Copy();
+
+			this.CurrentResultType = typeResult;
         }
 
         //public Rect Rect1

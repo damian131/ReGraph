@@ -1,11 +1,12 @@
 ﻿using Caliburn.Micro;
+using ReGraph.Models.OCR;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ReGraph.ViewModels
 {
-    public class AxisSettingsViewModel : Screen
+    public class AxisSettingsViewModel : Screen, IHandle<OCRResultWrapper>
     {
 		private INavigationService _NavigationService;
 		private IEventAggregator _EventAggregator;
@@ -14,6 +15,8 @@ namespace ReGraph.ViewModels
 		{
 			this._EventAggregator = eventAggregator;
 			this._NavigationService = navigationService;
+
+			_EventAggregator.Subscribe(this);
 		}
 
 		private string _XAxisName = "X Name";
@@ -46,7 +49,7 @@ namespace ReGraph.ViewModels
 			get { return _MainTitle; }
             set
             {
-                _XAxisName = value;
+				_MainTitle = value;
                 (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.Title = value;
 				NotifyOfPropertyChange(() => MainTitle);
             }
@@ -66,16 +69,26 @@ namespace ReGraph.ViewModels
 
 		public void XOCRButton_Clicked()
 		{
-			_EventAggregator.PublishOnCurrentThread(XAxisName);
+			_EventAggregator.PublishOnCurrentThread(OCRTypeResult.XName);
 		}
 
 		public void YOCRButton_Clicked()
 		{
-			_EventAggregator.PublishOnCurrentThread(YAxisName);
+			_EventAggregator.PublishOnCurrentThread(OCRTypeResult.YName);
 		}
         public void MainOCRButton_Clicked()
 		{
-			_EventAggregator.PublishOnCurrentThread(MainTitle);
+			_EventAggregator.PublishOnCurrentThread(OCRTypeResult.MainTitle);
 		}
-    }
+
+		public void Handle(OCRResultWrapper message)
+		{
+			if (message.ResultType == OCRTypeResult.XName)
+				XAxisName = message.Result;
+			else if (message.ResultType == OCRTypeResult.YName)
+				YAxisName = message.Result;
+			else if (message.ResultType == OCRTypeResult.MainTitle)
+				MainTitle = message.Result;
+		}
+	}
 }

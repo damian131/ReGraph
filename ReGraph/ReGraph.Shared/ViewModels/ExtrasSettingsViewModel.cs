@@ -39,17 +39,6 @@ namespace ReGraph.ViewModels
 			}
 		}
 
-		private string _LegendName = String.Empty;
-		public string LegendName
-		{
-			get { return _LegendName; }
-			set
-			{
-				_LegendName = value;
-				NotifyOfPropertyChange(() => LegendName);
-			}
-		}
-
 		private bool _IsEnabled = false;
 		public bool IsEnabled
 		{
@@ -65,11 +54,6 @@ namespace ReGraph.ViewModels
 		{
             Point p = new Point() { X = Double.Parse(_XCoordinate), Y = Double.Parse(YCoordinate) };
             (IoC.GetInstance(typeof(MainViewModel), null) as MainViewModel).graphDrawer.AddPoint(p);
-		}
-
-		public void LegendOCRButton_Clicked()
-		{
-			_EventAggregator.PublishOnCurrentThread(LegendName);
 		}
     }
 }

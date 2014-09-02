@@ -16,10 +16,12 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Common\Behaviors\NumericOnlyTextBoxBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\Behaviors\OrientationBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\CaptureElementSourceBinding.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Clip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\ContinuationManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\CustomSizeChangedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\Test.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\GraphDrawer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphDrawer\GraphFileReader.cs" />
@@ -32,7 +34,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\GraphSpace.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\OCR\ByteArrayUtil.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\OCR\ImageDivide.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\OCR\OCRInputDataPackage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\OCR\OCRManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\OCR\OCRResultWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\OCR\Utility.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AxisSettingsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseSettingsViewModel.cs" />
