@@ -172,7 +172,7 @@ namespace ReGraph.ViewModels
             FrameworkElement element = args.OriginalSource as Image;
             PointerPoint p = args.GetCurrentPoint(args.OriginalSource as Image);
             ReGraph.Models.GraphDrawer.Point clickedPoint = new ReGraph.Models.GraphDrawer.Point() { X = p.Position.X, Y = p.Position.Y };
-            graphReader.RecognizeLine(clickedPoint, ReGraphVM.SelectedColor);
+            graphReader.RecognizeLine(clickedPoint, ReGraphVM.SelectedColor, ReGraphVM.LegendName);
         }
         private async Task HandleSetStartPointAsync(PointerRoutedEventArgs args)
         {

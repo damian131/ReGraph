@@ -25,15 +25,17 @@ namespace ReGraph.Models.GraphReader
         private RGB[,] ImageData;
         private int width;
         private int height;
-        private const int TOLERANCE = 15;
+        private const int TOLERANCE = 10;
         private int LIMIT;
         public GraphReader()
         {       
         }
 
-        public async void RecognizeLine(Point clickedPoint, Color color)
+        public async void RecognizeLine(Point clickedPoint, Color color, String LegendName)
         {
             Line line = new Line();
+            line.Name = LegendName;
+            line.Color = color;
             RescalePoint(clickedPoint);
             clickedPoint = ValidClickedPoint(clickedPoint);
             if (clickedPoint != null)

@@ -10,15 +10,13 @@
 	xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
 	xmlns:common="using:ReGraph.Common"
 	Width="200"
-	Height="175">
+	Height="135">
 
 	<Grid >
 		<Grid.RowDefinitions>
 			<RowDefinition Height="8" />
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="8"/>
-			<RowDefinition/>
-			<RowDefinition Height="4"/>
 			<RowDefinition/>
 			<RowDefinition Height="4"/>
 			<RowDefinition/>
@@ -29,7 +27,7 @@
 			<ColumnDefinition Width="65" />
 		</Grid.ColumnDefinitions>
 
-		<TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="Add manual point or set optional legend." Style="{StaticResource FlyoutTextBlockDescriptionStyle}" VerticalAlignment="Center"/>
+		<TextBlock Grid.Row="1" Grid.ColumnSpan="2" Text="Add manual point." Style="{StaticResource FlyoutTextBlockDescriptionStyle}" VerticalAlignment="Center"/>
 		<Grid Grid.Row="3">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="40"/>
@@ -61,16 +59,11 @@
 		<AppBarButton Icon="Add" Grid.Column="1" Grid.Row="3" Grid.RowSpan="3" Foreground="White" VerticalAlignment="Center" Margin="-20,5,0,0" caliburn:Message.Attach="[Event Click] = [Action AddPoint_Clicked]" HorizontalAlignment="Center" Style="{StaticResource AppBarButtonStyle1}"/>
 
 		<Grid Grid.Row="7">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="40"/>
-				<ColumnDefinition />
-				<ColumnDefinition Width="Auto"/>
-			</Grid.ColumnDefinitions>
-
-			<TextBlock Text="L" Margin="0,0,10,0" Style="{StaticResource FlyoutTextBlockStyle}" />
-			<TextBox Grid.Column="1" Margin="0,0,0,0" Padding="0" Text="{Binding LegendName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
-
-		</Grid>
-		<Button Grid.Column="2" Grid.Row="7" Content="OCR" Foreground="White" caliburn:Message.Attach="[Event Click] = [Action LegendOCRButton_Clicked]"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
 	</Grid>
 </UserControl>

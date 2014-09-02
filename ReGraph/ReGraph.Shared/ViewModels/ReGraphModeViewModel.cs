@@ -17,6 +17,18 @@ namespace ReGraph.ViewModels
 			this._NavigationService = navigationService;
 		}
 
+
+        private string _LegendName = String.Empty;
+        public string LegendName
+        {
+            get { return _LegendName; }
+            set
+            {
+                _LegendName = value;
+                NotifyOfPropertyChange(() => LegendName);
+            }
+        }
+
 		private Color _SelectedColor;
 
         private void BeginRecognition()
@@ -85,5 +97,9 @@ namespace ReGraph.ViewModels
 		{
 			SelectedColor = Colors.Black;
 		}
+        public void LegendOCRButton_Clicked()
+        {
+            _EventAggregator.PublishOnCurrentThread(LegendName);
+        }
     }
 }
