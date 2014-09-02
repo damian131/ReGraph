@@ -10,6 +10,7 @@
     xmlns:common="using:ReGraph.Common"
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:Charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
+	xmlns:UnitConverter="using:UnitConverter"
 	NavigationCacheMode="Enabled"
     mc:Ignorable="d">
 
@@ -82,16 +83,77 @@
 	</Page.TopAppBar>
 
 	<Grid Background="#FF3A3A3A">
+		<VisualStateManager.VisualStateGroups>
+			<VisualStateGroup x:Name="VisualStateGroup">
+				<VisualState x:Name="Landscape"/>
+				<VisualState x:Name="Portrait">
+					<Storyboard>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.RowSpan)" Storyboard.TargetName="ImageWindow">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<x:Int32>1</x:Int32>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.ColumnSpan)" Storyboard.TargetName="ImageWindow">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<x:Int32>2</x:Int32>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.RowSpan)" Storyboard.TargetName="ChartWindow">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<x:Int32>1</x:Int32>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Column)" Storyboard.TargetName="ChartWindow">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<x:Int32>0</x:Int32>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.ColumnSpan)" Storyboard.TargetName="ChartWindow">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<x:Int32>2</x:Int32>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+						<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Row)" Storyboard.TargetName="ChartWindow">
+							<DiscreteObjectKeyFrame KeyTime="0">
+								<DiscreteObjectKeyFrame.Value>
+									<x:Int32>1</x:Int32>
+								</DiscreteObjectKeyFrame.Value>
+							</DiscreteObjectKeyFrame>
+						</ObjectAnimationUsingKeyFrames>
+					</Storyboard>
+				</VisualState>
+			</VisualStateGroup>
+		</VisualStateManager.VisualStateGroups>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition />
+		</Grid.RowDefinitions>
 
-		<Border Grid.Column="0" BorderThickness="5" BorderBrush="#1ce8ea">
+
+		<Interactivity:Interaction.Behaviors>
+			<UnitConverter:OrientationBehavior LandscapeStateName="Landscape" PortraitStateName="Portrait"/>
+		</Interactivity:Interaction.Behaviors>
+
+		<Border x:Name="ImageWindow" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="1" Grid.Row="0" BorderThickness="5" BorderBrush="#1ce8ea">
 			<Image x:Name="image" Source="{Binding Path=InputGraph.Image}" caliburn:Message.Attach="[Event PointerPressed] = [Action GraphImage_PointerPressed($eventArgs)]"/>
 		</Border>
 
-		<Border Grid.Column="1" BorderThickness="5" BorderBrush="#f90164">
+		<Border x:Name="ChartWindow" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="1" Grid.Row="0" BorderThickness="5" BorderBrush="#f90164">
 			<Grid>
 				<Charting:Chart x:Name="Graph" Background="Transparent" 
                                 Title="{Binding Path=graphDrawer.Title}" >
