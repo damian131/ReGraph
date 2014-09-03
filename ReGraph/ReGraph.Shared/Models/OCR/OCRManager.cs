@@ -59,7 +59,7 @@ namespace ReGraph.Models.OCR
 
             string result = Base.CompareWithBase(heightToWidth, blackToAll, spaces);
 
-            Utility.ShowDialog(result);
+            //Utility.ShowDialog(result);
 
             //SaveTXT(heightToWidth, blackToAll, Base.names);
             //Save1(heightToWidth, blackToAll, Base.names);
@@ -71,9 +71,11 @@ namespace ReGraph.Models.OCR
             //Save(lines[0], "linia1");
             //Save(lines[1], "linia2");
 
+            //Save(ImageBool, "przyklad1");
 
 
-            return "cos";
+
+            return result;
 
         }
 
